@@ -1,0 +1,25 @@
+/ComfyUI_windows_portable
+# Python cache and virtual env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+venv/
+ENV/
+.env
+
+# Local run artifacts
+logs/
+wallpapers/
+database/*.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Optional packaging
+*.egg-info/
+build/
+dist/
