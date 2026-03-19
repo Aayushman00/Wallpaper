@@ -17,7 +17,8 @@ class ComfyServer:
     def is_running(self) -> bool:
         """Return True when the ComfyUI API responds."""
         try:
-            requests.get(f"{COMFY_URL}/system_stats", timeout=2)
+            response = requests.get(f"{COMFY_URL}/system_stats", timeout=2)
+            response.raise_for_status()
             return True
         except Exception:
             return False
@@ -41,5 +42,5 @@ class ComfyServer:
             )
             logging.info("ComfyUI started with PID %s", process.pid)
         except OSError as exc:
-            logging.error("Failed to launch ComfyUI: %s". exc)
+            logging.error("Failed to launch ComfyUI: %s", exc)
             raise

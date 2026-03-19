@@ -44,11 +44,11 @@ class ComfyClient:
                 response = requests.get(
                     f"{self.base_url}/history/{prompt_id}",
                     timeout=10,
-                ).json()
+                )
                 response.raise_for_status()
                 history = response.json()
             except requests.exceptions.HTTPError as e:
-                logging.warning(f"HTTP error: {e}")
+                logging.warning(f"ComfyUI history request failed: {e}")
             except Exception:
                 logging.warning("ComfyUI history request timed out, retrying...")
                 time.sleep(HISTORY_POLL_SECONDS)

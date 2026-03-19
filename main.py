@@ -86,6 +86,7 @@ class WallpaperApplication:
             logging.info("Wallpaper set successfully")
         except Exception as exc:
             logging.exception("Wallpaper generation cycle failed: %s", exc)
+            raise
 
     def _wait_for_idle_gpu(self) -> bool:
         for _ in range(GPU_IDLE_RETRIES):
