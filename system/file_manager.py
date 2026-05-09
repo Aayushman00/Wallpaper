@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import shutil
+from PIL import Image
 import time
 from pathlib import Path
 
@@ -24,8 +25,56 @@ class FileManager:
         if not source.exists():
             logging.error("Generated image not found: %s", source)
             raise FileNotFoundError(source)
+        try: 
+            with Image.open(source) as img:
+                img.verify()
+
+            with Image.open(source) as img:
+                width, height = img.size
+                image_format = img.format
+                image_mode = img.mode
+        
+        except Exception as e:
+            logging.error("Generated image is corrupted: %s", e)
+            raise
+        
+        if width <= 0 or height <= 0:
+            raise RuntimeError("Invalid generated image dimensions")
+
+        logging.info(
+            "Generated Image resolution: %sx%s", 
+            width, height,
+        )
+
+        aspect_ratio = round(width / height, 2)
+
+        logging.info("Aspect ratio: %.2f", 
+                     aspect_ratio,
+        )
+
+        logging.info(
+            "Image format: %s | Mode: %s",
+            image_format,
+            image_mode,
+        )
+
+        size_mb = source.stat().st_size / (1024 * 1024)
+        if source.stat().st_size == 0:
+            raise RuntimeError("Generated Image file is empty")
+        logging.info("Generated image size: %.2f MB", size_mb)
+
+
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        destination = WALLPAPERS_DIR / f"{timestamp}.png"
+        milliseconds = int((time.time() % 1) * 1000)
+        move_start = time.time()
+        destination = WALLPAPERS_DIR / f"{timestamp}_{milliseconds}.png"
+        logging.info(
+            "Moving generated image from %s to %s",
+            source, 
+            destination,
+        )
         shutil.move(str(source), str(destination))
+        logging.info("Image move completed in %0.2f seconds", time.time() - move_start)
+
         logging.info("Wallpaper generated successfully: %s", destination)
         return destination
