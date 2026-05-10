@@ -8,7 +8,7 @@ import subprocess
 import requests
 
 from config.constants import COMFY_URL
-from config.paths import COMFY_MAIN_PATH, COMFY_PORTABLE_DIR, COMFY_PYTHON_PATH
+from config.paths import COMFY_MAIN_PATH, COMFY_PORTABLE_DIR, COMFY_PYTHON_PATH, COMFY_USER_DIR
 
 
 class ComfyServer:
@@ -34,6 +34,8 @@ class ComfyServer:
                     "-s",
                     str(COMFY_MAIN_PATH),
                     "--windows-standalone-build",
+                    "--base-directory",
+                    str(COMFY_USER_DIR),
                 ],
                 cwd=str(COMFY_PORTABLE_DIR),
                 stdout=subprocess.DEVNULL,

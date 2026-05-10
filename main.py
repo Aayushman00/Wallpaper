@@ -14,7 +14,6 @@ from config.constants import (
     COMFY_BOOT_WAIT_SECONDS,
     GPU_IDLE_RETRIES,
     GPU_IDLE_WAIT_SECONDS,
-    RENDER_TAGS,
 )
 from config.paths import BEST_SEEDS_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE
 from core.prompt_engine import PromptEngine
@@ -30,9 +29,14 @@ from system.wallpaper import WallpaperService
 def setup_logging() -> None:
     """Configure application logging."""
     logging.basicConfig(
-        filename=str(LOG_FILE),
         level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(message)s",
+        handlers=[
+            logging.FileHandler(LOG_FILE),
+            logging.StreamHandler(),
+        ],
+
+        force=True
     )
 
 
@@ -55,7 +59,6 @@ class WallpaperApplication:
         """Execute one wallpaper generation cycle."""
         try:
             self.file_manager.ensure_directories()
-            setup_logging()
 
             logging.info("Script PID: %s", os.getpid())
             logging.info("Wallpaper engine started")
@@ -67,23 +70,39 @@ class WallpaperApplication:
             if not self._ensure_comfy_server():
                 logging.error("ComfyUI failed to start")
                 return
-
+            
+            start_time = time.time()
             result = self._generate_wallpaper()
             if not result:
                 logging.info("Wallpaper generation skipped or aborted.")
                 return
+            
+            generation_time = round(time.time() - start_time, 2)
+            logging.info("Total generation cycle time: %.2f seconds", generation_time)
 
-            score = self.scorer.score(result["prompt"])
+            score = self.scorer.score(result["path"], result["semantic_prompt"])
+
             self.history_repository.append(
                 prompt=result["prompt"],
                 seeds=result["seeds"],
                 score=score,
                 image_path=result["path"],
+                generation_time=generation_time,
+                dna=result["dna"],
             )
 
-            logging.info("Image Score: %.2f", score)
+            # self.seed_engine.update(
+            #     seeds=result["seeds"],
+            #     score=score,
+            #     prompt=result["prompt"],
+            #     tags=result.get("tags", []),
+            # )
+
+            wallpaper_start_time = time.time()
             self.wallpaper_service.set_wallpaper(result["path_obj"])
-            logging.info("Wallpaper set successfully")
+
+            wallpaper_set_time = time.time() - wallpaper_start_time
+            logging.info("Wallpaper set successfully in %.2f seconds", wallpaper_set_time)
         except Exception as exc:
             logging.exception("Wallpaper generation cycle failed: %s", exc)
             raise
@@ -111,13 +130,20 @@ class WallpaperApplication:
         return False
 
     def _generate_wallpaper(self) -> dict[str, object] | None:
-        start_time = time.time()
         hour = time.localtime().tm_hour
         time_of_day = "morning" if 5 <= hour < 17 else "night"
-        prompt = self.prompt_engine.generate(time_of_day)
-        final_prompt = prompt + RENDER_TAGS
+        prompt_data = self.prompt_engine.generate(
+            time_of_day
+        )
+        prompt = prompt_data["final_prompt"] 
+        semantic_prompt = (
+            prompt_data["semantic_prompt"]
+        )
 
-        workflow, used_seeds = self.workflow_manager.prepare(final_prompt)
+        dna = prompt_data["dna"]
+
+        workflow, used_seeds = self.workflow_manager.prepare(prompt)
+        
         prompt_id = self.comfy_client.queue_prompt(workflow)
         if not prompt_id:
             return None
@@ -130,17 +156,20 @@ class WallpaperApplication:
             filename=image_info["filename"],
             subfolder=image_info["subfolder"],
         )
-        logging.info("Generation time: %.2f seconds", time.time() - start_time)
+
         return {
             "path": str(destination),
             "path_obj": destination,
-            "prompt": final_prompt,
+            "prompt": prompt,
+            "semantic_prompt": semantic_prompt,
             "seeds": used_seeds,
+            "dna": dna,
         }
 
 
 def main() -> None:
     """Program entry point."""
+    setup_logging()
     WallpaperApplication().run()
 
 

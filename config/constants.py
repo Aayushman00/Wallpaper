@@ -1,5 +1,7 @@
 """Application constants and static configuration."""
 
+# subject + location + environment + lighting + mood + camera + style
+
 PROMPT_DICT = {
     "fantasy": {
         "subject": [
@@ -11,10 +13,22 @@ PROMPT_DICT = {
             "lone samurai warrior",
         ],
         "location": [
-            "on a cliff above the ocean",
-            "in a ruined kingdom",
-            "in a misty mountain valley",
-            "deep inside a dark forest",
+            {
+                "preposition": "on",
+                "value": "a cliff above the ocean"
+            },
+            {
+                "preposition": "in",
+                "value": "a ruined kingdom",
+            },
+            {
+                "preposition": "in",
+                "value": "a misty mountain valley",
+            },
+            {
+                "preposition": "",
+                "value": "deep inside a dark forest"
+            }
         ],
         "environment": [
             "foggy valley below",
@@ -30,9 +44,18 @@ PROMPT_DICT = {
             "android assassin",
         ],
         "location": [
-            "in a neon cyberpunk city",
-            "on top of a megacity skyscraper",
-            "in a futuristic alleyway",
+            {
+                "preposition": "in",
+                "value": "a neon cyberpunk city"
+            },
+            {
+                "preposition": "on",
+                "value": "top of a megacity skyscraper"
+            },
+            {
+                "preposition": "in",
+                "value": "a futuristic alleyway"
+            }
         ],
         "environment": [
             "neon signs reflecting on wet pavement",
@@ -47,9 +70,18 @@ PROMPT_DICT = {
             "massive alien megastructure",
         ],
         "location": [
-            "orbiting a distant planet",
-            "near a massive ringworld",
-            "in deep interstellar space",
+            {
+                "preposition": "",
+                "value": "orbiting a distant planet"
+            },
+            {
+                "preposition": "",
+                "value": "near a massive ringworld"
+            },
+            {
+                "preposition": "in",
+                "value": "deep interstellar space"
+            }
         ],
         "environment": [
             "colorful cosmic nebula",
@@ -104,6 +136,25 @@ SCENE_TEMPLATES = [
     "{subject} standing {location}, {environment}, cinematic {lighting}, {atmosphere}, {camera_physics}, {detail}",
 ]
 
+SEMANTIC_TEMPLATES = [
+    (
+        "{subject} "
+        "{location_phrase}, "
+        "{environment}, "
+        "{lighting}"
+    ),
+
+    (
+        "{subject} "
+        "{location_phrase}, "
+        "{environment}"
+    ),
+]
+
+RENDER_TEMPLATES = [
+    "{atmosphere}, {camera}, {camera_physics}, {detail}",
+    "{camera}, {detail}, {atmosphere}",
+]
 CAMERA_PHYSICS = [
     "shot on 35mm lens",
     "shot on 50mm lens",

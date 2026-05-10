@@ -28,7 +28,15 @@ class HistoryRepository:
             return []
         return []
 
-    def append(self, prompt: str, seeds: list[int], score: float, image_path: str) -> None:
+    def append(
+            self, 
+            prompt: str, 
+            seeds: list[int], 
+            score: float, 
+            image_path: str, 
+            generation_time: float,
+            dna: dict[str, object]
+        ) -> None:
         """Append a generation record to the history file."""
         records = self.load()
         records.append(
@@ -38,8 +46,12 @@ class HistoryRepository:
                 "score": score,
                 "image_path": image_path,
                 "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+                "generation_time": generation_time,
+                "dna": dna
             }
         )
+
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        
         with self.path.open("w", encoding="utf-8") as file:
             json.dump(records, file, indent=2)

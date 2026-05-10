@@ -13,7 +13,8 @@ from config.constants import (
     MORNING_LIGHT,
     NIGHT_LIGHT,
     PROMPT_DICT,
-    SCENE_TEMPLATES,
+    SEMANTIC_TEMPLATES,
+    RENDER_TEMPLATES,
 )
 
 
@@ -27,22 +28,70 @@ class PromptEngine:
         data = PROMPT_DICT[theme]
 
         subject = random.choice(data["subject"])
-        location = random.choice(data["location"])
+        location_data = random.choice(
+            data["location"]
+        )
+        location_preposition = (
+            location_data["preposition"]
+        )
+        location = location_data["value"]
+
+        location_phrase = " ".join(
+            filter(
+                None,
+                [
+                    location_preposition,
+                    location,
+                ],
+            )
+        )
+
         environment = ", ".join(random.sample(data["environment"], 2))
         atmosphere = ", ".join(random.sample(ATMOSPHERE, 2))
         camera = random.choice(CAMERA)
         detail = random.choice(DETAIL)
         camera_physics = random.choice(CAMERA_PHYSICS)
         lighting = random.choice(MORNING_LIGHT if time_of_day == "morning" else NIGHT_LIGHT)
-        template = random.choice(SCENE_TEMPLATES)
+        semantic_template = random.choice(SEMANTIC_TEMPLATES)
+        render_template = random.choice(RENDER_TEMPLATES)
 
-        return template.format(
-            subject=subject,
-            location=location,
-            environment=environment,
-            lighting=lighting,
-            atmosphere=atmosphere,
-            camera=camera,
-            detail=detail,
-            camera_physics=camera_physics,
+        dna = {
+            "theme": theme,
+
+            "subject": subject,
+
+            "location_phrase": location_phrase,
+
+            "environment": environment,
+
+            "lighting": lighting,
+
+            "atmosphere": atmosphere,
+
+            "camera": camera,
+
+            "camera_physics": camera_physics,
+
+            "detail": detail,
+        }
+
+        semantic_prompt = semantic_template.format(
+            **dna
         )
+
+        render_prompt = render_template.format(
+            **dna
+        )
+
+        final_prompt = (
+            semantic_prompt
+            + ", "
+            + render_prompt
+        )
+
+        return {
+            "semantic_prompt": semantic_prompt,
+            "render_prompt": render_prompt,
+            "final_prompt": final_prompt,
+            "dna": dna,
+        }

@@ -33,7 +33,7 @@ A Windows wallpaper automation tool that generates high-quality images using Com
 ## 📦 Install
 
 ```powershell
-python -m pip install -r requirements.txt
+pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cu128
 ```
 
 (If this repo doesn’t include `requirements.txt`, install at least `requests` explicitly.)
