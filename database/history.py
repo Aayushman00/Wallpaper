@@ -30,24 +30,24 @@ class HistoryRepository:
 
     def append(
             self, 
-            prompt: str, 
             seeds: list[int], 
             score: float, 
             image_path: str, 
             generation_time: float,
-            dna: dict[str, object]
+            semantic_prompt: str, 
+            dna: dict[str, object],
         ) -> None:
         """Append a generation record to the history file."""
         records = self.load()
         records.append(
             {
-                "prompt": prompt,
                 "seeds": seeds,
                 "score": score,
                 "image_path": image_path,
                 "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
                 "generation_time": generation_time,
-                "dna": dna
+                "semantic_prompt": semantic_prompt,
+                "dna": dna,
             }
         )
 

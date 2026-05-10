@@ -8,5 +8,5 @@ def test_prompt_cotains_theme():
 
     prompt = engine.generate("cyberpunk")
 
-    assert isinstance(prompt, str)
-    assert len(prompt) > 0
+    assert isinstance(prompt, dict)
+    assert len(prompt["final_prompt"]) > 0

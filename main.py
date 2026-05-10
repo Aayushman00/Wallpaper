@@ -83,11 +83,11 @@ class WallpaperApplication:
             score = self.scorer.score(result["path"], result["semantic_prompt"])
 
             self.history_repository.append(
-                prompt=result["prompt"],
                 seeds=result["seeds"],
                 score=score,
                 image_path=result["path"],
                 generation_time=generation_time,
+                semantic_prompt=result["semantic_prompt"],
                 dna=result["dna"],
             )
 
