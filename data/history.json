@@ -9,5 +9,27 @@
     "image_path": "C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\wallpapers\\20260510_052656_359.png",
     "timestamp": "2026-05-10 05:26:58",
     "generation_time": 103.9
+  },
+  {
+    "prompt": "dark fantasy fortress in a ruined kingdom, foggy valley below, storm clouds gathering, low angle sunlight casting long shadowsultra wide landscape shot, incredible environmental detail, dramatic shadows, high contrast lighting",
+    "seeds": [
+      2945454720741559055,
+      778368907519127574
+    ],
+    "score": 63.84,
+    "image_path": "C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\wallpapers\\20260510_054810_793.png",
+    "timestamp": "2026-05-10 05:48:13",
+    "generation_time": 108.45
+  },
+  {
+    "prompt": "ruined cathedral deep inside a dark forest, massive cliffs and rocky terrain, ancient ruins scattered across landscapecinematic lighting, volumetric fog, dramatic perspective shot, wide angle lens, realistic material textures",
+    "seeds": [
+      8952967551854203988,
+      8441881568375042575
+    ],
+    "score": 64.47,
+    "image_path": "C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\wallpapers\\20260510_060219_208.png",
+    "timestamp": "2026-05-10 06:02:21",
+    "generation_time": 101.47
   }
 ]

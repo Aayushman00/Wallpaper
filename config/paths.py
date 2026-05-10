@@ -9,8 +9,9 @@ LOGS_DIR = ROOT_DIR / "logs"
 WALLPAPERS_DIR = ROOT_DIR / "wallpapers"
 DATABASE_DIR = ROOT_DIR / "database"
 LOG_FILE = LOGS_DIR / "wallpaper_engine.log"
-HISTORY_FILE = DATABASE_DIR / "history.json"
-BEST_SEEDS_FILE = DATABASE_DIR / "best_seeds.json"
+DATA_DIR = ROOT_DIR / "data"
+HISTORY_FILE = DATA_DIR / "history.json"
+BEST_SEEDS_FILE = DATA_DIR / "best_seeds.json"
 
 COMFY_RESOURCES_DIR = Path(
     os.getenv(

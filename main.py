@@ -88,6 +88,13 @@ class WallpaperApplication:
                 generation_time=generation_time
             )
 
+            # self.seed_engine.update(
+            #     seeds=result["seeds"],
+            #     score=score,
+            #     prompt=result["prompt"],
+            #     tags=result.get("tags", []),
+            # )
+
             wallpaper_start_time = time.time()
             self.wallpaper_service.set_wallpaper(result["path_obj"])
 

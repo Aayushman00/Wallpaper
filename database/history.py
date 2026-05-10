@@ -42,11 +42,6 @@ class HistoryRepository:
             }
         )
 
-        ROOT_DIR = Path(__file__).resolve().parent.parent
-        DATA_DIR = ROOT_DIR / "data"
-        HISTORY_FILE = DATA_DIR / "history.json"
-        self.path = HISTORY_FILE
-
         self.path.parent.mkdir(parents=True, exist_ok=True)
         
         with self.path.open("w", encoding="utf-8") as file:
