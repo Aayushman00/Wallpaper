@@ -1,39 +1,99 @@
 """Prompt scoring logic."""
-
 from __future__ import annotations
 
-import random
+import logging
+import torch 
+import clip
+from PIL import Image
+from pathlib import Path
 
-
-GOOD_WORDS = [
-    "volumetric lighting",
-    "ray traced lighting",
-    "global illumination",
-    "ultra wide",
-    "cinematic",
-    "epic",
-]
-
-BAD_WORDS = [
-    "low quality",
-    "blurry",
-]
-
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class PromptScorer:
-    """Applies the original prompt scoring heuristic."""
+    """CLIP-based semantic similarity score"""
 
-    def score(self, prompt: str) -> float:
-        """Calculate a bounded score from 0 to 100."""
-        score = 50
+    def __init__(self) -> None:
+        
+        self.device = device
+        logging.info(
+            "Loading CLIP model on %s",
+            self.device
+        )
+        
+        self.model, self.preprocess = clip.load(
+            "ViT-L/14",
+            device=self.device,
+        )
 
-        for word in GOOD_WORDS:
-            if word in prompt:
-                score += 8
+        logging.info("CLIP model loaded successfully")
 
-        for word in BAD_WORDS:
-            if word in prompt:
-                score -= 15
+    def score(
+            self,
+            image_path: str,
+            prompt: str
+    ) -> float:
+        
+        try: 
+            if not Path(image_path).exists():
+                raise FileNotFoundError(image_path)
+            
+            logging.info(
+                "starting CLIP scoring for %s", 
+                image_path
+            )
 
-        score += random.uniform(-5, 5)
-        return max(0, min(100, score))
+            with Image.open(image_path) as img:
+                image = self.preprocess(
+                    img.convert("RGB")
+                ).unsqueeze(0).to(self.device)
+
+            text = clip.tokenize([prompt]).to(
+                self.device
+            )
+
+            with torch.no_grad():
+                image_features = (
+                    self.model.encode_image(image)
+                )
+
+                text_features = (
+                    self.model.encode_text(text)
+                )
+
+                image_features /= (
+                    image_features.norm(
+                        dim=-1,
+                        keepdim=True,
+                    )
+                )
+
+                text_features /= (
+                    text_features.norm(
+                        dim=-1,
+                        keepdim=True,
+                    )
+                )
+
+                similarity = (
+                    image_features
+                    @ text_features.T
+                ).item()
+
+                score = ((similarity + 1) / 2) * 100
+
+                logging.info(
+                    "CLIP score: %.2f",
+                    score,
+                )
+            
+            return round(score, 2)
+
+        except Exception as e:
+
+            logging.exception(
+                "CLIP scoring failed: %s",
+                e,
+            )
+
+            return 0.0
+

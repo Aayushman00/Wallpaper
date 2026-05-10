@@ -76,5 +76,5 @@ class FileManager:
         shutil.move(str(source), str(destination))
         logging.info("Image move completed in %0.2f seconds", time.time() - move_start)
 
-        logging.info("Wallpaper generated successfully: %s", destination)
+        logging.info("Generated filename: %s", destination.name)
         return destination

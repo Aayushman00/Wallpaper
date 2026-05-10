@@ -104,6 +104,16 @@ SCENE_TEMPLATES = [
     "{subject} standing {location}, {environment}, cinematic {lighting}, {atmosphere}, {camera_physics}, {detail}",
 ]
 
+SEMANTIC_TEMPLATES = [
+    "{subject} {location}, {environment}, {lighting}",
+    "{subject} {location}, {environment}",
+    "{subject} in {location}, {environment}, {lighting}",
+]
+
+RENDER_TEMPLATES = [
+    "{atmosphere}, {camera}, {camera_physics}, {detail}",
+    "{camera}, {detail}, {atmosphere}",
+]
 CAMERA_PHYSICS = [
     "shot on 35mm lens",
     "shot on 50mm lens",

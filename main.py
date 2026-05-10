@@ -67,23 +67,32 @@ class WallpaperApplication:
             if not self._ensure_comfy_server():
                 logging.error("ComfyUI failed to start")
                 return
-
+            
+            start_time = time.time()
             result = self._generate_wallpaper()
             if not result:
                 logging.info("Wallpaper generation skipped or aborted.")
                 return
+            
+            generation_time = round(time.time() - start_time, 2)
+            logging.info("Total generation cycle time: %.2f seconds", generation_time)
 
-            score = self.scorer.score(result["prompt"])
+            score = self.scorer.score(result["path"], result["semantic_prompt"])
+            logging.info("Image Score: %.2f", score)
+
             self.history_repository.append(
                 prompt=result["prompt"],
                 seeds=result["seeds"],
                 score=score,
                 image_path=result["path"],
+                generation_time=generation_time
             )
 
-            logging.info("Image Score: %.2f", score)
+            wallpaper_start_time = time.time()
             self.wallpaper_service.set_wallpaper(result["path_obj"])
-            logging.info("Wallpaper set successfully")
+
+            wallpaper_set_time = time.time() - wallpaper_start_time
+            logging.info("Wallpaper set successfully in %.2f seconds", wallpaper_set_time)
         except Exception as exc:
             logging.exception("Wallpaper generation cycle failed: %s", exc)
             raise
@@ -114,8 +123,9 @@ class WallpaperApplication:
         start_time = time.time()
         hour = time.localtime().tm_hour
         time_of_day = "morning" if 5 <= hour < 17 else "night"
-        prompt = self.prompt_engine.generate(time_of_day)
-        final_prompt = prompt + RENDER_TAGS
+        semantic_prompt = self.prompt_engine.generate(time_of_day)
+        
+        final_prompt = semantic_prompt
 
         workflow, used_seeds = self.workflow_manager.prepare(final_prompt)
         prompt_id = self.comfy_client.queue_prompt(workflow)
@@ -135,6 +145,7 @@ class WallpaperApplication:
             "path": str(destination),
             "path_obj": destination,
             "prompt": final_prompt,
+            "semantic_prompt": semantic_prompt,
             "seeds": used_seeds,
         }
 

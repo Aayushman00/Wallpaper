@@ -13,7 +13,8 @@ from config.constants import (
     MORNING_LIGHT,
     NIGHT_LIGHT,
     PROMPT_DICT,
-    SCENE_TEMPLATES,
+    SEMANTIC_TEMPLATES,
+    RENDER_TEMPLATES,
 )
 
 
@@ -34,15 +35,19 @@ class PromptEngine:
         detail = random.choice(DETAIL)
         camera_physics = random.choice(CAMERA_PHYSICS)
         lighting = random.choice(MORNING_LIGHT if time_of_day == "morning" else NIGHT_LIGHT)
-        template = random.choice(SCENE_TEMPLATES)
+        semantic_template = random.choice(SEMANTIC_TEMPLATES)
+        render_template = random.choice(RENDER_TEMPLATES)
 
-        return template.format(
-            subject=subject,
-            location=location,
-            environment=environment,
-            lighting=lighting,
-            atmosphere=atmosphere,
-            camera=camera,
-            detail=detail,
-            camera_physics=camera_physics,
+        return (
+            semantic_template.format(
+                subject=subject,
+                location=location,
+                environment=environment,
+                lighting=lighting,
+            ) + render_template.format(
+                atmosphere = atmosphere,
+                detail = detail,
+                camera=camera,
+                camera_physics=camera_physics,
+            )
         )
