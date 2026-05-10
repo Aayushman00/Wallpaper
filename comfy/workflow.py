@@ -46,7 +46,7 @@ class WorkflowManager:
                 used_seeds.append(seed) 
                 sampler_index += 1
 
-            if node.get("class_type") == "CLIPTextEncode":
+            if node.get("class_type") == "CLIPTextEncode" and node.get("_meta", {}).get("title") == "Positive":
 
                 inputs = node.get("inputs", {})
 
@@ -55,7 +55,7 @@ class WorkflowManager:
                     prompt_injected = True
 
         if not prompt_injected:
-            raise RuntimeError("No CLIPTextEncode node found")
+            raise RuntimeError("No positive CLIPTextEncode node found")
         
         if not used_seeds:
             raise RuntimeError("No KSampler node found")

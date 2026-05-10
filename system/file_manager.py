@@ -73,7 +73,25 @@ class FileManager:
             source, 
             destination,
         )
-        shutil.move(str(source), str(destination))
+        max_attempts = 10
+
+        for attempt in range(max_attempts):
+            try:
+                shutil.move(str(source), str(destination))
+                break
+
+            except PermissionError:
+                logging.warning(
+                    "File still locked, retrying move (%s/%s)",
+                    attempt + 1,
+                    max_attempts,
+                )
+                time.sleep(0.5)
+
+        else:
+            raise PermissionError(
+                f"Could not move generated image after {max_attempts} attempts"
+            )
         logging.info("Image move completed in %0.2f seconds", time.time() - move_start)
 
         logging.info("Generated filename: %s", destination.name)

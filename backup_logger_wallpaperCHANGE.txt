@@ -1,0 +1,1296 @@
+2026-03-16 12:41:27,784 | INFO | Script PID: 21064
+2026-03-16 12:41:27,784 | INFO | Wallpaper engine started
+2026-03-16 12:41:29,874 | INFO | Starting ComfyUI...
+2026-03-16 12:41:29,874 | INFO | Starting ComfyUI...
+2026-03-16 12:42:22,010 | INFO | Prompt generated: ruined cathedral, massive cliffs and rocky terrain, soft dawn lighting, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 12:42:49,117 | WARNING | GPU became busy. Aborting generation.
+2026-03-16 12:42:49,118 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 13:03:30,676 | INFO | Script PID: 7128
+2026-03-16 13:03:30,676 | INFO | Wallpaper engine started
+2026-03-16 13:03:30,757 | INFO | GPU busy. Skipping wallpaper generation.
+2026-03-16 13:13:23,773 | INFO | Script PID: 2884
+2026-03-16 13:13:23,773 | INFO | Wallpaper engine started
+2026-03-16 13:13:25,813 | INFO | Starting ComfyUI...
+2026-03-16 13:13:25,813 | INFO | Starting ComfyUI...
+2026-03-16 13:15:22,222 | INFO | Script PID: 17660
+2026-03-16 13:15:22,222 | INFO | Wallpaper engine started
+2026-03-16 13:15:24,265 | INFO | Starting ComfyUI...
+2026-03-16 13:16:04,427 | INFO | Prompt generated: dark fantasy citadel overlooking valley, ancient ruins scattered across landscape, golden morning light, dark souls atmosphere, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 13:16:10,767 | WARNING | GPU became busy. Aborting generation.
+2026-03-16 13:16:10,768 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 13:25:44,072 | INFO | Script PID: 13164
+2026-03-16 13:25:44,072 | INFO | Wallpaper engine started
+2026-03-16 13:25:44,171 | INFO | Prompt generated: ancient stone tower on a mountain, ancient ruins scattered across landscape, golden morning light, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 13:25:52,223 | ERROR | Failed to query ComfyUI history: HTTPConnectionPool(host='127.0.0.1', port=8188): Max retries exceeded with url: /history/e7308b36-ad02-4d89-954b-7c09f62f0a35 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000015B5D54C4D0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2)'))
+2026-03-16 13:25:52,223 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 13:26:26,496 | INFO | Script PID: 21880
+2026-03-16 13:26:26,496 | INFO | Wallpaper engine started
+2026-03-16 13:26:28,556 | INFO | ComfyUI not running. Starting...
+2026-03-16 13:26:28,556 | INFO | Starting ComfyUI...
+2026-03-16 13:27:08,705 | INFO | ComfyUI started successfully
+2026-03-16 13:27:08,706 | INFO | Prompt generated: ancient stone tower on a mountain, massive cliffs and rocky terrain, sun rays breaking through clouds, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 13:29:24,342 | INFO | Wallpaper generated successfully: wallpapers/20260316_132924.png
+2026-03-16 13:29:24,347 | INFO | Generation time: 135.64 seconds
+2026-03-16 13:29:25,986 | INFO | Wallpaper set successfully
+2026-03-16 14:14:50,325 | INFO | Script PID: 20256
+2026-03-16 14:14:50,325 | INFO | Wallpaper engine started
+2026-03-16 14:14:52,562 | INFO | ComfyUI not running. Starting...
+2026-03-16 14:14:52,563 | INFO | Starting ComfyUI server...
+2026-03-16 14:16:52,911 | ERROR | ComfyUI failed to start
+2026-03-16 14:33:44,343 | INFO | Script PID: 17192
+2026-03-16 14:33:44,343 | INFO | Wallpaper engine started
+2026-03-16 14:33:46,418 | INFO | ComfyUI not running. Starting...
+2026-03-16 14:33:46,418 | INFO | Starting ComfyUI server...
+2026-03-16 14:35:46,762 | ERROR | ComfyUI failed to start
+2026-03-16 14:41:10,968 | INFO | Script PID: 13832
+2026-03-16 14:41:10,969 | INFO | Wallpaper engine started
+2026-03-16 14:41:13,030 | INFO | ComfyUI not running. Starting...
+2026-03-16 14:41:13,030 | INFO | Starting ComfyUI server...
+2026-03-16 14:43:13,333 | ERROR | ComfyUI failed to start
+2026-03-16 14:47:12,740 | INFO | Script PID: 25004
+2026-03-16 14:47:12,740 | INFO | Wallpaper engine started
+2026-03-16 14:47:14,774 | INFO | ComfyUI not running. Starting...
+2026-03-16 14:47:14,774 | INFO | Starting ComfyUI server...
+2026-03-16 14:48:20,577 | INFO | ComfyUI started successfully
+2026-03-16 14:48:20,585 | INFO | Prompt generated: ancient stone tower on a mountain, mist covering the mountains, golden morning light, dark souls atmosphere, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 14:49:58,330 | INFO | Wallpaper generated successfully: wallpapers/20260316_144958.png
+2026-03-16 14:49:58,330 | INFO | Generation time: 97.75 seconds
+2026-03-16 14:49:59,460 | INFO | Wallpaper set successfully
+2026-03-16 14:50:58,169 | INFO | Script PID: 30560
+2026-03-16 14:50:58,169 | INFO | Wallpaper engine started
+2026-03-16 14:50:58,243 | INFO | Prompt generated: abandoned dark fantasy fortress, storm clouds gathering, golden morning light, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 14:52:24,794 | INFO | Wallpaper generated successfully: wallpapers/20260316_145224.png
+2026-03-16 14:52:24,795 | INFO | Generation time: 86.55 seconds
+2026-03-16 14:52:25,484 | INFO | Wallpaper set successfully
+2026-03-16 14:54:05,369 | INFO | Script PID: 28104
+2026-03-16 14:54:05,369 | INFO | Wallpaper engine started
+2026-03-16 14:54:07,424 | INFO | ComfyUI not running. Starting...
+2026-03-16 14:54:07,424 | INFO | Starting ComfyUI server...
+2026-03-16 14:56:07,769 | ERROR | ComfyUI failed to start
+2026-03-16 15:03:04,696 | INFO | Script PID: 16224
+2026-03-16 15:03:04,696 | INFO | Wallpaper engine started
+2026-03-16 15:03:06,850 | INFO | ComfyUI not running. Starting...
+2026-03-16 15:03:06,851 | INFO | Starting ComfyUI server...
+2026-03-16 15:03:55,012 | INFO | ComfyUI started successfully
+2026-03-16 15:03:55,014 | INFO | Prompt generated: dark fantasy citadel overlooking valley, ancient ruins scattered across landscape, sun rays breaking through clouds, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 15:05:28,041 | ERROR | Failed to query ComfyUI history: HTTPConnectionPool(host='127.0.0.1', port=8188): Read timed out. (read timeout=2)
+2026-03-16 15:05:28,073 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 15:12:34,657 | INFO | Script PID: 29148
+2026-03-16 15:12:34,657 | INFO | Wallpaper engine started
+2026-03-16 15:12:36,854 | INFO | ComfyUI not running. Starting...
+2026-03-16 15:12:36,854 | INFO | Starting ComfyUI server...
+2026-03-16 15:12:36,861 | INFO | ComfyUI started with PID 28600
+2026-03-16 15:13:16,950 | INFO | ComfyUI started successfully
+2026-03-16 15:13:16,951 | INFO | Prompt generated: ruined cathedral, mist covering the mountains, soft dawn lighting, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 15:15:29,923 | INFO | Wallpaper generated successfully: wallpapers/20260316_151529.png
+2026-03-16 15:15:29,984 | INFO | Generation time: 133.02 seconds
+2026-03-16 15:15:31,142 | INFO | Wallpaper set successfully
+2026-03-16 15:17:41,260 | INFO | Script PID: 28936
+2026-03-16 15:17:41,260 | INFO | Wallpaper engine started
+2026-03-16 15:17:41,436 | INFO | Prompt generated: ruined cathedral, storm clouds gathering, sunrise lighting, cinematic lighting, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 15:19:45,980 | INFO | Wallpaper generated successfully: wallpapers/20260316_151945.png
+2026-03-16 15:19:45,997 | INFO | Generation time: 124.56 seconds
+2026-03-16 15:19:46,860 | INFO | Wallpaper set successfully
+2026-03-16 17:42:29,116 | INFO | Script PID: 6476
+2026-03-16 17:42:29,117 | INFO | Wallpaper engine started
+2026-03-16 17:42:29,716 | INFO | Prompt generated: ruined cathedral, ancient ruins scattered across landscape, small realistic moon in sky, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 17:44:34,634 | ERROR | Failed to query ComfyUI history: HTTPConnectionPool(host='127.0.0.1', port=8188): Read timed out. (read timeout=2)
+2026-03-16 17:44:34,645 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 19:00:01,104 | INFO | Script PID: 3492
+2026-03-16 19:00:01,104 | INFO | Wallpaper engine started
+2026-03-16 19:00:01,407 | INFO | Prompt generated: dark fantasy citadel overlooking valley, storm clouds gathering, moonlight casting shadows, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 19:01:52,279 | ERROR | Failed to query ComfyUI history: HTTPConnectionPool(host='127.0.0.1', port=8188): Read timed out. (read timeout=2)
+2026-03-16 19:01:52,302 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 19:39:28,962 | INFO | Script PID: 26728
+2026-03-16 19:39:28,963 | INFO | Wallpaper engine started
+2026-03-16 19:39:29,627 | INFO | Prompt generated: ruined cathedral, storm clouds gathering, starry sky, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 19:41:41,437 | INFO | Wallpaper generated successfully: wallpapers/20260316_194141.png
+2026-03-16 19:41:41,460 | INFO | Generation time: 131.83 seconds
+2026-03-16 19:41:42,537 | INFO | Wallpaper set successfully
+2026-03-16 20:31:57,998 | INFO | Script PID: 27640
+2026-03-16 20:31:57,998 | INFO | Wallpaper engine started
+2026-03-16 20:31:57,999 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 20:32:15,450 | INFO | Script PID: 24672
+2026-03-16 20:32:15,450 | INFO | Wallpaper engine started
+2026-03-16 20:32:15,450 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 20:32:19,697 | INFO | Script PID: 16844
+2026-03-16 20:32:19,697 | INFO | Wallpaper engine started
+2026-03-16 20:32:19,698 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 20:33:09,689 | INFO | Script PID: 23368
+2026-03-16 20:33:09,689 | INFO | Wallpaper engine started
+2026-03-16 20:33:10,202 | INFO | Prompt generated: dark fantasy citadel overlooking valley, mist covering the mountains, starry sky, global illumination, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 20:35:07,047 | ERROR | Failed to query ComfyUI history: HTTPConnectionPool(host='127.0.0.1', port=8188): Read timed out. (read timeout=2)
+2026-03-16 20:35:07,047 | INFO | Wallpaper generation skipped or aborted.
+2026-03-16 21:03:02,901 | INFO | Script PID: 20260
+2026-03-16 21:03:02,901 | INFO | Wallpaper engine started
+2026-03-16 21:03:03,157 | INFO | Prompt generated: dark fantasy citadel overlooking valley, ancient ruins scattered across landscape, starry sky, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-16 21:04:55,581 | INFO | Wallpaper generated successfully: wallpapers/20260316_210455.png
+2026-03-16 21:04:55,582 | INFO | Generation time: 112.43 seconds
+2026-03-16 21:04:56,109 | INFO | Wallpaper set successfully
+2026-03-17 01:19:11,786 | INFO | Script PID: 10480
+2026-03-17 01:19:11,787 | INFO | Wallpaper engine started
+2026-03-17 01:19:12,311 | INFO | Prompt generated: ancient stone tower on a mountain, ancient ruins scattered across landscape, starry sky, cinematic lighting, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-17 01:21:24,969 | INFO | Wallpaper generated successfully: wallpapers/20260317_012124.png
+2026-03-17 01:21:24,985 | INFO | Generation time: 132.69 seconds
+2026-03-17 01:21:25,531 | INFO | Wallpaper set successfully
+2026-03-17 01:24:22,161 | INFO | Script PID: 17512
+2026-03-17 01:24:22,161 | INFO | Wallpaper engine started
+2026-03-17 01:24:24,310 | INFO | ComfyUI not running. Starting...
+2026-03-17 01:24:24,310 | INFO | Starting ComfyUI server...
+2026-03-17 01:24:24,333 | INFO | ComfyUI started with PID 30628
+2026-03-17 01:25:54,165 | INFO | ComfyUI started successfully
+2026-03-17 01:25:54,167 | INFO | Prompt generated: graveyard temple with broken statues, mist covering the mountains, moonlight casting shadows, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-17 01:27:51,292 | INFO | Wallpaper generated successfully: wallpapers/20260317_012751.png
+2026-03-17 01:27:51,299 | INFO | Generation time: 117.13 seconds
+2026-03-17 01:27:51,813 | INFO | Wallpaper set successfully
+2026-03-17 12:36:01,512 | INFO | Script PID: 25628
+2026-03-17 12:36:01,512 | INFO | Wallpaper engine started
+2026-03-17 12:36:03,650 | INFO | ComfyUI not running. Starting...
+2026-03-17 12:36:03,650 | INFO | Starting ComfyUI server...
+2026-03-17 12:36:03,739 | INFO | ComfyUI started with PID 18664
+2026-03-17 12:36:55,892 | INFO | ComfyUI started successfully
+2026-03-17 12:36:55,902 | INFO | Prompt generated: graveyard temple with broken statues, storm clouds gathering, sun rays breaking through clouds, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-17 12:38:58,620 | INFO | Wallpaper generated successfully: wallpapers/20260317_123858.png
+2026-03-17 12:38:58,634 | INFO | Generation time: 122.74 seconds
+2026-03-17 12:38:59,106 | INFO | Wallpaper set successfully
+2026-03-17 23:38:42,028 | INFO | Script PID: 18476
+2026-03-17 23:38:42,029 | INFO | Wallpaper engine started
+2026-03-17 23:38:42,583 | INFO | Prompt generated: ancient stone tower on a mountain, storm clouds gathering, small realistic moon in sky, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-17 23:38:42,625 | ERROR | Failed to send workflow to ComfyUI: 400 Client Error: Bad Request for url: http://127.0.0.1:8188/prompt
+2026-03-17 23:38:42,626 | INFO | Wallpaper generation skipped or aborted.
+2026-03-17 23:40:17,291 | INFO | Script PID: 19652
+2026-03-17 23:40:17,291 | INFO | Wallpaper engine started
+2026-03-17 23:40:17,398 | INFO | Prompt generated: graveyard temple with broken statues, storm clouds gathering, small realistic moon in sky, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-17 23:42:27,589 | INFO | Wallpaper generated successfully: wallpapers/20260317_234227.png
+2026-03-17 23:42:27,594 | INFO | Generation time: 130.20 seconds
+2026-03-17 23:42:28,485 | INFO | Wallpaper set successfully
+2026-03-18 01:28:27,893 | INFO | Script PID: 31272
+2026-03-18 01:28:27,894 | INFO | Wallpaper engine started
+2026-03-18 01:28:28,250 | INFO | Prompt generated: ancient stone tower on a mountain, foggy valley below, starry sky, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-18 01:30:25,031 | INFO | Wallpaper generated successfully: wallpapers/20260318_013025.png
+2026-03-18 01:30:25,036 | INFO | Generation time: 116.81 seconds
+2026-03-18 01:30:25,529 | INFO | Wallpaper set successfully
+2026-03-18 01:50:07,544 | INFO | Script PID: 18772
+2026-03-18 01:50:07,544 | INFO | Wallpaper engine started
+2026-03-18 01:50:07,625 | INFO | Prompt generated: ruined cathedral, foggy valley below, moonlit night sky, dramatic shadows, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-18 01:58:08,916 | INFO | Script PID: 16000
+2026-03-18 01:58:08,916 | INFO | Wallpaper engine started
+2026-03-18 01:58:08,982 | INFO | Prompt generated: ancient stone tower on a mountain, ancient ruins scattered across landscape, small realistic moon in sky, volumetric fog, ultra detailed dark fantasy landscape, 8k wallpaper, dark souls atmosphere, cinematic lighting, volumetric fog, ultra detailed, 8k wallpaper
+2026-03-18 02:08:06,171 | INFO | Script PID: 19444
+2026-03-18 02:08:06,171 | INFO | Wallpaper engine started
+2026-03-18 02:08:06,271 | INFO | Prompt generated: ancient stone tower on a mountain, mist covering the mountains, small realistic moon in sky, dark souls atmosphere, ultra detailed dark fantasy landscape, 8k wallpaper,cinematic lighting, volumetric fog, ultra detailed, global illumination, accurate shadows, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 02:09:56,437 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_020956.png
+2026-03-18 02:09:56,437 | INFO | Generation time: 110.18 seconds
+2026-03-18 02:09:56,964 | INFO | Wallpaper set successfully
+2026-03-18 02:37:19,406 | INFO | Script PID: 9244
+2026-03-18 02:37:19,407 | INFO | Wallpaper engine started
+2026-03-18 02:37:57,168 | INFO | Script PID: 19764
+2026-03-18 02:37:57,168 | INFO | Wallpaper engine started
+2026-03-18 02:37:57,226 | INFO | Prompt generated: massive alien megastructure orbiting a distant planet, colorful cosmic nebula, glowing galactic clouds, dim lunar illumination, mysterious dark ambiance, volumetric fog, epic aerial view, shot on 50mm lens, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 02:40:08,637 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_024008.png
+2026-03-18 02:40:08,637 | INFO | Generation time: 131.41 seconds
+2026-03-18 02:40:09,375 | INFO | Wallpaper set successfully
+2026-03-18 02:43:56,472 | INFO | Script PID: 6092
+2026-03-18 02:43:56,472 | INFO | Wallpaper engine started
+2026-03-18 02:43:56,606 | INFO | Prompt generated: cyberpunk hacker in a futuristic alleyway, flying vehicles in the skyline, neon signs reflecting on wet pavement, starry night sky, epic cinematic atmosphere, mysterious dark ambiance, low angle perspective, ultra wide lens perspective, highly detailed terrain, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 02:45:41,475 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_024541.png
+2026-03-18 02:45:41,475 | INFO | Generation time: 104.88 seconds
+2026-03-18 02:45:41,979 | INFO | Wallpaper set successfully
+2026-03-18 02:48:43,935 | INFO | Script PID: 27452
+2026-03-18 02:48:43,935 | INFO | Wallpaper engine started
+2026-03-18 02:48:44,036 | INFO | Prompt generated: epic scene of lone samurai warrior in a ruined kingdom, surrounded by ancient ruins scattered across landscape, foggy valley below, dramatic starry night sky, epic aerial view, shot on 35mm lens, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 02:50:18,851 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_025018.png
+2026-03-18 02:50:18,852 | INFO | Generation time: 94.82 seconds
+2026-03-18 02:50:19,351 | INFO | Wallpaper set successfully
+2026-03-18 02:51:52,001 | INFO | Script PID: 28156
+2026-03-18 02:51:52,001 | INFO | Wallpaper engine started
+2026-03-18 02:51:52,050 | INFO | Prompt generated: interstellar spaceship fleet near a massive ringworld, glowing galactic clouds, asteroid fields drifting slowly, cold blue moonlight, high contrast lighting, dramatic shadows, low angle perspective, dramatic cinematic framing, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 02:53:29,626 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_025329.png
+2026-03-18 02:53:29,626 | INFO | Generation time: 97.58 seconds
+2026-03-18 02:53:30,141 | INFO | Wallpaper set successfully
+2026-03-18 02:58:10,441 | INFO | Script PID: 15444
+2026-03-18 02:58:10,441 | INFO | Wallpaper engine started
+2026-03-18 02:58:18,411 | INFO | Script PID: 16760
+2026-03-18 02:58:18,411 | INFO | Wallpaper engine started
+2026-03-18 02:58:18,460 | INFO | SEED KSampler 0: 7434641183530817922
+2026-03-18 02:58:18,460 | INFO | SEED KSampler 1: 4595115919251957788
+2026-03-18 02:58:18,460 | INFO | THEME: space
+2026-03-18 02:58:18,460 | INFO | Prompt generated: interstellar spaceship fleet standing orbiting a distant planet, colorful cosmic nebula, glowing galactic clouds, cinematic cold blue moonlight, high contrast lighting, dramatic shadows, ultra wide lens perspective, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 03:00:01,319 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_030001.png
+2026-03-18 03:00:01,320 | INFO | Generation time: 102.86 seconds
+2026-03-18 03:00:01,881 | INFO | Wallpaper set successfully
+2026-03-18 12:30:21,625 | INFO | Script PID: 16488
+2026-03-18 12:30:21,625 | INFO | Wallpaper engine started
+2026-03-18 12:30:23,744 | INFO | ComfyUI not running. Starting...
+2026-03-18 12:30:23,745 | INFO | Starting ComfyUI server...
+2026-03-18 12:30:23,781 | INFO | ComfyUI started with PID 22036
+2026-03-18 12:30:51,888 | INFO | ComfyUI started successfully
+2026-03-18 12:30:51,899 | INFO | SEED KSampler 1: 2044287010809063712
+2026-03-18 12:30:51,900 | INFO | SEED KSampler 2: 6422996514424780267
+2026-03-18 12:30:51,900 | INFO | THEME: cyberpunk
+2026-03-18 12:30:51,900 | INFO | Prompt generated: futuristic bounty hunter standing in a futuristic alleyway, flying vehicles in the skyline, rain soaked streets glowing with neon, cinematic sun rays breaking through clouds, epic cinematic atmosphere, high contrast lighting, shot on 35mm lens, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 12:32:51,177 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_123251.png
+2026-03-18 12:32:51,235 | INFO | Generation time: 119.35 seconds
+2026-03-18 12:32:51,852 | INFO | Wallpaper set successfully
+2026-03-18 16:48:57,424 | INFO | Script PID: 15076
+2026-03-18 16:48:57,425 | INFO | Wallpaper engine started
+2026-03-18 16:48:59,588 | INFO | ComfyUI not running. Starting...
+2026-03-18 16:48:59,588 | INFO | Starting ComfyUI server...
+2026-03-18 16:48:59,662 | INFO | ComfyUI started with PID 25352
+2026-03-18 16:50:40,957 | INFO | ComfyUI started successfully
+2026-03-18 16:50:40,993 | INFO | SEED KSampler 1: 7062441919780651793
+2026-03-18 16:50:40,993 | INFO | SEED KSampler 2: 6565402016664159095
+2026-03-18 16:50:40,993 | INFO | THEME: space
+2026-03-18 16:50:40,994 | INFO | Prompt generated: space explorer near a massive ringworld, colorful cosmic nebula, glowing galactic clouds, sunrise lighting, dramatic shadows, epic cinematic atmosphere, ultra wide landscape shot, ultra wide lens perspective, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 16:52:49,463 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_165249.png
+2026-03-18 16:52:49,470 | INFO | Generation time: 128.51 seconds
+2026-03-18 16:52:50,089 | INFO | Wallpaper set successfully
+2026-03-18 19:00:01,851 | INFO | Script PID: 29108
+2026-03-18 19:00:01,852 | INFO | Wallpaper engine started
+2026-03-18 19:00:02,140 | INFO | SEED KSampler 1: 2936074432156810832
+2026-03-18 19:00:02,140 | INFO | SEED KSampler 2: 7164194113906565793
+2026-03-18 19:00:02,140 | INFO | THEME: fantasy
+2026-03-18 19:00:02,140 | INFO | Prompt generated: cinematic wide shot of ancient stone tower deep inside a dark forest, foggy valley below, ancient ruins scattered across landscape, illuminated by dim lunar illumination, epic cinematic atmosphere, volumetric fog, shot on 35mm lens, highly detailed terrain, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-18 19:02:02,594 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260318_190202.png
+2026-03-18 19:02:02,597 | INFO | Generation time: 120.46 seconds
+2026-03-18 19:02:03,157 | INFO | Wallpaper set successfully
+2026-03-19 02:51:36,833 | INFO | Script PID: 19168
+2026-03-19 02:51:36,834 | INFO | Wallpaper engine started
+2026-03-19 02:51:39,035 | INFO | ComfyUI not running. Starting...
+2026-03-19 02:51:39,035 | INFO | Starting ComfyUI server...
+2026-03-19 02:51:39,149 | INFO | ComfyUI started with PID 25412
+2026-03-19 02:53:39,462 | ERROR | ComfyUI failed to start
+2026-03-19 02:57:05,682 | INFO | Script PID: 27144
+2026-03-19 02:57:05,682 | INFO | Wallpaper engine started
+2026-03-19 02:57:05,817 | INFO | SEED KSampler 1: 2710581446890030771
+2026-03-19 02:57:05,817 | INFO | SEED KSampler 2: 9202177677730984947
+2026-03-19 02:57:05,817 | INFO | THEME: space
+2026-03-19 02:57:05,817 | INFO | Prompt generated: cinematic wide shot of space explorer near a massive ringworld, glowing galactic clouds, colorful cosmic nebula, illuminated by cold blue moonlight, high contrast lighting, volumetric fog, shot on 50mm lens, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-19 02:59:08,317 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260319_025908.png
+2026-03-19 02:59:08,326 | INFO | Generation time: 122.53 seconds
+2026-03-19 02:59:09,083 | INFO | Wallpaper set successfully
+2026-03-19 03:00:02,551 | INFO | Script PID: 20376
+2026-03-19 03:00:02,551 | INFO | Wallpaper engine started
+2026-03-19 03:00:02,731 | INFO | SEED KSampler 1: 1022287489850520851
+2026-03-19 03:00:02,731 | INFO | SEED KSampler 2: 1843959341881055534
+2026-03-19 03:00:02,731 | INFO | THEME: space
+2026-03-19 03:00:02,731 | INFO | Prompt generated: space explorer orbiting a distant planet, glowing galactic clouds, asteroid fields drifting slowly, dim lunar illumination, high contrast lighting, epic cinematic atmosphere, dramatic perspective shot, cinematic depth of field, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-19 03:01:41,619 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260319_030141.png
+2026-03-19 03:01:41,799 | INFO | Generation time: 99.07 seconds
+2026-03-19 03:01:42,277 | INFO | Wallpaper set successfully
+2026-03-19 03:03:12,579 | INFO | Script PID: 19100
+2026-03-19 03:03:12,579 | INFO | Wallpaper engine started
+2026-03-19 03:03:12,734 | INFO | SEED KSampler 1: 3517017071774498196
+2026-03-19 03:03:12,734 | INFO | SEED KSampler 2: 8876814634084563719
+2026-03-19 03:03:12,734 | INFO | THEME: fantasy
+2026-03-19 03:03:12,735 | INFO | Prompt generated: ruined cathedral standing in a ruined kingdom, foggy valley below, massive cliffs and rocky terrain, cinematic dim lunar illumination, high contrast lighting, dramatic shadows, shot on 35mm lens, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-19 03:04:49,307 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260319_030449.png
+2026-03-19 03:04:49,321 | INFO | Generation time: 96.59 seconds
+2026-03-19 03:04:49,815 | INFO | Wallpaper set successfully
+2026-03-19 19:55:06,605 | INFO | Script PID: 24332
+2026-03-19 19:55:06,606 | INFO | Wallpaper engine started
+2026-03-19 19:55:08,762 | INFO | ComfyUI not running. Starting...
+2026-03-19 19:55:08,763 | INFO | Starting ComfyUI server...
+2026-03-19 19:55:08,856 | INFO | ComfyUI started with PID 3752
+2026-03-19 19:56:53,162 | INFO | ComfyUI started successfully
+2026-03-19 19:56:53,194 | INFO | SEED KSampler 1: 6174423896144778116
+2026-03-19 19:56:53,195 | INFO | SEED KSampler 2: 7535564274903742915
+2026-03-19 19:56:53,195 | INFO | THEME: fantasy
+2026-03-19 19:56:53,195 | INFO | Prompt generated: epic scene of dark fantasy fortress in a ruined kingdom, surrounded by ancient ruins scattered across landscape, storm clouds gathering, dramatic cold blue moonlight, low angle perspective, cinematic depth of field, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-19 19:59:35,238 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260319_195935.png
+2026-03-19 19:59:35,249 | INFO | Generation time: 162.09 seconds
+2026-03-19 19:59:35,926 | INFO | Wallpaper set successfully
+2026-03-20 02:16:14,728 | INFO | Script PID: 12112
+2026-03-20 02:16:14,728 | INFO | Wallpaper engine started
+2026-03-20 02:16:16,164 | INFO | THEME: cyberpunk
+2026-03-20 02:16:16,166 | INFO | SEED KSampler 1: 7288880873159095547
+2026-03-20 02:16:16,166 | INFO | SEED KSampler 2: 5946796550377499682
+2026-03-20 02:16:16,167 | INFO | Prompt generated: futuristic bounty hunter in a neon cyberpunk city, flying vehicles in the skyline, rain soaked streets glowing with neon, cold blue moonlight, high contrast lighting, cinematic lighting, wide angle cinematic shot, professional landscape photography, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 02:18:38,960 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_021838.png
+2026-03-20 02:18:38,960 | INFO | Generation time: 142.80 seconds
+2026-03-20 02:18:38,964 | INFO | Image Score: 73.17
+2026-03-20 02:18:39,500 | INFO | Wallpaper set successfully
+2026-03-20 02:50:19,854 | INFO | Script PID: 23692
+2026-03-20 02:50:19,854 | INFO | Wallpaper engine started
+2026-03-20 02:50:20,103 | INFO | THEME: space
+2026-03-20 02:50:20,104 | INFO | SEED KSampler 1: 2614204550067075510
+2026-03-20 02:50:20,105 | INFO | SEED KSampler 2: 4092377896924356599
+2026-03-20 02:50:20,105 | INFO | Prompt generated: massive alien megastructure standing near a massive ringworld, asteroid fields drifting slowly, colorful cosmic nebula, cinematic cold blue moonlight, epic cinematic atmosphere, dramatic shadows, ultra wide lens perspective, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 02:52:39,283 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_025239.png
+2026-03-20 02:52:39,283 | INFO | Generation time: 139.18 seconds
+2026-03-20 02:52:39,286 | INFO | Image Score: 85.02
+2026-03-20 02:52:39,873 | INFO | Wallpaper set successfully
+2026-03-20 03:02:54,329 | INFO | Script PID: 18736
+2026-03-20 03:02:54,329 | INFO | Wallpaper engine started
+2026-03-20 03:02:54,412 | INFO | THEME: cyberpunk
+2026-03-20 03:02:54,413 | INFO | SEED KSampler 1: 2132853329934692371
+2026-03-20 03:02:54,413 | INFO | SEED KSampler 2: 2103190252016695410
+2026-03-20 03:02:54,413 | INFO | Prompt generated: cyberpunk hacker standing in a futuristic alleyway, rain soaked streets glowing with neon, flying vehicles in the skyline, cinematic starry night sky, dramatic shadows, cinematic lighting, shot on 35mm lens, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 03:04:56,056 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_030456.png
+2026-03-20 03:04:56,056 | INFO | Generation time: 121.64 seconds
+2026-03-20 03:04:56,057 | INFO | Image Score: 75.02
+2026-03-20 03:04:56,674 | INFO | Wallpaper set successfully
+2026-03-20 03:05:16,853 | INFO | Script PID: 4560
+2026-03-20 03:05:16,853 | INFO | Wallpaper engine started
+2026-03-20 03:05:16,929 | INFO | THEME: cyberpunk
+2026-03-20 03:05:16,930 | INFO | SEED KSampler 1: 3596957322539393784
+2026-03-20 03:05:16,930 | INFO | SEED KSampler 2: 4094312623274720290
+2026-03-20 03:05:16,930 | INFO | Prompt generated: epic scene of cyberpunk hacker in a futuristic alleyway, surrounded by rain soaked streets glowing with neon, neon signs reflecting on wet pavement, dramatic cold blue moonlight, ultra wide landscape shot, cinematic depth of field, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 03:07:08,794 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_030708.png
+2026-03-20 03:07:08,794 | INFO | Generation time: 111.86 seconds
+2026-03-20 03:07:08,797 | INFO | Image Score: 86.55
+2026-03-20 03:07:09,287 | INFO | Wallpaper set successfully
+2026-03-20 03:07:45,755 | INFO | Script PID: 14848
+2026-03-20 03:07:45,756 | INFO | Wallpaper engine started
+2026-03-20 03:07:45,883 | INFO | THEME: fantasy
+2026-03-20 03:07:45,884 | INFO | SEED KSampler 1: 2287619112240503772
+2026-03-20 03:07:45,884 | INFO | SEED KSampler 2: 1394208311307236557
+2026-03-20 03:07:45,884 | INFO | Prompt generated: epic scene of ancient stone tower in a misty mountain valley, surrounded by storm clouds gathering, foggy valley below, dramatic cold blue moonlight, epic aerial view, professional landscape photography, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 03:09:44,572 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_030944.png
+2026-03-20 03:09:44,572 | INFO | Generation time: 118.69 seconds
+2026-03-20 03:09:44,574 | INFO | Image Score: 71.38
+2026-03-20 03:09:45,047 | INFO | Wallpaper set successfully
+2026-03-20 04:13:14,627 | INFO | Script PID: 26688
+2026-03-20 04:13:14,628 | INFO | Wallpaper engine started
+2026-03-20 04:13:14,936 | INFO | THEME: fantasy
+2026-03-20 04:13:14,937 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:13:14,937 | INFO | SEED KSampler 1: 3071605120118090033
+2026-03-20 04:13:14,937 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:13:14,937 | INFO | SEED KSampler 2: 642947199890314185
+2026-03-20 04:13:14,937 | INFO | Prompt generated: epic scene of dark fantasy fortress on a cliff above the ocean, surrounded by ancient ruins scattered across landscape, storm clouds gathering, dramatic cold blue moonlight, dramatic perspective shot, wide angle lens, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 04:13:15,061 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:17,066 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:19,070 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:21,074 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:23,089 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:25,096 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:27,114 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:29,137 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:31,142 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:33,146 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:35,150 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:37,153 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:39,157 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:41,160 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:43,164 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:45,180 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:47,186 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:49,191 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:51,204 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:53,222 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:55,243 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:57,248 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:13:59,265 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:01,272 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:03,294 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:05,312 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:07,317 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:09,342 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:11,346 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:13,361 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:15,377 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:17,381 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:19,385 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:21,390 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:23,410 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:25,426 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:27,430 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:29,435 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:31,439 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:33,454 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:35,459 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:37,476 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:39,479 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:41,485 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:43,489 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:45,508 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:47,526 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:49,543 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:51,549 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:53,555 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:55,559 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:57,564 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:14:59,568 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:01,571 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:03,589 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:05,593 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:07,609 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:09,614 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:11,632 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:15,407 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:17,421 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:19,428 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:21,434 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:23,451 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:25,458 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:27,478 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:29,484 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:31,502 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:33,508 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:35,515 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:37,519 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:39,524 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:41,528 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:43,532 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:45,537 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:47,551 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:49,566 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:15:51,571 | WARNING | ComfyUI history request timed out, retrying...
+2026-03-20 04:28:32,798 | INFO | Script PID: 16824
+2026-03-20 04:28:32,799 | INFO | Wallpaper engine started
+2026-03-20 04:28:32,859 | INFO | THEME: space
+2026-03-20 04:28:32,860 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:28:32,860 | INFO | SEED KSampler 1: 2509089295759911167
+2026-03-20 04:28:32,860 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:28:32,860 | INFO | SEED KSampler 2: 6324941697303916750
+2026-03-20 04:28:32,860 | INFO | Prompt generated: epic scene of massive alien megastructure near a massive ringworld, surrounded by colorful cosmic nebula, asteroid fields drifting slowly, dramatic moonlit night sky, epic aerial view, shot on 35mm lens, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 04:30:25,887 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_043025.png
+2026-03-20 04:30:25,887 | INFO | Generation time: 113.03 seconds
+2026-03-20 04:30:25,892 | INFO | Image Score: 77.05
+2026-03-20 04:30:27,402 | INFO | Wallpaper set successfully
+2026-03-20 04:30:53,240 | INFO | Script PID: 19076
+2026-03-20 04:30:53,240 | INFO | Wallpaper engine started
+2026-03-20 04:30:53,336 | INFO | THEME: fantasy
+2026-03-20 04:30:53,337 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:30:53,337 | INFO | SEED KSampler 1: 1149873902969453974
+2026-03-20 04:30:53,337 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 04:30:53,337 | INFO | SEED KSampler 2: 5438223920174748059
+2026-03-20 04:30:53,337 | INFO | Prompt generated: epic scene of ancient gothic castle deep inside a dark forest, surrounded by massive cliffs and rocky terrain, storm clouds gathering, dramatic dim lunar illumination, wide angle cinematic shot, ultra wide lens perspective, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 04:32:42,409 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_043242.png
+2026-03-20 04:32:42,409 | INFO | Generation time: 109.07 seconds
+2026-03-20 04:32:42,410 | INFO | Image Score: 87.59
+2026-03-20 04:32:43,594 | INFO | Wallpaper set successfully
+2026-03-20 21:04:44,971 | INFO | Script PID: 32704
+2026-03-20 21:04:44,971 | INFO | Wallpaper engine started
+2026-03-20 21:04:47,025 | INFO | ComfyUI not running. Starting...
+2026-03-20 21:04:47,025 | INFO | Starting ComfyUI server...
+2026-03-20 21:04:47,056 | INFO | ComfyUI started with PID 12812
+2026-03-20 21:05:31,294 | INFO | ComfyUI started successfully
+2026-03-20 21:05:31,294 | INFO | THEME: space
+2026-03-20 21:05:31,304 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 21:05:31,304 | INFO | SEED KSampler 1: 1027401734630281062
+2026-03-20 21:05:31,304 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-20 21:05:31,305 | INFO | SEED KSampler 2: 4700917640612923727
+2026-03-20 21:05:31,305 | INFO | Prompt generated: cinematic wide shot of space explorer orbiting a distant planet, asteroid fields drifting slowly, glowing galactic clouds, illuminated by moonlit night sky, volumetric fog, mysterious dark ambiance, cinematic depth of field, realistic material textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-20 21:07:26,970 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260320_210726.png
+2026-03-20 21:07:26,974 | INFO | Generation time: 115.68 seconds
+2026-03-20 21:07:26,994 | INFO | Image Score: 78.38
+2026-03-20 21:07:28,452 | INFO | Wallpaper set successfully
+2026-03-21 06:17:03,612 | INFO | Script PID: 17264
+2026-03-21 06:17:03,613 | INFO | Wallpaper engine started
+2026-03-21 06:17:03,941 | INFO | THEME: cyberpunk
+2026-03-21 06:17:03,949 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:17:03,949 | INFO | SEED KSampler 1: 4837701139985982064
+2026-03-21 06:17:03,949 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:17:03,949 | INFO | SEED KSampler 2: 1457474047001490327
+2026-03-21 06:17:03,949 | INFO | Prompt generated: cyberpunk hacker standing in a neon cyberpunk city, flying vehicles in the skyline, rain soaked streets glowing with neon, cinematic golden morning sunlight, volumetric fog, mysterious dark ambiance, wide angle lens, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 06:18:50,896 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_061850.png
+2026-03-21 06:18:50,897 | INFO | Generation time: 106.96 seconds
+2026-03-21 06:18:50,912 | INFO | Image Score: 73.16
+2026-03-21 06:18:52,742 | INFO | Wallpaper set successfully
+2026-03-21 06:27:15,773 | INFO | Script PID: 5352
+2026-03-21 06:27:15,773 | INFO | Wallpaper engine started
+2026-03-21 06:27:15,830 | INFO | THEME: cyberpunk
+2026-03-21 06:27:15,831 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:27:15,831 | INFO | SEED KSampler 1: 478112324337144265
+2026-03-21 06:27:15,831 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:27:15,831 | INFO | SEED KSampler 2: 6778137726669818846
+2026-03-21 06:27:15,831 | INFO | Prompt generated: cinematic wide shot of futuristic bounty hunter in a futuristic alleyway, rain soaked streets glowing with neon, neon signs reflecting on wet pavement, illuminated by golden morning sunlight, mysterious dark ambiance, high contrast lighting, shot on 50mm lens, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 06:28:44,364 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_062844.png
+2026-03-21 06:28:44,364 | INFO | Generation time: 88.53 seconds
+2026-03-21 06:28:44,365 | INFO | Image Score: 76.38
+2026-03-21 06:28:45,799 | INFO | Wallpaper set successfully
+2026-03-21 06:29:24,768 | INFO | Script PID: 28056
+2026-03-21 06:29:24,768 | INFO | Wallpaper engine started
+2026-03-21 06:29:24,842 | INFO | THEME: space
+2026-03-21 06:29:24,842 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:29:24,843 | INFO | SEED KSampler 1: 5814447645898175673
+2026-03-21 06:29:24,843 | ERROR | Failed to load C:\Users\ayush\Desktop\Coding\Wallpaper Change\database\best_seeds.json: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\database\\best_seeds.json'
+2026-03-21 06:29:24,843 | INFO | SEED KSampler 2: 7447963089748713040
+2026-03-21 06:29:24,843 | INFO | Prompt generated: interstellar spaceship fleet standing near a massive ringworld, glowing galactic clouds, asteroid fields drifting slowly, cinematic low angle sunlight casting long shadows, dramatic shadows, mysterious dark ambiance, wide angle lens, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 06:30:53,317 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_063053.png
+2026-03-21 06:30:53,317 | INFO | Generation time: 88.48 seconds
+2026-03-21 06:30:53,320 | INFO | Image Score: 70.69
+2026-03-21 06:30:54,801 | INFO | Wallpaper set successfully
+2026-03-21 18:28:07,862 | INFO | Script PID: 10500
+2026-03-21 18:28:07,862 | INFO | Wallpaper engine started
+2026-03-21 18:28:09,909 | INFO | ComfyUI not running. Starting...
+2026-03-21 18:28:09,910 | INFO | Starting ComfyUI server...
+2026-03-21 18:28:09,970 | INFO | ComfyUI started with PID 19096
+2026-03-21 18:28:46,055 | INFO | ComfyUI started successfully
+2026-03-21 18:28:46,055 | INFO | THEME: cyberpunk
+2026-03-21 18:28:46,066 | INFO | SEED KSampler 1: 2488205512926610802
+2026-03-21 18:28:46,066 | INFO | SEED KSampler 2: 3788801858502272522
+2026-03-21 18:28:46,067 | INFO | Prompt generated: android assassin standing on top of a megacity skyscraper, rain soaked streets glowing with neon, neon signs reflecting on wet pavement, cinematic moonlit night sky, mysterious dark ambiance, dramatic shadows, dramatic cinematic framing, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:30:20,648 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_183020.png
+2026-03-21 18:30:20,652 | INFO | Generation time: 94.60 seconds
+2026-03-21 18:30:51,160 | WARNING | Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-03-21 18:33:20,722 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:33:20,729 | INFO | Downloading aesthetic model from https://github.com/LAION-AI/aesthetic-predictor/blob/main/sa_0_4_vit_l_14_linear.pth?raw=true
+2026-03-21 18:33:26,725 | INFO | CLIP Score: 63.08
+2026-03-21 18:33:26,725 | INFO | Aesthetic Score: 76.95
+2026-03-21 18:33:26,725 | INFO | Final Score: 70.01
+2026-03-21 18:33:27,451 | INFO | Wallpaper set successfully
+2026-03-21 18:34:57,777 | INFO | Script PID: 20492
+2026-03-21 18:34:57,777 | INFO | Wallpaper engine started
+2026-03-21 18:34:57,845 | INFO | THEME: fantasy
+2026-03-21 18:34:57,846 | INFO | SEED KSampler 1: 7557351684771995119
+2026-03-21 18:34:57,846 | INFO | SEED KSampler 2: 2488205512926607231
+2026-03-21 18:34:57,846 | INFO | Prompt generated: cinematic wide shot of dark fantasy fortress in a misty mountain valley, storm clouds gathering, ancient ruins scattered across landscape, illuminated by starry night sky, cinematic lighting, mysterious dark ambiance, professional landscape photography, highly detailed terrain, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:36:16,397 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_183616.png
+2026-03-21 18:36:16,398 | INFO | Generation time: 78.55 seconds
+2026-03-21 18:36:24,506 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:36:27,021 | INFO | CLIP Score: 64.87
+2026-03-21 18:36:27,021 | INFO | Aesthetic Score: 68.95
+2026-03-21 18:36:27,021 | INFO | Final Score: 66.91
+2026-03-21 18:36:27,526 | INFO | Wallpaper set successfully
+2026-03-21 18:38:18,289 | INFO | Script PID: 25624
+2026-03-21 18:38:18,289 | INFO | Wallpaper engine started
+2026-03-21 18:38:18,358 | INFO | THEME: cyberpunk
+2026-03-21 18:38:18,359 | INFO | SEED KSampler 1: 7557351684771990780
+2026-03-21 18:38:18,359 | INFO | SEED KSampler 2: 3788801858502272474
+2026-03-21 18:38:18,359 | INFO | Prompt generated: cyberpunk hacker standing on top of a megacity skyscraper, flying vehicles in the skyline, neon signs reflecting on wet pavement, cinematic dim lunar illumination, cinematic lighting, high contrast lighting, professional landscape photography, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:39:42,804 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_183942.png
+2026-03-21 18:39:42,804 | INFO | Generation time: 84.45 seconds
+2026-03-21 18:39:53,801 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:39:56,090 | INFO | CLIP Score: 64.91
+2026-03-21 18:39:56,092 | INFO | Aesthetic Score: 75.56
+2026-03-21 18:39:56,092 | INFO | Final Score: 70.23
+2026-03-21 18:39:56,678 | INFO | Wallpaper set successfully
+2026-03-21 18:42:13,654 | INFO | Script PID: 9948
+2026-03-21 18:42:13,654 | INFO | Wallpaper engine started
+2026-03-21 18:42:13,711 | INFO | THEME: fantasy
+2026-03-21 18:42:13,725 | INFO | SEED KSampler 1: 2488205512926609881
+2026-03-21 18:42:13,725 | INFO | SEED KSampler 2: 8952967551854207702
+2026-03-21 18:42:13,725 | INFO | Prompt generated: epic scene of lone samurai warrior in a misty mountain valley, surrounded by storm clouds gathering, ancient ruins scattered across landscape, dramatic moonlit night sky, dramatic perspective shot, dramatic cinematic framing, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:43:54,394 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_184354.png
+2026-03-21 18:43:54,395 | INFO | Generation time: 100.68 seconds
+2026-03-21 18:44:14,481 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:44:20,272 | INFO | CLIP Score: 65.51
+2026-03-21 18:44:20,273 | INFO | Aesthetic Score: 66.54
+2026-03-21 18:44:20,273 | INFO | Final Score: 66.02
+2026-03-21 18:44:20,810 | INFO | Wallpaper set successfully
+2026-03-21 18:49:12,307 | INFO | Script PID: 29336
+2026-03-21 18:49:12,307 | INFO | Wallpaper engine started
+2026-03-21 18:49:12,375 | INFO | THEME: space
+2026-03-21 18:49:12,376 | INFO | SEED KSampler 1: 8952967551854206069
+2026-03-21 18:49:12,376 | INFO | SEED KSampler 2: 8952967551854211034
+2026-03-21 18:49:12,376 | INFO | Prompt generated: space explorer standing near a massive ringworld, colorful cosmic nebula, glowing galactic clouds, cinematic dim lunar illumination, high contrast lighting, cinematic lighting, shot on 50mm lens, highly detailed terrain, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:50:43,155 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_185043.png
+2026-03-21 18:50:43,155 | INFO | Generation time: 90.78 seconds
+2026-03-21 18:51:01,270 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:51:06,880 | INFO | CLIP Score: 61.61
+2026-03-21 18:51:06,884 | INFO | Aesthetic Score: 74.21
+2026-03-21 18:51:06,884 | INFO | Final Score: 67.91
+2026-03-21 18:51:07,411 | INFO | Wallpaper set successfully
+2026-03-21 18:53:28,351 | INFO | Script PID: 12520
+2026-03-21 18:53:28,351 | INFO | Wallpaper engine started
+2026-03-21 18:53:28,398 | INFO | THEME: cyberpunk
+2026-03-21 18:53:28,398 | INFO | Prompt mutations applied: add:environment:rain soaked streets glowing with neon
+2026-03-21 18:53:28,399 | INFO | SEED KSampler 1: 3788801858502268864
+2026-03-21 18:53:28,399 | INFO | SEED KSampler 2: 2950921383292510891
+2026-03-21 18:53:28,399 | INFO | Prompt generated: cinematic wide shot of cyberpunk hacker in a futuristic alleyway, flying vehicles in the skyline, neon signs reflecting on wet pavement, rain soaked streets glowing with neon, illuminated by moonlit night sky, cinematic lighting, mysterious dark ambiance, shot on 50mm lens, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 18:55:01,474 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_185501.png
+2026-03-21 18:55:01,475 | INFO | Generation time: 93.08 seconds
+2026-03-21 18:55:12,359 | INFO | Loaded CLIP model ViT-L/14 on cpu via transformers
+2026-03-21 18:55:14,756 | INFO | CLIP Score: 65.74
+2026-03-21 18:55:14,758 | INFO | Aesthetic Score: 71.76
+2026-03-21 18:55:14,758 | INFO | Final Score: 68.75
+2026-03-21 18:55:15,399 | INFO | Wallpaper set successfully
+2026-03-21 19:00:17,287 | INFO | Script PID: 14696
+2026-03-21 19:00:17,288 | INFO | Wallpaper engine started
+2026-03-21 19:00:17,340 | INFO | THEME: cyberpunk
+2026-03-21 19:00:17,341 | INFO | SEED KSampler 1: 1208524973170264308
+2026-03-21 19:00:17,341 | INFO | SEED KSampler 2: 2488205512926614203
+2026-03-21 19:00:17,341 | INFO | Prompt generated: cinematic wide shot of futuristic bounty hunter in a futuristic alleyway, rain soaked streets glowing with neon, flying vehicles in the skyline, illuminated by cold blue moonlight, cinematic lighting, mysterious dark ambiance, cinematic depth of field, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 19:01:43,670 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_190143.png
+2026-03-21 19:01:43,671 | INFO | Generation time: 86.33 seconds
+2026-03-21 19:01:43,673 | INFO | Image Score: 77.36
+2026-03-21 19:01:44,363 | INFO | Wallpaper set successfully
+2026-03-21 19:53:14,938 | INFO | Script PID: 13880
+2026-03-21 19:53:14,938 | INFO | Wallpaper engine started
+2026-03-21 19:53:15,030 | INFO | THEME: fantasy
+2026-03-21 19:53:15,031 | INFO | SEED KSampler 1: 4788740621929343612
+2026-03-21 19:53:15,032 | INFO | SEED KSampler 2: 7557351684771997091
+2026-03-21 19:53:15,032 | INFO | Prompt generated: lone samurai warrior deep inside a dark forest, foggy valley below, massive cliffs and rocky terrain, cold blue moonlight, epic cinematic atmosphere, volumetric fog, dramatic perspective shot, ultra wide lens perspective, intricate architecture, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 19:55:15,074 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_195515.png
+2026-03-21 19:55:15,075 | INFO | Generation time: 120.04 seconds
+2026-03-21 19:55:15,081 | INFO | Image Score: 86.18
+2026-03-21 19:55:16,556 | INFO | Wallpaper set successfully
+2026-03-21 19:56:24,178 | INFO | Script PID: 25948
+2026-03-21 19:56:24,178 | INFO | Wallpaper engine started
+2026-03-21 19:56:24,230 | INFO | THEME: cyberpunk
+2026-03-21 19:56:24,243 | INFO | SEED KSampler 1: 8952967551854212536
+2026-03-21 19:56:24,244 | INFO | SEED KSampler 2: 7557351684771999809
+2026-03-21 19:56:24,244 | INFO | Prompt generated: epic scene of cyberpunk hacker on top of a megacity skyscraper, surrounded by rain soaked streets glowing with neon, neon signs reflecting on wet pavement, dramatic dim lunar illumination, ultra wide landscape shot, shot on 35mm lens, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 20:01:25,659 | WARNING | Generation timeout reached.
+2026-03-21 20:01:25,671 | INFO | Wallpaper generation skipped or aborted.
+2026-03-21 20:11:05,100 | INFO | Script PID: 26668
+2026-03-21 20:11:05,100 | INFO | Wallpaper engine started
+2026-03-21 20:11:05,165 | INFO | THEME: cyberpunk
+2026-03-21 20:11:05,166 | INFO | SEED KSampler 1: 3788801858502271235
+2026-03-21 20:11:05,166 | INFO | SEED KSampler 2: 7557351684771995667
+2026-03-21 20:11:05,166 | INFO | Prompt generated: android assassin on top of a megacity skyscraper, flying vehicles in the skyline, neon signs reflecting on wet pavement, cold blue moonlight, volumetric fog, epic cinematic atmosphere, dramatic perspective shot, ultra wide lens perspective, highly detailed terrain, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-21 20:12:53,757 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260321_201253.png
+2026-03-21 20:12:53,760 | INFO | Generation time: 108.59 seconds
+2026-03-21 20:12:53,770 | INFO | Image Score: 94.44
+2026-03-21 20:12:55,298 | INFO | Wallpaper set successfully
+2026-03-22 02:02:44,126 | INFO | Script PID: 9988
+2026-03-22 02:02:44,127 | INFO | Wallpaper engine started
+2026-03-22 02:02:44,420 | INFO | THEME: cyberpunk
+2026-03-22 02:02:44,432 | INFO | SEED KSampler 1: 7557351684771990846
+2026-03-22 02:02:44,432 | INFO | SEED KSampler 2: 8952967551854210094
+2026-03-22 02:02:44,432 | INFO | Prompt generated: cyberpunk hacker in a neon cyberpunk city, neon signs reflecting on wet pavement, flying vehicles in the skyline, cold blue moonlight, cinematic lighting, mysterious dark ambiance, wide angle cinematic shot, cinematic depth of field, incredible environmental detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 02:04:38,947 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_020438.png
+2026-03-22 02:04:38,952 | INFO | Generation time: 114.53 seconds
+2026-03-22 02:04:40,883 | INFO | Image Score: 67.14
+2026-03-22 02:04:41,723 | INFO | Wallpaper set successfully
+2026-03-22 03:27:54,177 | INFO | Script PID: 26668
+2026-03-22 03:27:54,179 | INFO | Wallpaper engine started
+2026-03-22 03:27:54,328 | INFO | THEME: fantasy
+2026-03-22 03:27:54,329 | ERROR | Wallpaper generation cycle failed: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\wallpaper.json'
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 71, in run
+    result = self._generate_wallpaper()
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 120, in _generate_wallpaper
+    workflow, used_seeds = self.workflow_manager.prepare(final_prompt)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\comfy\workflow.py", line 28, in prepare
+    workflow = self.load()
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\comfy\workflow.py", line 23, in load
+    with self.workflow_path.open("r", encoding="utf-8") as file:
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\ayush\\Desktop\\Coding\\Wallpaper Change\\wallpaper.json'
+2026-03-22 03:28:29,882 | INFO | Script PID: 14856
+2026-03-22 03:28:29,883 | INFO | Wallpaper engine started
+2026-03-22 03:28:29,948 | INFO | THEME: fantasy
+2026-03-22 03:28:29,949 | INFO | SEED KSampler 1: 2488205512926614259
+2026-03-22 03:28:29,950 | INFO | SEED KSampler 2: 8952967551854207368
+2026-03-22 03:28:29,950 | INFO | Prompt generated: epic scene of lone samurai warrior in a misty mountain valley, surrounded by ancient ruins scattered across landscape, storm clouds gathering, dramatic dim lunar illumination, dramatic perspective shot, dramatic cinematic framing, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 03:30:09,905 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_033009.png
+2026-03-22 03:30:09,914 | INFO | Generation time: 99.97 seconds
+2026-03-22 03:30:11,397 | INFO | Image Score: 69.31
+2026-03-22 03:30:12,032 | INFO | Wallpaper set successfully
+2026-03-22 04:21:52,874 | INFO | Script PID: 11048
+2026-03-22 04:21:52,875 | INFO | Wallpaper engine started
+2026-03-22 04:21:53,138 | INFO | THEME: romantic_tragedy
+2026-03-22 04:21:53,140 | INFO | SEED KSampler 1: 6340766487485769038
+2026-03-22 04:21:53,141 | INFO | SEED KSampler 2: 3788801858502274941
+2026-03-22 04:21:53,141 | INFO | Prompt generated: princess watching silently as a knight walks away inside a royal garden frozen in stillness, soft wind moving fabric and hair, petals falling slowly between them, dim starlight with deep shadowsultra wide landscape composition, highly realistic textures, dramatic shadows, cinematic lighting, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 04:23:41,014 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_042341.png
+2026-03-22 04:23:41,014 | INFO | Generation time: 107.88 seconds
+2026-03-22 04:23:42,161 | INFO | Image Score: 65.86
+2026-03-22 04:23:42,870 | INFO | Wallpaper set successfully
+2026-03-22 04:36:35,961 | INFO | Script PID: 18672
+2026-03-22 04:36:35,961 | INFO | Wallpaper engine started
+2026-03-22 04:36:36,102 | INFO | THEME: apocalyptic
+2026-03-22 04:36:36,103 | ERROR | Wallpaper generation cycle failed: name 'RENDER_TAG' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 71, in run
+    result = self._generate_wallpaper()
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 119, in _generate_wallpaper
+    final_prompt = semantic_prompt + ", " + render_prompt + RENDER_TAG
+                                                            ^^^^^^^^^^
+NameError: name 'RENDER_TAG' is not defined. Did you mean: 'RENDER_TAGS'?
+2026-03-22 04:37:45,147 | INFO | Script PID: 11688
+2026-03-22 04:37:45,147 | INFO | Wallpaper engine started
+2026-03-22 04:37:45,204 | INFO | THEME: romantic_tragedy
+2026-03-22 04:37:45,205 | INFO | SEED KSampler 1: 8952967551854210899
+2026-03-22 04:37:45,205 | INFO | SEED KSampler 2: 7557351684771995807
+2026-03-22 04:37:45,206 | INFO | Prompt generated: princess and knight separated in a moonlit courtyard, both silent and still inside a royal garden frozen in stillness, long shadows stretching across the ground, soft wind moving fabric and hair, epic aerial view, intricate architecture, epic cinematic tone, high contrast lighting, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 04:39:23,886 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_043923.png
+2026-03-22 04:39:23,886 | INFO | Generation time: 98.68 seconds
+2026-03-22 04:39:24,264 | INFO | Image Score: 65.25
+2026-03-22 04:39:24,814 | INFO | Wallpaper set successfully
+2026-03-22 04:45:20,090 | INFO | Script PID: 29172
+2026-03-22 04:45:20,091 | INFO | Wallpaper engine started
+2026-03-22 04:45:20,164 | INFO | THEME: cinematic_cutscene
+2026-03-22 04:45:20,165 | INFO | SEED KSampler 1: 2488205512926607485
+2026-03-22 04:45:20,165 | INFO | SEED KSampler 2: 7487656306694815565
+2026-03-22 04:45:20,165 | INFO | Prompt generated: protagonist turning toward an unseen threat, standing in tense stillness in in a massive cinematic landscape frozen in time, light rays cutting through heavy dust, debris suspended mid-air as if time has stopped, dim starlight with deep shadows, dramatic perspective shot, extremely detailed environment, moody dark atmosphere, cinematic lighting, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 04:46:55,184 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_044655.png
+2026-03-22 04:46:55,185 | INFO | Generation time: 95.02 seconds
+2026-03-22 04:46:55,525 | INFO | Image Score: 64.75
+2026-03-22 04:46:56,030 | INFO | Wallpaper set successfully
+2026-03-22 04:57:44,032 | INFO | Script PID: 24948
+2026-03-22 04:57:44,032 | INFO | Wallpaper engine started
+2026-03-22 04:57:44,123 | INFO | THEME: cinematic_cutscene
+2026-03-22 04:57:44,124 | INFO | SEED KSampler 1: 7557351684771995000
+2026-03-22 04:57:44,124 | INFO | SEED KSampler 2: 8539604003642411056
+2026-03-22 04:57:44,124 | INFO | Prompt generated: character half-turned backward, alert stance, looking off-frame in rocky cliff above barren landscape, light beams through dust and smoke, floating dust particles, cold blue moonlight illuminating the scene, cinematic lighting, volumetric fog, wide angle cinematic shot, cinematic depth of field, sharp focus, 4k detail, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 04:59:25,866 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_045925.png
+2026-03-22 04:59:25,866 | INFO | Generation time: 101.74 seconds
+2026-03-22 04:59:26,268 | INFO | Image Score: 66.81
+2026-03-22 04:59:26,970 | INFO | Wallpaper set successfully
+2026-03-22 05:12:53,215 | INFO | Script PID: 27024
+2026-03-22 05:12:53,216 | INFO | Wallpaper engine started
+2026-03-22 05:12:53,296 | INFO | THEME: apocalyptic
+2026-03-22 05:12:53,297 | INFO | SEED KSampler 1: 7974140644690640285
+2026-03-22 05:12:53,297 | INFO | SEED KSampler 2: 2488205512926607253
+2026-03-22 05:12:53,297 | INFO | Prompt generated: survivor carrying weapon through empty city street, alone destroyed industrial complex with twisted metal, plants growing through cracked roads, empty scene with no movement, golden sunrise lighting casting long shadows, dramatic perspective shot, extremely detailed environment, volumetric fog, dramatic shadows, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:14:36,952 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_051436.png
+2026-03-22 05:14:36,953 | INFO | Generation time: 103.66 seconds
+2026-03-22 05:14:37,907 | INFO | Image Score: 67.40
+2026-03-22 05:14:38,359 | INFO | Wallpaper set successfully
+2026-03-22 05:16:05,161 | INFO | Script PID: 28676
+2026-03-22 05:16:05,162 | INFO | Wallpaper engine started
+2026-03-22 05:16:05,240 | INFO | THEME: surreal_inversion
+2026-03-22 05:16:05,241 | INFO | SEED KSampler 1: 2488205512926607294
+2026-03-22 05:16:05,241 | INFO | SEED KSampler 2: 3788801858502269915
+2026-03-22 05:16:05,241 | INFO | Prompt generated: city buildings bending inward toward center, curved architecture, distorted skyline void-like environment with suspended structures and no clear horizon, warped perspective lines with curved buildings and tilted geometry, objects oriented in different directions as if gravity differs per surface, moody dark atmosphere, cinematic lighting, low angle perspective emphasizing scale, ultra wide lens distortion, extremely detailed environment, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:17:42,058 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_051742.png
+2026-03-22 05:17:42,058 | INFO | Generation time: 96.82 seconds
+2026-03-22 05:17:42,381 | INFO | Image Score: 64.18
+2026-03-22 05:17:42,936 | INFO | Wallpaper set successfully
+2026-03-22 05:19:00,494 | INFO | Script PID: 16332
+2026-03-22 05:19:00,495 | INFO | Wallpaper engine started
+2026-03-22 05:19:00,601 | INFO | THEME: soulslike
+2026-03-22 05:19:00,604 | INFO | SEED KSampler 1: 2488205512926609480
+2026-03-22 05:19:00,604 | INFO | SEED KSampler 2: 2004092678511405132
+2026-03-22 05:19:00,604 | INFO | Prompt generated: figure rising from ash, surrounded by flowing flames battlefield with corpses and broken weapons, golden leaves falling, ash moving across ground, soft morning light breaking through clouds, low angle perspective emphasizing scale, highly realistic textures, epic cinematic tone, cinematic lighting, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:20:38,371 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_052038.png
+2026-03-22 05:20:38,371 | INFO | Generation time: 97.77 seconds
+2026-03-22 05:20:38,764 | INFO | Image Score: 64.88
+2026-03-22 05:20:39,275 | INFO | Wallpaper set successfully
+2026-03-22 05:22:21,449 | INFO | Script PID: 22276
+2026-03-22 05:22:21,449 | INFO | Wallpaper engine started
+2026-03-22 05:22:21,539 | INFO | THEME: soulslike
+2026-03-22 05:22:21,540 | INFO | SEED KSampler 1: 3788801858502276130
+2026-03-22 05:22:21,541 | INFO | SEED KSampler 2: 7557351684771988818
+2026-03-22 05:22:21,541 | INFO | Prompt generated: multi-headed dragon with torn wings, lightning striking its body battlefield with corpses and broken weapons, fog covering distant ruins, golden leaves falling, soft morning light breaking through clouds, low angle perspective emphasizing scale, sharp focus, 4k detail, dramatic shadows, volumetric fog, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:23:57,365 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_052357.png
+2026-03-22 05:23:57,369 | INFO | Generation time: 95.83 seconds
+2026-03-22 05:23:58,748 | INFO | Image Score: 64.89
+2026-03-22 05:23:59,269 | INFO | Wallpaper set successfully
+2026-03-22 05:26:41,858 | INFO | Script PID: 35336
+2026-03-22 05:26:41,859 | INFO | Wallpaper engine started
+2026-03-22 05:26:41,937 | INFO | THEME: soulslike
+2026-03-22 05:26:41,939 | INFO | SEED KSampler 1: 7557351684771990723
+2026-03-22 05:26:41,939 | INFO | SEED KSampler 2: 3788801858502272797
+2026-03-22 05:26:41,939 | INFO | Prompt generated: giant armored warlord standing forward, holding massive weapon, dominant posture in in collapsed kingdom with scattered stone debris, dust particles visible in cold air, embers floating in dark air, soft morning light breaking through clouds, dramatic perspective shot, highly realistic textures, dramatic shadows, volumetric fog, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:28:16,862 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_052816.png
+2026-03-22 05:28:16,867 | INFO | Generation time: 94.93 seconds
+2026-03-22 05:28:18,220 | INFO | Image Score: 66.43
+2026-03-22 05:28:18,744 | INFO | Wallpaper set successfully
+2026-03-22 05:30:08,367 | INFO | Script PID: 13036
+2026-03-22 05:30:08,368 | INFO | Wallpaper engine started
+2026-03-22 05:30:08,449 | INFO | THEME: soulslike
+2026-03-22 05:30:08,451 | INFO | SEED KSampler 1: 2488205512926606385
+2026-03-22 05:30:08,451 | INFO | SEED KSampler 2: 2950921383292511539
+2026-03-22 05:30:08,451 | INFO | Prompt generated: giant armored warlord standing on rubble-covered ground, holding massive sword, dominant posture, ruined stone fortress with broken towers behind, scattered debris and dust in air, soft morning light breaking through clouds, long shadows, cinematic composition, ultra detailed, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:31:40,332 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_053140.png
+2026-03-22 05:31:40,332 | INFO | Generation time: 91.88 seconds
+2026-03-22 05:31:40,757 | INFO | Image Score: 65.98
+2026-03-22 05:31:41,291 | INFO | Wallpaper set successfully
+2026-03-22 05:32:15,902 | INFO | Script PID: 16396
+2026-03-22 05:32:15,902 | INFO | Wallpaper engine started
+2026-03-22 05:32:16,011 | INFO | THEME: soulslike
+2026-03-22 05:32:16,012 | INFO | SEED KSampler 1: 783060425658439573
+2026-03-22 05:32:16,012 | INFO | SEED KSampler 2: 1361641221731219883
+2026-03-22 05:32:16,012 | INFO | Prompt generated: giant armored warlord standing on rubble-covered ground, holding massive sword, dominant posture, ruined stone fortress with broken towers behind, scattered debris and dust in air, soft morning light breaking through clouds, long shadows, cinematic composition, ultra detailed, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:33:44,573 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_053344.png
+2026-03-22 05:33:44,574 | INFO | Generation time: 88.56 seconds
+2026-03-22 05:33:45,786 | INFO | Image Score: 65.91
+2026-03-22 05:33:46,398 | INFO | Wallpaper set successfully
+2026-03-22 05:34:30,256 | INFO | Script PID: 15940
+2026-03-22 05:34:30,256 | INFO | Wallpaper engine started
+2026-03-22 05:34:30,323 | INFO | GPU busy, retrying in 2 minutes
+2026-03-22 05:36:30,410 | INFO | THEME: soulslike
+2026-03-22 05:36:30,411 | INFO | SEED KSampler 1: 3933165051517828803
+2026-03-22 05:36:30,411 | INFO | SEED KSampler 2: 7078231090815487780
+2026-03-22 05:36:30,411 | INFO | Prompt generated: giant armored warlord standing on rubble-covered ground, holding massive sword, dominant posture, ruined stone fortress with broken towers behind, scattered debris and dust in air, soft morning light breaking through clouds, long shadows, cinematic composition, ultra detailed, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:37:58,988 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_053758.png
+2026-03-22 05:37:58,988 | INFO | Generation time: 88.58 seconds
+2026-03-22 05:38:00,142 | INFO | Image Score: 66.38
+2026-03-22 05:38:00,681 | INFO | Wallpaper set successfully
+2026-03-22 05:38:20,205 | INFO | Script PID: 35016
+2026-03-22 05:38:20,206 | INFO | Wallpaper engine started
+2026-03-22 05:38:20,321 | INFO | THEME: soulslike
+2026-03-22 05:38:20,322 | INFO | SEED KSampler 1: 7403431311200583323
+2026-03-22 05:38:20,323 | INFO | SEED KSampler 2: 4607358835258957848
+2026-03-22 05:38:20,323 | INFO | Prompt generated: photorealistic lone armored knight standing on rubble-covered ground, ruined stone fortress with broken towers behind, drifting fog and ash in the air, cold moonlight through storm clouds, long shadows, cinematic composition, sharp focus, highly detailed textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:39:57,142 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_053957.png
+2026-03-22 05:39:57,142 | INFO | Generation time: 96.82 seconds
+2026-03-22 05:39:58,035 | INFO | Image Score: 67.42
+2026-03-22 05:39:58,679 | INFO | Wallpaper set successfully
+2026-03-22 05:40:21,222 | INFO | Script PID: 13088
+2026-03-22 05:40:21,223 | INFO | Wallpaper engine started
+2026-03-22 05:40:21,337 | INFO | THEME: soulslike
+2026-03-22 05:40:21,339 | INFO | SEED KSampler 1: 561173224711821591
+2026-03-22 05:40:21,339 | INFO | SEED KSampler 2: 8917264581918686582
+2026-03-22 05:40:21,339 | INFO | Prompt generated: photorealistic lone armored knight standing on rubble-covered ground, ruined stone fortress with broken towers behind, drifting fog and ash in the air, cold moonlight through storm clouds, long shadows, cinematic composition, sharp focus, highly detailed textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:41:49,766 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_054149.png
+2026-03-22 05:41:49,766 | INFO | Generation time: 88.43 seconds
+2026-03-22 05:41:50,617 | INFO | Image Score: 67.63
+2026-03-22 05:41:51,063 | INFO | Wallpaper set successfully
+2026-03-22 05:43:50,123 | INFO | Script PID: 27064
+2026-03-22 05:43:50,124 | INFO | Wallpaper engine started
+2026-03-22 05:43:50,208 | INFO | THEME: soulslike
+2026-03-22 05:43:50,209 | INFO | SEED KSampler 1: 2216070865921380685
+2026-03-22 05:43:50,209 | INFO | SEED KSampler 2: 4568484073110340498
+2026-03-22 05:43:50,209 | INFO | Prompt generated: photorealistic lone armored knight standing on rubble-covered ground, ruined stone fortress with broken towers behind, drifting fog and ash in the air, cold moonlight through storm clouds, long shadows, cinematic composition, sharp focus, highly detailed textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:45:18,958 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_054518.png
+2026-03-22 05:45:18,958 | INFO | Generation time: 88.75 seconds
+2026-03-22 05:45:19,724 | INFO | Image Score: 62.49
+2026-03-22 05:45:20,228 | INFO | Wallpaper set successfully
+2026-03-22 05:46:26,546 | INFO | Script PID: 28528
+2026-03-22 05:46:26,553 | INFO | Wallpaper engine started
+2026-03-22 05:46:26,697 | INFO | THEME: cosmic_blackhole
+2026-03-22 05:46:26,699 | INFO | SEED KSampler 1: 564214752334130444
+2026-03-22 05:46:26,700 | INFO | SEED KSampler 2: 294298963262374360
+2026-03-22 05:46:26,700 | INFO | Prompt generated: photorealistic lone armored knight standing on rubble-covered ground, ruined stone fortress with broken towers behind, drifting fog and ash in the air, cold moonlight through storm clouds, long shadows, cinematic composition, sharp focus, highly detailed textures, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:47:59,151 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_054759.png
+2026-03-22 05:47:59,151 | INFO | Generation time: 92.45 seconds
+2026-03-22 05:47:59,917 | INFO | Image Score: 62.21
+2026-03-22 05:48:00,427 | INFO | Wallpaper set successfully
+2026-03-22 05:49:32,724 | INFO | Script PID: 31580
+2026-03-22 05:49:32,724 | INFO | Wallpaper engine started
+2026-03-22 05:49:32,807 | INFO | THEME: cosmic_blackhole
+2026-03-22 05:49:32,808 | INFO | SEED KSampler 1: 979276312913334140
+2026-03-22 05:49:32,808 | INFO | SEED KSampler 2: 3077529294300406039
+2026-03-22 05:49:32,808 | INFO | Prompt generated: armored knight standing on rocky ground in front of large stone castle with towers, full moon in cloudy night sky, fog around ruins, holding sword, dark scene with strong shadows, ultra detailed, global illumination, physically based rendering, ray traced lighting, realistic reflections
+2026-03-22 05:51:17,467 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_055117.png
+2026-03-22 05:51:17,468 | INFO | Generation time: 104.66 seconds
+2026-03-22 05:51:18,208 | INFO | Image Score: 63.60
+2026-03-22 05:51:18,709 | INFO | Wallpaper set successfully
+2026-03-22 05:51:44,954 | INFO | Script PID: 34364
+2026-03-22 05:51:44,954 | INFO | Wallpaper engine started
+2026-03-22 05:51:45,040 | INFO | THEME: cinematic_cutscene
+2026-03-22 05:51:45,041 | INFO | SEED KSampler 1: 4165356547843075048
+2026-03-22 05:51:45,041 | INFO | SEED KSampler 2: 7832561112570120385
+2026-03-22 05:51:45,041 | INFO | Prompt generated: armored knight standing on rocky ground in front of large stone castle with towers, full moon in cloudy night sky, fog around ruins, holding sword, dark scene with strong shadows
+2026-03-22 05:53:31,497 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_055331.png
+2026-03-22 05:53:31,526 | INFO | Generation time: 106.49 seconds
+2026-03-22 05:53:36,825 | INFO | Image Score: 64.31
+2026-03-22 05:53:37,526 | INFO | Wallpaper set successfully
+2026-03-22 05:55:13,674 | INFO | Script PID: 18676
+2026-03-22 05:55:13,675 | INFO | Wallpaper engine started
+2026-03-22 05:55:13,754 | INFO | THEME: cinematic_cutscene
+2026-03-22 05:55:13,754 | INFO | SEED KSampler 1: 8147756980877028225
+2026-03-22 05:55:13,754 | INFO | SEED KSampler 2: 2684406012594461509
+2026-03-22 05:55:13,754 | INFO | Prompt generated: {subject} {location}, {environment}{camera}, {detail}, {atmosphere}
+2026-03-22 05:56:16,830 | INFO | Script PID: 35412
+2026-03-22 05:56:16,830 | INFO | Wallpaper engine started
+2026-03-22 05:56:16,893 | INFO | GPU busy, retrying in 2 minutes
+2026-03-22 05:58:16,974 | INFO | THEME: cosmic_blackhole
+2026-03-22 05:58:16,976 | INFO | SEED KSampler 1: 5120878891820079440
+2026-03-22 05:58:16,976 | INFO | SEED KSampler 2: 5344775851351286850
+2026-03-22 05:58:16,976 | INFO | Prompt generated: black hole with glowing disk pulling stars inward black hole surrounded by bright accretion disk, stars stretched into lines toward center, warped star field in background, golden sunrise lighting casting long shadows
+2026-03-22 05:59:56,294 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_055956.png
+2026-03-22 05:59:56,294 | INFO | Generation time: 99.32 seconds
+2026-03-22 05:59:56,948 | INFO | Image Score: 63.71
+2026-03-22 05:59:57,582 | INFO | Wallpaper set successfully
+2026-03-22 06:02:09,008 | INFO | Script PID: 22276
+2026-03-22 06:02:09,009 | INFO | Wallpaper engine started
+2026-03-22 06:02:09,102 | INFO | THEME: cosmic_blackhole
+2026-03-22 06:02:09,104 | INFO | SEED KSampler 1: 7023915428061140096
+2026-03-22 06:02:09,104 | INFO | SEED KSampler 2: 6117832190425028984
+2026-03-22 06:02:09,104 | INFO | Prompt generated: black hole surrounded by bright glowing accretion disk, stars stretched into curved lines around it, warped star field in deep space, high contrast dark background, detailed astrophotography style
+2026-03-22 06:03:50,686 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_060350.png
+2026-03-22 06:03:50,722 | INFO | Generation time: 101.62 seconds
+2026-03-22 06:03:55,748 | INFO | Image Score: 62.95
+2026-03-22 06:03:56,362 | INFO | Wallpaper set successfully
+2026-03-22 06:04:56,919 | INFO | Script PID: 26548
+2026-03-22 06:04:56,920 | INFO | Wallpaper engine started
+2026-03-22 06:04:56,994 | INFO | THEME: cosmic_blackhole
+2026-03-22 06:04:56,995 | INFO | SEED KSampler 1: 5507970735244571276
+2026-03-22 06:04:56,995 | INFO | SEED KSampler 2: 933373056316170749
+2026-03-22 06:04:56,995 | INFO | Prompt generated: black hole with glowing disk pulling stars inward in collapsed star system with scattered debris, warped star field in background, light bending into arcs around black hole, golden sunrise lighting casting long shadows
+2026-03-22 06:06:34,365 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260322_060634.png
+2026-03-22 06:06:34,365 | INFO | Generation time: 97.37 seconds
+2026-03-22 06:06:35,058 | INFO | Image Score: 64.70
+2026-03-22 06:06:35,556 | INFO | Wallpaper set successfully
+2026-03-23 01:20:39,862 | INFO | Script PID: 15444
+2026-03-23 01:20:39,863 | INFO | Wallpaper engine started
+2026-03-23 01:20:41,940 | INFO | ComfyUI not running. Starting...
+2026-03-23 01:20:41,940 | INFO | Starting ComfyUI server...
+2026-03-23 01:20:42,004 | INFO | ComfyUI started with PID 12048
+2026-03-23 01:21:18,098 | INFO | ComfyUI started successfully
+2026-03-23 01:21:18,098 | INFO | THEME: cinematic_cutscene
+2026-03-23 01:21:18,100 | INFO | SEED KSampler 1: 4305450945066485111
+2026-03-23 01:21:18,100 | INFO | SEED KSampler 2: 7986931859403255300
+2026-03-23 01:21:18,101 | INFO | Prompt generated: figure at cliff edge facing horizon, still posture in damaged stone fortress wall with debris, light beams through dust and smoke, debris frozen mid-air, dim starlight with deep shadows
+2026-03-23 01:23:11,907 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260323_012311.png
+2026-03-23 01:23:11,918 | INFO | Generation time: 113.82 seconds
+2026-03-23 01:23:18,567 | INFO | Image Score: 65.04
+2026-03-23 01:23:19,123 | INFO | Wallpaper set successfully
+2026-03-23 11:19:49,080 | INFO | Script PID: 16556
+2026-03-23 11:19:49,081 | INFO | Wallpaper engine started
+2026-03-23 11:19:51,164 | INFO | ComfyUI not running. Starting...
+2026-03-23 11:19:51,164 | INFO | Starting ComfyUI server...
+2026-03-23 11:19:51,221 | INFO | ComfyUI started with PID 18980
+2026-03-23 11:21:15,542 | INFO | ComfyUI started successfully
+2026-03-23 11:21:15,544 | INFO | THEME: space
+2026-03-23 11:21:15,568 | INFO | SEED KSampler 1: 7453733122098364255
+2026-03-23 11:21:15,568 | INFO | SEED KSampler 2: 6906171944522630905
+2026-03-23 11:21:15,568 | INFO | Prompt generated: space explorer in near a massive ringworld, asteroid fields drifting slowly, colorful cosmic nebula, sunrise lightingdramatic perspective shot, incredible environmental detail, volumetric fog, epic cinematic atmosphere
+2026-03-23 11:23:10,396 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260323_112310.png
+2026-03-23 11:23:10,402 | INFO | Generation time: 114.86 seconds
+2026-03-23 11:23:15,713 | INFO | Image Score: 59.30
+2026-03-23 11:23:16,334 | INFO | Wallpaper set successfully
+2026-05-09 21:18:32,612 | INFO | Script PID: 10920
+2026-05-09 21:18:32,613 | INFO | Wallpaper engine started
+2026-05-09 21:18:34,988 | INFO | ComfyUI not running. Starting...
+2026-05-09 21:18:34,988 | INFO | Starting ComfyUI server...
+2026-05-09 21:18:34,990 | ERROR | Failed to launch ComfyUI: [WinError 2] The system cannot find the file specified
+2026-05-09 21:18:34,991 | ERROR | Wallpaper generation cycle failed: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 67, in run
+    if not self._ensure_comfy_server():
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 104, in _ensure_comfy_server
+    self.comfy_server.start()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\comfy\server.py", line 31, in start
+    process = subprocess.Popen(
+        [
+    ...<8 lines>...
+        creationflags=creation_flags,
+    )
+  File "C:\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2026-05-09 21:35:44,864 | INFO | Script PID: 7884
+2026-05-09 21:35:44,864 | INFO | Wallpaper engine started
+2026-05-09 21:35:46,966 | INFO | ComfyUI not running. Starting...
+2026-05-09 21:35:46,966 | INFO | Starting ComfyUI server...
+2026-05-09 21:35:46,966 | ERROR | Failed to launch ComfyUI: [WinError 2] The system cannot find the file specified
+2026-05-09 21:35:46,966 | ERROR | Wallpaper generation cycle failed: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 67, in run
+    if not self._ensure_comfy_server():
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 104, in _ensure_comfy_server
+    self.comfy_server.start()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\comfy\server.py", line 31, in start
+    process = subprocess.Popen(
+        [
+    ...<8 lines>...
+        creationflags=creation_flags,
+    )
+  File "C:\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2026-05-09 21:35:53,312 | INFO | Script PID: 17496
+2026-05-09 21:35:53,312 | INFO | Wallpaper engine started
+2026-05-09 21:35:55,617 | INFO | ComfyUI not running. Starting...
+2026-05-09 21:35:55,618 | INFO | Starting ComfyUI server...
+2026-05-09 21:35:55,618 | ERROR | Failed to launch ComfyUI: [WinError 2] The system cannot find the file specified
+2026-05-09 21:35:55,618 | ERROR | Wallpaper generation cycle failed: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 67, in run
+    if not self._ensure_comfy_server():
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 104, in _ensure_comfy_server
+    self.comfy_server.start()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\comfy\server.py", line 31, in start
+    process = subprocess.Popen(
+        [
+    ...<8 lines>...
+        creationflags=creation_flags,
+    )
+  File "C:\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2026-05-09 21:40:09,086 | INFO | Script PID: 16208
+2026-05-09 21:40:09,086 | INFO | Wallpaper engine started
+2026-05-09 21:40:11,182 | INFO | ComfyUI not running. Starting...
+2026-05-09 21:40:11,182 | INFO | Starting ComfyUI server...
+2026-05-09 21:40:11,186 | INFO | ComfyUI started with PID 15004
+2026-05-09 21:42:11,376 | ERROR | ComfyUI failed to start
+2026-05-09 21:44:22,655 | INFO | Script PID: 18564
+2026-05-09 21:44:22,655 | INFO | Wallpaper engine started
+2026-05-09 21:44:24,729 | INFO | ComfyUI not running. Starting...
+2026-05-09 21:44:24,729 | INFO | Starting ComfyUI server...
+2026-05-09 21:44:24,745 | INFO | ComfyUI started with PID 22240
+2026-05-09 21:46:24,984 | ERROR | ComfyUI failed to start
+2026-05-10 00:50:42,677 | INFO | Script PID: 2272
+2026-05-10 00:50:42,677 | INFO | Wallpaper engine started
+2026-05-10 00:50:44,859 | INFO | ComfyUI not running. Starting...
+2026-05-10 00:50:44,860 | INFO | Starting ComfyUI server...
+2026-05-10 00:50:44,869 | INFO | ComfyUI started with PID 21740
+2026-05-10 00:50:52,894 | INFO | ComfyUI started successfully
+2026-05-10 00:50:52,895 | INFO | THEME: space
+2026-05-10 00:50:52,896 | INFO | SEED KSampler 1: 7695685187068887150
+2026-05-10 00:50:52,896 | INFO | SEED KSampler 2: 4627765902961524941
+2026-05-10 00:50:52,896 | INFO | Prompt generated: interstellar spaceship fleet orbiting a distant planet, colorful cosmic nebula, asteroid fields drifting slowlyultra wide landscape shot, intricate architecture, high contrast lighting, epic cinematic atmosphere
+2026-05-10 00:50:52,924 | ERROR | Failed to send workflow to ComfyUI: 400 Client Error: Bad Request for url: http://127.0.0.1:8188/prompt
+2026-05-10 00:50:52,925 | INFO | Wallpaper generation skipped or aborted.
+2026-05-10 00:54:58,116 | INFO | Script PID: 14824
+2026-05-10 00:54:58,116 | INFO | Wallpaper engine started
+2026-05-10 00:54:58,174 | INFO | THEME: space
+2026-05-10 00:54:58,174 | INFO | SEED KSampler 1: 7992317463445819647
+2026-05-10 00:54:58,175 | INFO | SEED KSampler 2: 5183019034629687754
+2026-05-10 00:54:58,175 | INFO | Prompt generated: space explorer in near a massive ringworld, glowing galactic clouds, colorful cosmic nebula, starry night skymysterious dark ambiance, volumetric fog, wide angle cinematic shot, ultra wide lens perspective, intricate architecture
+2026-05-10 00:56:48,994 | INFO | Wallpaper generated successfully: C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_005648.png
+2026-05-10 00:56:49,001 | INFO | Generation time: 110.83 seconds
+2026-05-10 00:56:53,756 | INFO | Image Score: 62.71
+2026-05-10 00:56:54,522 | INFO | Wallpaper set successfully
+2026-05-10 06:10:51,675 | INFO | Loading CLIP model on cuda
+2026-05-10 06:10:58,089 | INFO | CLIP model loaded successfully
+2026-05-10 06:10:58,090 | INFO | Script PID: 7540
+2026-05-10 06:10:58,090 | INFO | Wallpaper engine started
+2026-05-10 06:10:58,166 | INFO | THEME: cyberpunk
+2026-05-10 06:10:58,167 | INFO | SEED KSampler 1: 8952967551854209456
+2026-05-10 06:10:58,168 | INFO | SEED KSampler 2: 3788801858502274573
+2026-05-10 06:10:58,168 | INFO | Prompt generated: android assassin in in a neon cyberpunk city, neon signs reflecting on wet pavement, flying vehicles in the skyline, sunrise lightingdramatic perspective shot, intricate architecture, dramatic shadows, cinematic lighting
+2026-05-10 06:12:45,557 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 06:12:45,560 | INFO | Aspect ratio: 1.60
+2026-05-10 06:12:45,561 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 06:12:45,561 | INFO | Generated image size: 6.56 MB
+2026-05-10 06:12:45,561 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_061245_561.png
+2026-05-10 06:12:45,569 | INFO | Image move completed in 0.01 seconds
+2026-05-10 06:12:45,569 | INFO | Generated filename: 20260510_061245_561.png
+2026-05-10 06:12:45,569 | INFO | Generation time: 107.40 seconds
+2026-05-10 06:12:45,571 | INFO | Total generation cycle time: 107.40 seconds
+2026-05-10 06:12:45,571 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_061245_561.png
+2026-05-10 06:12:46,599 | INFO | CLIP score: 65.62
+2026-05-10 06:12:46,600 | INFO | Image Score: 65.62
+2026-05-10 06:12:47,208 | INFO | Wallpaper set successfully in 0.60 seconds
+2026-05-10 06:15:45,859 | INFO | Loading CLIP model on cuda
+2026-05-10 06:16:04,472 | INFO | CLIP model loaded successfully
+2026-05-10 06:16:04,475 | INFO | Script PID: 7096
+2026-05-10 06:16:04,476 | INFO | Wallpaper engine started
+2026-05-10 06:16:04,564 | INFO | THEME: space
+2026-05-10 06:16:04,568 | INFO | SEED KSampler 1: 3788801858502269411
+2026-05-10 06:16:04,569 | INFO | SEED KSampler 2: 520784716014590261
+2026-05-10 06:16:04,570 | INFO | Prompt generated: space explorer near a massive ringworld, glowing galactic clouds, colorful cosmic nebula, low angle sunlight casting long shadowscinematic lighting, volumetric fog, dramatic perspective shot, ultra wide lens perspective, realistic material textures
+2026-05-10 06:17:47,605 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 06:17:47,613 | INFO | Aspect ratio: 1.60
+2026-05-10 06:17:47,619 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 06:17:47,620 | INFO | Generated image size: 6.07 MB
+2026-05-10 06:17:47,620 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_061747_620.png
+2026-05-10 06:17:47,630 | INFO | Image move completed in 0.01 seconds
+2026-05-10 06:17:47,632 | INFO | Generated filename: 20260510_061747_620.png
+2026-05-10 06:17:47,635 | INFO | Total generation cycle time: 103.07 seconds
+2026-05-10 06:17:47,636 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_061747_620.png
+2026-05-10 06:17:50,344 | INFO | CLIP score: 57.29
+2026-05-10 06:17:51,045 | INFO | Wallpaper set successfully in 0.69 seconds
+2026-05-10 06:23:19,337 | INFO | Loading CLIP model on cuda
+2026-05-10 06:23:25,041 | INFO | CLIP model loaded successfully
+2026-05-10 06:23:25,042 | INFO | Script PID: 25080
+2026-05-10 06:23:25,043 | INFO | Wallpaper engine started
+2026-05-10 06:23:25,117 | INFO | THEME: fantasy
+2026-05-10 06:23:25,119 | INFO | SEED KSampler 1: 3788801858502268251
+2026-05-10 06:23:25,120 | INFO | SEED KSampler 2: 8952967551854207817
+2026-05-10 06:23:25,121 | INFO | Prompt generated: ancient gothic castle in deep inside a dark forest, storm clouds gathering, ancient ruins scattered across landscape, golden morning sunlightultra wide landscape shot, realistic material textures, dramatic shadows, epic cinematic atmosphere
+2026-05-10 06:25:03,839 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 06:25:03,840 | INFO | Aspect ratio: 1.60
+2026-05-10 06:25:03,840 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 06:25:03,840 | INFO | Generated image size: 5.79 MB
+2026-05-10 06:25:03,840 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_062503_840.png
+2026-05-10 06:25:03,842 | INFO | Image move completed in 0.00 seconds
+2026-05-10 06:25:03,842 | INFO | Generated filename: 20260510_062503_840.png
+2026-05-10 06:25:03,842 | INFO | Total generation cycle time: 98.73 seconds
+2026-05-10 06:25:03,843 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_062503_840.png
+2026-05-10 06:25:04,635 | INFO | CLIP score: 64.53
+2026-05-10 06:25:05,098 | INFO | Wallpaper set successfully in 0.46 seconds
+2026-05-10 06:46:41,602 | INFO | Loading CLIP model on cuda
+2026-05-10 06:46:47,442 | INFO | CLIP model loaded successfully
+2026-05-10 06:46:47,443 | INFO | Script PID: 15120
+2026-05-10 06:46:47,444 | INFO | Wallpaper engine started
+2026-05-10 06:46:47,603 | INFO | THEME: fantasy
+2026-05-10 06:46:47,604 | ERROR | Wallpaper generation cycle failed: list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 75, in run
+    result = self._generate_wallpaper()
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 134, in _generate_wallpaper
+    prompt = self.prompt_engine.generate(time_of_day)
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\core\prompt_engine.py", line 31, in generate
+    location_preposition=location = random.choice(data["location"]["preposition"])
+                                                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2026-05-10 06:48:34,191 | INFO | Loading CLIP model on cuda
+2026-05-10 06:48:38,856 | INFO | CLIP model loaded successfully
+2026-05-10 06:48:38,857 | INFO | Script PID: 17924
+2026-05-10 06:48:38,858 | INFO | Wallpaper engine started
+2026-05-10 06:48:38,930 | INFO | THEME: space
+2026-05-10 06:48:38,930 | ERROR | Wallpaper generation cycle failed: 'location_preposition'
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 75, in run
+    result = self._generate_wallpaper()
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 134, in _generate_wallpaper
+    prompt = self.prompt_engine.generate(time_of_day)
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\core\prompt_engine.py", line 48, in generate
+    semantic_template.format(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        subject=subject,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        lighting=lighting,
+        ^^^^^^^^^^^^^^^^^^
+    ), render_template.format(
+    ^
+KeyError: 'location_preposition'
+2026-05-10 07:04:12,858 | INFO | Loading CLIP model on cuda
+2026-05-10 07:04:17,598 | INFO | CLIP model loaded successfully
+2026-05-10 07:04:17,599 | INFO | Script PID: 22172
+2026-05-10 07:04:17,599 | INFO | Wallpaper engine started
+2026-05-10 07:04:17,673 | INFO | THEME: space
+2026-05-10 07:04:17,711 | INFO | SEED KSampler 1: 2069465281726173320
+2026-05-10 07:04:17,711 | INFO | SEED KSampler 2: 4404602320427301780
+2026-05-10 07:04:17,712 | INFO | Prompt generated: interstellar spaceship fleet orbiting a distant planet, glowing galactic clouds, asteroid fields drifting slowly, golden morning sunlight, epic cinematic atmosphere, dramatic shadows, epic aerial view, dramatic cinematic framing, realistic material textures
+2026-05-10 07:06:04,658 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 07:06:04,662 | INFO | Aspect ratio: 1.60
+2026-05-10 07:06:04,664 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 07:06:04,665 | INFO | Generated image size: 5.35 MB
+2026-05-10 07:06:04,666 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_070604_666.png
+2026-05-10 07:06:04,671 | INFO | Image move completed in 0.01 seconds
+2026-05-10 07:06:04,672 | INFO | Generated filename: 20260510_070604_666.png
+2026-05-10 07:06:04,672 | INFO | Total generation cycle time: 107.00 seconds
+2026-05-10 07:06:04,673 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_070604_666.png
+2026-05-10 07:06:07,063 | INFO | CLIP score: 61.57
+2026-05-10 07:06:07,916 | INFO | Wallpaper set successfully in 0.78 seconds
+2026-05-10 22:12:36,712 | INFO | Loading CLIP model on cuda
+2026-05-10 22:12:42,608 | INFO | CLIP model loaded successfully
+2026-05-10 22:12:42,608 | INFO | Loading aesthetic scorer on cuda
+2026-05-10 22:19:57,980 | INFO | Loading CLIP model on cuda
+2026-05-10 22:20:04,069 | INFO | CLIP model loaded successfully
+2026-05-10 22:20:04,070 | INFO | Loading aesthetic scorer on cuda
+2026-05-10 22:21:51,529 | INFO | Loading CLIP model on cuda
+2026-05-10 22:21:55,780 | INFO | CLIP model loaded successfully
+2026-05-10 22:21:55,780 | INFO | Loading aesthetic scorer on cuda
+2026-05-10 22:21:59,778 | INFO | Aesthetic scorer loaded
+2026-05-10 22:21:59,779 | INFO | Script PID: 17156
+2026-05-10 22:21:59,779 | INFO | Wallpaper engine started
+2026-05-10 22:22:01,851 | INFO | ComfyUI not running. Starting...
+2026-05-10 22:22:01,852 | INFO | Starting ComfyUI server...
+2026-05-10 22:22:01,876 | INFO | ComfyUI started with PID 23536
+2026-05-10 22:23:18,334 | INFO | ComfyUI started successfully
+2026-05-10 22:23:18,335 | INFO | THEME: space
+2026-05-10 22:23:18,343 | INFO | SEED KSampler 1: 7557351684771995089
+2026-05-10 22:23:18,344 | INFO | SEED KSampler 2: 7557351684771991296
+2026-05-10 22:23:18,345 | INFO | Prompt generated: space explorer near a massive ringworld, glowing galactic clouds, colorful cosmic nebula, cinematic lighting, epic cinematic atmosphere, dramatic perspective shot, wide angle lens, realistic material textures
+2026-05-10 22:25:12,895 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 22:25:12,905 | INFO | Aspect ratio: 1.60
+2026-05-10 22:25:12,910 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 22:25:12,910 | INFO | Generated image size: 6.50 MB
+2026-05-10 22:25:12,911 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_222512_910.png
+2026-05-10 22:25:12,914 | INFO | Image move completed in 0.00 seconds
+2026-05-10 22:25:12,914 | INFO | Generated filename: 20260510_222512_910.png
+2026-05-10 22:25:12,917 | INFO | Total generation cycle time: 114.58 seconds
+2026-05-10 22:25:12,918 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_222512_910.png
+2026-05-10 22:25:15,871 | INFO | CLIP score: 58.61
+2026-05-10 22:25:15,875 | ERROR | Wallpaper generation cycle failed: SemanticPromptScorer.score() missing 1 required positional argument: 'prompt'
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 86, in run
+    aesthetic_score = self.semantic_scorer.score(result["path"])
+TypeError: SemanticPromptScorer.score() missing 1 required positional argument: 'prompt'
+2026-05-10 22:26:46,752 | INFO | Loading CLIP model on cuda
+2026-05-10 22:26:46,753 | INFO | CLIP model loaded successfully
+2026-05-10 22:26:46,754 | INFO | Loading aesthetic scorer on cuda
+2026-05-10 22:26:46,764 | INFO | Aesthetic scorer loaded
+2026-05-10 22:26:46,766 | INFO | Script PID: 10668
+2026-05-10 22:26:46,766 | INFO | Wallpaper engine started
+2026-05-10 22:26:46,849 | INFO | THEME: fantasy
+2026-05-10 22:26:46,851 | INFO | SEED KSampler 1: 7557351684771991444
+2026-05-10 22:26:46,851 | INFO | SEED KSampler 2: 3788801858502273812
+2026-05-10 22:26:46,851 | INFO | Prompt generated: ancient gothic castle in a ruined kingdom, storm clouds gathering, foggy valley below, dramatic perspective shot, incredible environmental detail, dramatic shadows, mysterious dark ambiance
+2026-05-10 22:28:26,954 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 22:28:26,956 | INFO | Aspect ratio: 1.60
+2026-05-10 22:28:26,957 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 22:28:26,958 | INFO | Generated image size: 5.28 MB
+2026-05-10 22:28:26,958 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_222826_958.png
+2026-05-10 22:28:26,961 | INFO | Image move completed in 0.00 seconds
+2026-05-10 22:28:26,962 | INFO | Generated filename: 20260510_222826_958.png
+2026-05-10 22:28:26,965 | INFO | Total generation cycle time: 100.12 seconds
+2026-05-10 22:28:26,966 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_222826_958.png
+2026-05-10 22:28:28,835 | INFO | CLIP score: 64.56
+2026-05-10 22:28:28,980 | ERROR | Wallpaper generation cycle failed: mat1 and mat2 must have the same dtype, but got Half and Float
+Traceback (most recent call last):
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\main.py", line 86, in run
+    aesthetic_score = self.aesthetic_scorer.score(result["path"])
+  File "C:\Users\ayush\Desktop\Coding\Wallpaper Change\core\aesthetic_scorer.py", line 76, in score
+    self.predictor(features)
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ayush\AppData\Roaming\Python\Python313\site-packages\torch\nn\modules\module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ayush\AppData\Roaming\Python\Python313\site-packages\torch\nn\modules\module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\ayush\AppData\Roaming\Python\Python313\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 must have the same dtype, but got Half and Float
+2026-05-10 22:30:43,918 | INFO | Loading CLIP model on cuda
+2026-05-10 22:30:43,920 | INFO | CLIP model loaded successfully
+2026-05-10 22:30:43,921 | INFO | Loading aesthetic scorer on cuda
+2026-05-10 22:30:43,950 | INFO | Aesthetic scorer loaded
+2026-05-10 22:30:43,954 | INFO | Script PID: 13128
+2026-05-10 22:30:43,954 | INFO | Wallpaper engine started
+2026-05-10 22:30:44,068 | INFO | THEME: cyberpunk
+2026-05-10 22:30:44,072 | INFO | SEED KSampler 1: 8952967551854212684
+2026-05-10 22:30:44,073 | INFO | SEED KSampler 2: 513247892254093730
+2026-05-10 22:30:44,073 | INFO | Prompt generated: android assassin in a futuristic alleyway, rain soaked streets glowing with neon, neon signs reflecting on wet pavement, cold blue moonlight, ultra wide landscape shot, intricate architecture, dramatic shadows, mysterious dark ambiance
+2026-05-10 22:32:26,953 | INFO | Generated Image resolution: 2560x1600
+2026-05-10 22:32:26,955 | INFO | Aspect ratio: 1.60
+2026-05-10 22:32:26,956 | INFO | Image format: PNG | Mode: RGB
+2026-05-10 22:32:26,957 | INFO | Generated image size: 6.54 MB
+2026-05-10 22:32:26,957 | INFO | Moving generated image from C:\Users\ayush\Documents\ComfyUI\output\ComfyUI_00002_.png to C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_223226_957.png
+2026-05-10 22:32:26,962 | INFO | Image move completed in 0.00 seconds
+2026-05-10 22:32:26,963 | INFO | Generated filename: 20260510_223226_957.png
+2026-05-10 22:32:26,964 | INFO | Total generation cycle time: 102.90 seconds
+2026-05-10 22:32:26,965 | INFO | starting CLIP scoring for C:\Users\ayush\Desktop\Coding\Wallpaper Change\wallpapers\20260510_223226_957.png
+2026-05-10 22:32:29,448 | INFO | CLIP score: 63.99
+2026-05-10 22:32:30,157 | INFO | Aesthetic score: 7.54
+2026-05-10 22:32:30,158 | INFO | Combined Score: 70.84
+2026-05-10 22:32:31,153 | INFO | Wallpaper set successfully in 0.99 seconds

@@ -21,8 +21,14 @@ from config.constants import (
 class PromptEngine:
     """Builds prompts from themed prompt fragments."""
 
-    def generate(self, time_of_day: str) -> str:
-        """Generate a prompt using the original weighted random behavior."""
+    def generate(
+            self, 
+            time_of_day: str,
+            trait_scores: dict[str, dict[str, float]],
+        ) -> dict[str, object]:
+
+        """Generate a prompt using the weighted behavior."""
+
         theme = random.choice(list(PROMPT_DICT.keys()))
         logging.info("THEME: %s", theme)
         data = PROMPT_DICT[theme]
@@ -47,13 +53,57 @@ class PromptEngine:
         )
 
         environment = ", ".join(random.sample(data["environment"], 2))
-        atmosphere = ", ".join(random.sample(ATMOSPHERE, 2))
-        camera = random.choice(CAMERA)
-        detail = random.choice(DETAIL)
-        camera_physics = random.choice(CAMERA_PHYSICS)
-        lighting = random.choice(MORNING_LIGHT if time_of_day == "morning" else NIGHT_LIGHT)
-        semantic_template = random.choice(SEMANTIC_TEMPLATES)
-        render_template = random.choice(RENDER_TEMPLATES)
+
+
+        atmosphere = ", ".join(
+            random.sample(
+                ATMOSPHERE,
+                2,
+            )
+        )
+
+        camera = self.weighted_choice(
+            "camera",
+            CAMERA,
+            trait_scores,
+        )
+
+        detail = self.weighted_choice(
+            "detail",
+            DETAIL,
+            trait_scores,
+        )
+
+        camera_physics = self.weighted_choice(
+            "camera_physics",
+            CAMERA_PHYSICS,
+            trait_scores,
+        )
+
+        lighting_options = (
+            MORNING_LIGHT
+            if time_of_day == "morning"
+            else NIGHT_LIGHT
+        )
+
+        lighting = self.weighted_choice(
+            "lighting",
+            lighting_options,
+            trait_scores,
+        )
+
+        semantic_template = self.weighted_choice(
+            "semantic_template",
+            SEMANTIC_TEMPLATES,
+            trait_scores,
+            0.5
+        )
+        render_template = self.weighted_choice(
+            "render_template",
+            RENDER_TEMPLATES,
+            trait_scores,
+            0.5,
+        )
 
         dna = {
             "theme": theme,
@@ -73,6 +123,10 @@ class PromptEngine:
             "camera_physics": camera_physics,
 
             "detail": detail,
+
+            "semantic_template": semantic_template,
+
+            "render_template": render_template,
         }
 
         semantic_prompt = semantic_template.format(
@@ -95,3 +149,40 @@ class PromptEngine:
             "final_prompt": final_prompt,
             "dna": dna,
         }
+    
+    def weighted_choice(
+            self,
+            trait_name: str,
+            options: list[str],
+            trait_scores: dict[str, dict[str, float]],
+            random_prob=0.3,
+    ) -> str:
+        
+        if random.random() < random_prob:
+            return random.choice(options)
+        
+        weights = []
+
+        trait_data = (
+            trait_scores.get(
+                trait_name,
+                {}
+            )
+        )
+
+        for option in options:
+
+            score = trait_data.get(
+                option, 
+                1,
+            )
+
+            weights.append(score + 1)
+
+        
+
+        return random.choices(
+            options,
+            weights=weights,
+            k=1,
+        )[0]

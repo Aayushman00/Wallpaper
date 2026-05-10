@@ -25,6 +25,7 @@ from database.seeds import SeedRepository
 from system.file_manager import FileManager
 from system.gpu import GPUMonitor
 from system.wallpaper import WallpaperService
+from analytics.gene_analytics import GeneAnalytics
 
 
 def setup_logging() -> None:
@@ -56,7 +57,8 @@ class WallpaperApplication:
         self.wallpaper_service = WallpaperService()
         self.semantic_scorer = SemanticPromptScorer()
         self.aesthetic_scorer = AestheticScorer()
-
+        self.gene_analytics = GeneAnalytics(self.history_repository)
+    
     def run(self) -> None:
         """Execute one wallpaper generation cycle."""
         try:
@@ -106,13 +108,13 @@ class WallpaperApplication:
                 dna=result["dna"],
             )
 
-            # self.seed_engine.update(
-            #     seeds=result["seeds"],
-            #     score=score,
-            #     prompt=result["prompt"],
-            #     tags=result.get("tags", []),
-            # )
-
+            self.seed_engine.update(
+                seeds=result["seeds"],
+                score=combined_score,
+                prompt=result["prompt"],
+                theme=result["dna"]["theme"],
+            )
+            
             wallpaper_start_time = time.time()
             self.wallpaper_service.set_wallpaper(result["path_obj"])
 
@@ -147,8 +149,15 @@ class WallpaperApplication:
     def _generate_wallpaper(self) -> dict[str, object] | None:
         hour = time.localtime().tm_hour
         time_of_day = "morning" if 5 <= hour < 17 else "night"
+
+        trait_scores = (
+            self.gene_analytics
+            .compute_trait_score()
+        )
+
         prompt_data = self.prompt_engine.generate(
-            time_of_day
+            time_of_day,
+            trait_scores,
         )
         prompt = prompt_data["final_prompt"] 
         semantic_prompt = (

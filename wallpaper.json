@@ -18,7 +18,7 @@
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
+      "title": "Positive"
     }
   },
   "7": {
@@ -31,7 +31,7 @@
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
+      "title": "Negative"
     }
   },
   "8": {
@@ -117,10 +117,10 @@
     "inputs": {
       "seed": 963297753583135,
       "steps": 24,
-      "cfg": 5,
+      "cfg": 4.5,
       "sampler_name": "dpmpp_2m_sde_gpu",
       "scheduler": "karras",
-      "denoise": 0.44,
+      "denoise": 0.55,
       "model": [
         "5",
         0

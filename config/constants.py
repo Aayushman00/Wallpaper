@@ -137,24 +137,48 @@ SCENE_TEMPLATES = [
 ]
 
 SEMANTIC_TEMPLATES = [
+
     (
+        "cinematic wide shot of "
         "{subject} "
+        "{location_phrase}, "
+        "{environment}, "
+        "illuminated by "
+        "{lighting}"
+    ),
+
+    (
+        "epic scene of "
+        "{subject} "
+        "{location_phrase}, "
+        "surrounded by "
+        "{environment}, "
+        "{lighting}"
+    ),
+
+    (
+        "{subject} standing "
+        "{location_phrase}, "
+        "{environment}, "
+        "cinematic "
+        "{lighting}"
+    ),
+
+    (
+        "{subject} exploring "
         "{location_phrase}, "
         "{environment}, "
         "{lighting}"
     ),
 
     (
-        "{subject} "
+        "{subject} overlooking "
         "{location_phrase}, "
-        "{environment}"
+        "{environment}, "
+        "{lighting}"
     ),
 ]
 
-RENDER_TEMPLATES = [
-    "{atmosphere}, {camera}, {camera_physics}, {detail}",
-    "{camera}, {detail}, {atmosphere}",
-]
 CAMERA_PHYSICS = [
     "shot on 35mm lens",
     "shot on 50mm lens",
@@ -165,10 +189,36 @@ CAMERA_PHYSICS = [
     "dramatic cinematic framing",
 ]
 
-RENDER_TAGS = (
-    ", ultra detailed, global illumination, physically based rendering, "
-    "ray traced lighting, realistic reflections"
-)
+RENDER_TEMPLATES = [
+
+    (
+        "{camera}, "
+        "{camera_physics}, "
+        "{atmosphere}, "
+        "{detail}"
+    ),
+
+    (
+        "highly cinematic composition, "
+        "{camera}, "
+        "{detail}, "
+        "{atmosphere}"
+    ),
+
+    (
+        "professional cinematic photography, "
+        "{camera_physics}, "
+        "{detail}, "
+        "{atmosphere}"
+    ),
+
+    (
+        "dramatic environmental composition, "
+        "{camera}, "
+        "{detail}, "
+        "{camera_physics}"
+    ),
+]
 
 COMFY_URL = "http://127.0.0.1:8188"
 WORKFLOW_PROMPT_NODE_ID = "6"

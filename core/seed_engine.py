@@ -42,7 +42,7 @@ class SeedEngine:
                seeds: list[int], 
                score: float,
                prompt: str,
-               tags: list[str],
+               theme: str,
                ) -> None:
         """Store seeds ranked by their score, retaining only the top records."""
         data = self.repository.load()
@@ -51,7 +51,7 @@ class SeedEngine:
                         "seed": seed, 
                         "score": score,
                         "prompt": prompt,
-                        "tags": tags
+                        "theme":theme,
             })
 
         ranked = sorted(data, key=lambda item: item["score"], reverse=True)[:BEST_SEED_LIMIT]
