@@ -17,7 +17,8 @@ from config.constants import (
 )
 from config.paths import BEST_SEEDS_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE
 from core.prompt_engine import PromptEngine
-from core.scoring import PromptScorer
+from core.semantic_scorer import SemanticPromptScorer
+from core.aesthetic_scorer import AestheticScorer
 from core.seed_engine import SeedEngine
 from database.history import HistoryRepository
 from database.seeds import SeedRepository
@@ -53,7 +54,8 @@ class WallpaperApplication:
         self.comfy_client = ComfyClient()
         self.gpu_monitor = GPUMonitor()
         self.wallpaper_service = WallpaperService()
-        self.scorer = PromptScorer()
+        self.semantic_scorer = SemanticPromptScorer()
+        self.aesthetic_scorer = AestheticScorer()
 
     def run(self) -> None:
         """Execute one wallpaper generation cycle."""
@@ -80,11 +82,24 @@ class WallpaperApplication:
             generation_time = round(time.time() - start_time, 2)
             logging.info("Total generation cycle time: %.2f seconds", generation_time)
 
-            score = self.scorer.score(result["path"], result["semantic_prompt"])
+            semantic_score = self.semantic_scorer.score(result["path"], result["semantic_prompt"])
+            aesthetic_score = self.aesthetic_scorer.score(result["path"])
+
+            combined_score = (
+                semantic_score * 0.4
+                + aesthetic_score * 6
+            )
+
+            logging.info(
+                "Combined Score: %.2f",
+                combined_score,
+            )
 
             self.history_repository.append(
                 seeds=result["seeds"],
-                score=score,
+                semantic_score=semantic_score,
+                aesthetic_score=aesthetic_score,
+                combined_score=combined_score,
                 image_path=result["path"],
                 generation_time=generation_time,
                 semantic_prompt=result["semantic_prompt"],

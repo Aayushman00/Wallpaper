@@ -1,4 +1,4 @@
-"""Prompt scoring logic."""
+"""Semantic-prompt scoring logic."""
 from __future__ import annotations
 
 import logging
@@ -7,9 +7,13 @@ import clip
 from PIL import Image
 from pathlib import Path
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+from core.clip_manager import (
+    device,
+    model,
+    preprocess,
+)
 
-class PromptScorer:
+class SemanticPromptScorer:
     """CLIP-based semantic similarity score"""
 
     def __init__(self) -> None:
@@ -20,10 +24,7 @@ class PromptScorer:
             self.device
         )
         
-        self.model, self.preprocess = clip.load(
-            "ViT-L/14",
-            device=self.device,
-        )
+        self.model, self.preprocess = model, preprocess
 
         logging.info("CLIP model loaded successfully")
 

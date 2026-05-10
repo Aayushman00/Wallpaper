@@ -31,7 +31,9 @@ class HistoryRepository:
     def append(
             self, 
             seeds: list[int], 
-            score: float, 
+            semantic_score: float, 
+            aesthetic_score: float,
+            combined_score: float,
             image_path: str, 
             generation_time: float,
             semantic_prompt: str, 
@@ -42,7 +44,9 @@ class HistoryRepository:
         records.append(
             {
                 "seeds": seeds,
-                "score": score,
+                "semantic_score": semantic_score,
+                "aesthetic_score": aesthetic_score,
+                "combined_score": combined_score,
                 "image_path": image_path,
                 "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
                 "generation_time": generation_time,

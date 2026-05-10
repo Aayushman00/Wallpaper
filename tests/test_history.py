@@ -8,7 +8,9 @@ def test_history_entry_saved(tmp_path):
 
     repo.append(
         seeds=[111],
-        score=55.5,
+        semantic_score=55.5,
+        aesthetic_score=70,
+        combined_score=99,
         image_path="test.png",
         generation_time=5.2,
         dna={},
@@ -21,4 +23,4 @@ def test_history_entry_saved(tmp_path):
 
     assert records[0]["semantic_prompt"] == "space wallpaper"
 
-    assert records[0]["score"] == 55.5
+    assert records[0]["combined_score"] == 99
