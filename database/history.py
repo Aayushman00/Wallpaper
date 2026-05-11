@@ -20,9 +20,12 @@ class HistoryRepository:
         try:
             with self.path.open("r", encoding="utf-8") as file:
                 data = json.load(file)
-            if isinstance(data, list):
-                return data
-            
+            if not isinstance(data, list):
+                raise RuntimeError(
+                    f"History file must contain a list: {self.path}"
+                )
+            return data
+    
         except FileNotFoundError:
             return []
         
@@ -36,7 +39,7 @@ class HistoryRepository:
                 f"Corrupt JSON file: {self.path}"
             ) from exc
         
-        except Exception:
+        except Exception as exc:
             raise RuntimeError(
                 f"Unexpected history load failure: {self.path}"
             ) from exc

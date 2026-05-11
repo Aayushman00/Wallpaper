@@ -129,13 +129,6 @@ DETAIL = [
     "realistic material textures",
 ]
 
-SCENE_TEMPLATES = [
-    "{subject} {location}, {environment}, {lighting}, {atmosphere}, {camera}, {camera_physics}, {detail}",
-    "cinematic wide shot of {subject} {location}, {environment}, illuminated by {lighting}, {atmosphere}, {camera_physics}, {detail}",
-    "epic scene of {subject} {location}, surrounded by {environment}, dramatic {lighting}, {camera}, {camera_physics}",
-    "{subject} standing {location}, {environment}, cinematic {lighting}, {atmosphere}, {camera_physics}, {detail}",
-]
-
 SEMANTIC_TEMPLATES = [
 
     (

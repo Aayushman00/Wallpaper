@@ -56,10 +56,8 @@ class AestheticScorer:
         
         with Image.open(image_path) as img:
             image = self.preprocess(
-                img = self.preprocess(
                     img.convert("RGB")
-                )
-            ).unsqueeze(0).to(self.device)
+                ).unsqueeze(0).to(self.device)
 
         with torch.no_grad():
 

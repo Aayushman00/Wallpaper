@@ -23,7 +23,6 @@ class PromptEngine:
 
     def generate(
             self, 
-            time_of_day: str,
             trait_scores: dict[str, dict[str, float]],
         ) -> dict[str, object]:
 
@@ -82,7 +81,7 @@ class PromptEngine:
 
         lighting_options = (
             MORNING_LIGHT
-            if time_of_day == "morning"
+            if random.random() > 0.5
             else NIGHT_LIGHT
         )
 

@@ -17,6 +17,7 @@ from config.constants import (
 )
 from config.paths import BEST_SEEDS_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE
 from core.prompt_engine import PromptEngine
+from core.prompt_engine_v2 import PromptEngineV2
 from core.semantic_scorer import SemanticPromptScorer
 from core.aesthetic_scorer import AestheticScorer
 from core.seed_engine import SeedEngine
@@ -27,6 +28,7 @@ from system.gpu import GPUMonitor
 from system.wallpaper import WallpaperService
 from analytics.gene_analytics import GeneAnalytics
 
+v2PromptEnabled = True
 
 def setup_logging() -> None:
     """Configure application logging."""
@@ -49,7 +51,11 @@ class WallpaperApplication:
         self.file_manager = FileManager()
         self.seed_engine = SeedEngine(SeedRepository(BEST_SEEDS_FILE))
         self.history_repository = HistoryRepository(HISTORY_FILE)
-        self.prompt_engine = PromptEngine()
+        if v2PromptEnabled: 
+            self.prompt_engine = PromptEngineV2()
+        else: 
+            self.prompt_engine = PromptEngine()
+
         self.workflow_manager = WorkflowManager(WORKFLOW_FILE, self.seed_engine)
         self.comfy_server = ComfyServer()
         self.comfy_client = ComfyClient()
@@ -88,7 +94,7 @@ class WallpaperApplication:
             aesthetic_score = self.aesthetic_scorer.score(result["path"])
 
             semantic_norm = ( semantic_score / 100 )
-            aesthetic_norm = ( aesthetic_norm / 10 )
+            aesthetic_norm = ( aesthetic_score / 10 )
 
             combined_score = (
                 semantic_norm * 0.4
@@ -150,18 +156,14 @@ class WallpaperApplication:
         return False
 
     def _generate_wallpaper(self) -> dict[str, object] | None:
-        hour = time.localtime().tm_hour
-        time_of_day = "morning" if 5 <= hour < 17 else "night"
 
-        trait_scores = (
-            self.gene_analytics
-            .compute_trait_score()
-        )
+        # trait_scores = (
+        #     self.gene_analytics
+        #     .compute_trait_score()
+        # )
 
-        prompt_data = self.prompt_engine.generate(
-            time_of_day,
-            trait_scores,
-        )
+        prompt_data = self.prompt_engine.generate()
+
         prompt = prompt_data["final_prompt"] 
         semantic_prompt = (
             prompt_data["semantic_prompt"]

@@ -36,7 +36,7 @@ class SeedRepository:
                 f"Corrupt JSON file: {self.path}"
             ) from exc
         
-        except Exception:
+        except Exception as exc:
             raise RuntimeError(
                 f"Corrupt JSON file: {self.path}"
             ) from exc

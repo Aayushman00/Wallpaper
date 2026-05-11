@@ -23,7 +23,7 @@
   },
   "7": {
     "inputs": {
-      "text": "worst quality, low quality, lowres, blurry, out of focus, noise, grain, jpeg artifacts, compression artifacts, oversaturated, unrealistic colors, cartoon, anime, illustration, painting, comic, bad composition, warped perspective, distorted geometry, floating objects, flat lighting, bad lighting, inconsistent shadows, incorrect shadow direction, unrealistic reflections, light leaks, unrealistic bloom, overexposed, underexposed, text, watermark, logo, signature",
+      "text": "worst quality, low quality, lowres, blurry, out of focus, noise, grain, jpeg artifacts, compression artifacts, cartoon, anime, illustration, painting, comic, warped perspective, distorted geometry, flat lighting, inconsistent shadows, incorrect shadow direction, unrealistic reflections, light leaks, unrealistic bloom, overexposed, underexposed, text, watermark, logo, signature, duplicate objects, malformed anatomy, deformed hands, extra limbs, bad proportions, plastic skin, muddy details",
       "clip": [
         "5",
         1
@@ -116,11 +116,11 @@
   "17": {
     "inputs": {
       "seed": 963297753583135,
-      "steps": 24,
-      "cfg": 4.5,
+      "steps": 20,
+      "cfg": 3.8,
       "sampler_name": "dpmpp_2m_sde_gpu",
       "scheduler": "karras",
-      "denoise": 0.55,
+      "denoise": 0.52,
       "model": [
         "5",
         0
@@ -176,8 +176,8 @@
   "23": {
     "inputs": {
       "sharpen_radius": 1,
-      "sigma": 0.5,
-      "alpha": 0.14,
+      "sigma": 0.7,
+      "alpha": 0.18,
       "image": [
         "22",
         0
