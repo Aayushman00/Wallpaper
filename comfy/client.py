@@ -48,14 +48,44 @@ class ComfyClient:
                 response.raise_for_status()
                 history = response.json()
             except requests.exceptions.HTTPError as e:
-                logging.warning(f"ComfyUI history request failed: {e}")
-            except Exception:
-                logging.warning("ComfyUI history request timed out, retrying...")
+                logging.warning(
+                    "ComfyUI history request failed: %s",
+                    e,
+                )
+
                 time.sleep(HISTORY_POLL_SECONDS)
+
+                continue
+
+            except requests.RequestException as exc:
+                logging.warning(
+                    "ComfyUI history polling error: %s",
+                    exc,
+                )
+
+                time.sleep(HISTORY_POLL_SECONDS)
+
                 continue
 
             if prompt_id in history:
-                outputs = history[prompt_id].get("outputs", {})
+                prompt_history = history[prompt_id]
+
+                status = prompt_history.get(
+                    "status",
+                    {}
+                )
+
+                if status.get("status_str") == "error":
+
+                    logging.error(
+                        "ComfyUI execution failed: %s",
+                        status,
+                    )
+
+                    return None
+                
+                
+                outputs = prompt_history.get("outputs", {})
                 for node in outputs.values():
                     images = node.get("images", [])
                     if images:

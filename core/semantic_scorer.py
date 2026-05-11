@@ -96,5 +96,5 @@ class SemanticPromptScorer:
                 e,
             )
 
-            return 0.0
+            raise
 

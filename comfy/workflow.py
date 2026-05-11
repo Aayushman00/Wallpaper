@@ -9,6 +9,9 @@ from pathlib import Path
 from typing import Any
 
 from core.seed_engine import SeedEngine
+from config.constants import (
+    WORKFLOW_PROMPT_NODE_ID
+)
 
 
 class WorkflowManager:
@@ -32,7 +35,7 @@ class WorkflowManager:
         prompt_injected = False
         sampler_index = 1
 
-        for node in workflow.values():
+        for id, node in workflow.items():
             if node.get("class_type") == "KSampler":
                 
                 inputs = node.get("inputs", {})
@@ -46,7 +49,7 @@ class WorkflowManager:
                 used_seeds.append(seed) 
                 sampler_index += 1
 
-            if node.get("class_type") == "CLIPTextEncode" and node.get("_meta", {}).get("title") == "Positive":
+            if (node.get("class_type") == "CLIPTextEncode" and id == WORKFLOW_PROMPT_NODE_ID):
 
                 inputs = node.get("inputs", {})
 

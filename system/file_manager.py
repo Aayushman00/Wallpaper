@@ -22,9 +22,28 @@ class FileManager:
     def move_generated_image(self, filename: str, subfolder: str) -> Path:
         """Move an image from the ComfyUI output folder into the wallpapers folder."""
         source = COMFY_OUTPUT_DIR / subfolder / filename
+        previous_size = -1
+
         if not source.exists():
             logging.error("Generated image not found: %s", source)
             raise FileNotFoundError(source)
+
+        previous_size = -1
+
+        stable = False
+
+        for _ in range(10):
+            current_size = source.stat().st_size
+
+            if current_size == previous_size and current_size > 0:
+                stable = True
+                break
+
+            previous_size = current_size
+            time.sleep(0.3)
+
+        if not stable:
+            raise RuntimeError("Generated image file never stabilized")
         try: 
             with Image.open(source) as img:
                 img.verify()
@@ -58,8 +77,10 @@ class FileManager:
             image_mode,
         )
 
-        size_mb = source.stat().st_size / (1024 * 1024)
-        if source.stat().st_size == 0:
+        file_size = source.stat().st_size
+
+        size_mb = file_size / (1024 * 1024)
+        if file_size == 0:
             raise RuntimeError("Generated Image file is empty")
         logging.info("Generated image size: %.2f MB", size_mb)
 
@@ -68,8 +89,9 @@ class FileManager:
         milliseconds = int((time.time() % 1) * 1000)
         move_start = time.time()
         destination = WALLPAPERS_DIR / f"{timestamp}_{milliseconds}.png"
+        
         logging.info(
-            "Moving generated image from %s to %s",
+            "Copying generated image from %s to %s",
             source, 
             destination,
         )
@@ -77,7 +99,7 @@ class FileManager:
 
         for attempt in range(max_attempts):
             try:
-                shutil.move(str(source), str(destination))
+                shutil.copy2(str(source), str(destination))
                 break
 
             except PermissionError:
@@ -92,7 +114,10 @@ class FileManager:
             raise PermissionError(
                 f"Could not move generated image after {max_attempts} attempts"
             )
-        logging.info("Image move completed in %0.2f seconds", time.time() - move_start)
+        
+        if not destination.exists():
+            raise RuntimeError("Image copy failed")
+        logging.info("Image copy completed in %0.2f seconds", time.time() - move_start)
 
         logging.info("Generated filename: %s", destination.name)
         return destination

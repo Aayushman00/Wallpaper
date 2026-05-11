@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 import logging
 from pathlib import Path
@@ -21,11 +22,25 @@ class HistoryRepository:
                 data = json.load(file)
             if isinstance(data, list):
                 return data
-        except (json.JSONDecodeError, OSError) as exc:
+            
+        except FileNotFoundError:
+            return []
+        
+        except json.JSONDecodeError as exc:
             logging.error("Failed to load %s: %s", self.path, exc)
-            return []
+            corrupt_path = self.path.with_suffix(".corrupt")
+
+            self.path.replace(corrupt_path)
+
+            raise RuntimeError(
+                f"Corrupt JSON file: {self.path}"
+            ) from exc
+        
         except Exception:
-            return []
+            raise RuntimeError(
+                f"Unexpected history load failure: {self.path}"
+            ) from exc
+        
         return []
 
     def append(
@@ -56,6 +71,22 @@ class HistoryRepository:
         )
 
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        
-        with self.path.open("w", encoding="utf-8") as file:
-            json.dump(records, file, indent=2)
+
+
+        tmp_path = self.path.with_suffix(".tmp")
+
+        with tmp_path.open(
+            "w",
+            encoding="utf-8",
+        ) as file:
+            json.dump(
+                records, 
+                file, 
+                indent=2,
+            )
+
+            file.flush()
+
+            os.fsync(file.fileno()) 
+
+        tmp_path.replace(self.path)

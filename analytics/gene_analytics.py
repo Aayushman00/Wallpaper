@@ -24,7 +24,7 @@ class GeneAnalytics:
 
         for record in history:
             dna = record.get("dna", {})
-            score = record.get("score", 0)
+            score = record.get("combine_score", 0)
 
             for trait, value in dna.items():
                 if not isinstance(value, str):

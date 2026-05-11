@@ -177,7 +177,8 @@ class PromptEngine:
                 1,
             )
 
-            weights.append(score + 1)
+            weight = max(0.1, score)
+            weights.append(weight)
 
         
 

@@ -32,9 +32,10 @@ class SeedEngine:
 
             parent = random.choice(top_candidates)["seed"]
             
-            new_seed = parent + random.randint(-BEST_SEED_MUTATION_RANGE, BEST_SEED_MUTATION_RANGE)
+            # new_seed = parent + random.randint(-BEST_SEED_MUTATION_RANGE, BEST_SEED_MUTATION_RANGE) 
+            # seed mutation disabled for now
             
-            return max(0, new_seed)
+            return parent
         
         return random.randint(0, 2**63 - 1)
 
@@ -46,10 +47,11 @@ class SeedEngine:
                ) -> None:
         """Store seeds ranked by their score, retaining only the top records."""
         data = self.repository.load()
-        for seed in seeds:
+        for ind, seed in enumerate(seeds):
             data.append({
                         "seed": seed, 
                         "score": score,
+                        "sampler_index": ind,
                         "prompt": prompt,
                         "theme":theme,
             })

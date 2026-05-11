@@ -87,9 +87,12 @@ class WallpaperApplication:
             semantic_score = self.semantic_scorer.score(result["path"], result["semantic_prompt"])
             aesthetic_score = self.aesthetic_scorer.score(result["path"])
 
+            semantic_norm = ( semantic_score / 100 )
+            aesthetic_norm = ( aesthetic_norm / 10 )
+
             combined_score = (
-                semantic_score * 0.4
-                + aesthetic_score * 6
+                semantic_norm * 0.4
+                + aesthetic_norm * 0.6
             )
 
             logging.info(
