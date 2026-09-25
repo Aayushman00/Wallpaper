@@ -8,7 +8,7 @@ from typing import Any
 
 import requests
 
-from config.constants import COMFY_URL, GENERATION_TIMEOUT_SECONDS, HISTORY_POLL_SECONDS
+from config.settings import COMFY_URL, GENERATION_TIMEOUT_SECONDS, HISTORY_POLL_SECONDS
 
 
 class ComfyClient:

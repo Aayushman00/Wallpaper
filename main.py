@@ -9,14 +9,13 @@ import time
 from comfy.client import ComfyClient
 from comfy.server import ComfyServer
 from comfy.workflow import WorkflowManager
-from config.constants import (
+from config.settings import (
     COMFY_BOOT_RETRIES,
     COMFY_BOOT_WAIT_SECONDS,
     GPU_IDLE_RETRIES,
     GPU_IDLE_WAIT_SECONDS,
 )
 from config.paths import BEST_SEEDS_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE
-from core.prompt_engine import PromptEngine
 from core.prompt_engine_v2 import PromptEngineV2
 from core.semantic_scorer import SemanticPromptScorer
 from core.aesthetic_scorer import AestheticScorer
@@ -27,8 +26,6 @@ from system.file_manager import FileManager
 from system.gpu import GPUMonitor
 from system.wallpaper import WallpaperService
 from analytics.gene_analytics import GeneAnalytics
-
-v2PromptEnabled = True
 
 def setup_logging() -> None:
     """Configure application logging."""
@@ -51,10 +48,7 @@ class WallpaperApplication:
         self.file_manager = FileManager()
         self.seed_engine = SeedEngine(SeedRepository(BEST_SEEDS_FILE))
         self.history_repository = HistoryRepository(HISTORY_FILE)
-        if v2PromptEnabled: 
-            self.prompt_engine = PromptEngineV2()
-        else: 
-            self.prompt_engine = PromptEngine()
+        self.prompt_engine = PromptEngineV2()
 
         self.workflow_manager = WorkflowManager(WORKFLOW_FILE, self.seed_engine)
         self.comfy_server = ComfyServer()
@@ -171,7 +165,7 @@ class WallpaperApplication:
 
         dna = prompt_data["dna"]
 
-        workflow, used_seeds = self.workflow_manager.prepare(prompt)
+        workflow, used_seeds = self.workflow_manager.prepare(prompt, dna)
         
         prompt_id = self.comfy_client.queue_prompt(workflow)
         if not prompt_id:

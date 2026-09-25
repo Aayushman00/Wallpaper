@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import random
 
-from config.constants import (
+from config.settings import (
     BEST_SEED_LIMIT,
     BEST_SEED_MUTATION_RANGE,
     BEST_SEED_REUSE_PROBABILITY,

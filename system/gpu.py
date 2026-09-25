@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import subprocess
 
-from config.constants import GPU_IDLE_THRESHOLD, GPU_INDEX
+from config.settings import GPU_IDLE_THRESHOLD, GPU_INDEX
 
 
 class GPUMonitor:

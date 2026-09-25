@@ -7,7 +7,7 @@ import subprocess
 
 import requests
 
-from config.constants import COMFY_URL
+from config.settings import COMFY_URL
 from config.paths import COMFY_MAIN_PATH, COMFY_PORTABLE_DIR, COMFY_PYTHON_PATH, COMFY_USER_DIR
 
 
