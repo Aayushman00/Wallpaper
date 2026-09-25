@@ -7,7 +7,7 @@ from PIL import Image
 from torch import nn
 from pathlib import Path
 
-from core.clip_manager import (
+from evaluation.clip_backbone import (
     device,
     model,
     preprocess,

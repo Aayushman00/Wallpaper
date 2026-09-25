@@ -7,7 +7,7 @@ import clip
 from PIL import Image
 from pathlib import Path
 
-from core.clip_manager import (
+from evaluation.clip_backbone import (
     device,
     model,
     preprocess,
