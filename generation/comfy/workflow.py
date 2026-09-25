@@ -8,7 +8,6 @@ import copy
 from pathlib import Path
 from typing import Any
 
-from core.seed_engine import SeedEngine
 from config.settings import (
     WORKFLOW_PROMPT_NODE_ID,
     WORKFLOW_IMAGE_SHARPEN_NODE_ID,
@@ -19,11 +18,15 @@ from config.settings import (
 
 
 class WorkflowManager:
-    """Loads and updates the ComfyUI workflow payload."""
+    """Loads and updates the ComfyUI workflow payload.
 
-    def __init__(self, workflow_path: Path, seed_engine: SeedEngine) -> None:
+    `seeds` is any object exposing `.next_seed() -> int` — duck-typed so this
+    module never needs to know about the engine's seed pool implementation.
+    """
+
+    def __init__(self, workflow_path: Path, seeds) -> None:
         self.workflow_path = workflow_path
-        self.seed_engine = seed_engine
+        self.seeds = seeds
 
     def load(self) -> dict[str, Any]:
         """Load the raw workflow JSON."""
@@ -163,7 +166,7 @@ class WorkflowManager:
                 if "seed" not in inputs:
                     raise RuntimeError("KSampler missing seed input")
 
-                seed = self.seed_engine.get_seed()
+                seed = self.seeds.next_seed()
 
                 inputs["seed"] = seed
 
