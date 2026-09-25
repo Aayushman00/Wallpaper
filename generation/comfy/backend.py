@@ -14,11 +14,12 @@ from engine.models import GenerationRequest, GenerationResult
 class ComfyBackend:
     """Generation backend adapter for a local ComfyUI instance."""
 
-    def __init__(self, client, server, workflow, file_manager) -> None:
+    def __init__(self, client, server, workflow, file_manager, sleep=time.sleep) -> None:
         self.client = client
         self.server = server
         self.workflow = workflow
         self.file_manager = file_manager
+        self._sleep = sleep
 
     def ensure_ready(self) -> bool:
         """Start the ComfyUI process if it isn't running, and wait for it to boot."""
@@ -32,10 +33,10 @@ class ComfyBackend:
             if self.server.is_running():
                 logging.info("ComfyUI started successfully")
                 return True
-            time.sleep(COMFY_BOOT_WAIT_SECONDS)
+            self._sleep(COMFY_BOOT_WAIT_SECONDS)
         return False
 
-    def generate(self, request: GenerationRequest, seeds) -> GenerationResult | None:
+    def generate(self, request: GenerationRequest) -> GenerationResult | None:
         """Submit a generation request to ComfyUI and return the result, or None on failure."""
         start_time = time.time()
 

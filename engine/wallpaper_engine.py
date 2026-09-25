@@ -63,7 +63,7 @@ class WallpaperEngine:
                 dna=prompt_data["dna"],
             )
 
-            result = self.backend.generate(request, self.seed_pool)
+            result = self.backend.generate(request)
             if not result:
                 logging.info("Wallpaper generation skipped or aborted.")
                 return

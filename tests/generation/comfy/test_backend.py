@@ -4,11 +4,6 @@ from engine.models import GenerationRequest
 from generation.comfy.backend import ComfyBackend
 
 
-class FakeSeedPool:
-    def next_seed(self):
-        return 42
-
-
 class FakeWorkflowManager:
     def prepare(self, final_prompt, dna):
         return {"workflow": "payload"}, [42, 43]
@@ -37,13 +32,33 @@ def test_generate_returns_generation_result_on_success():
 
     result = backend.generate(
         GenerationRequest(prompt="a cat", dna={"theme": "fantasy"}),
-        FakeSeedPool(),
     )
 
     assert result is not None
     assert result.image_path == Path("wallpapers/out.png")
     assert result.used_seeds == [42, 43]
     assert result.generation_time_seconds >= 0
+
+
+def test_generate_does_not_require_a_seeds_argument():
+    class FakeClient:
+        def queue_prompt(self, workflow):
+            return "prompt-id-1"
+
+        def wait_for_image(self, prompt_id):
+            return {"filename": "out.png", "subfolder": "sub"}
+
+    backend = ComfyBackend(
+        client=FakeClient(),
+        server=None,
+        workflow=FakeWorkflowManager(),
+        file_manager=FakeFileManager(),
+    )
+
+    result = backend.generate(GenerationRequest(prompt="a cat", dna={"theme": "fantasy"}))
+
+    assert result is not None
+    assert result.used_seeds == [42, 43]
 
 
 def test_generate_returns_none_when_queue_fails():
@@ -63,7 +78,6 @@ def test_generate_returns_none_when_queue_fails():
 
     result = backend.generate(
         GenerationRequest(prompt="a cat", dna={"theme": "fantasy"}),
-        FakeSeedPool(),
     )
 
     assert result is None
@@ -86,7 +100,6 @@ def test_generate_returns_none_when_image_wait_fails():
 
     result = backend.generate(
         GenerationRequest(prompt="a cat", dna={"theme": "fantasy"}),
-        FakeSeedPool(),
     )
 
     assert result is None
@@ -124,6 +137,23 @@ def test_ensure_ready_starts_server_and_waits_for_boot():
 
     backend = ComfyBackend(
         client=None, server=BootingServer(), workflow=None, file_manager=None,
+        sleep=lambda seconds: None,
     )
 
     assert backend.ensure_ready() is True
+
+
+def test_ensure_ready_returns_false_when_server_never_boots():
+    class NeverBootsServer:
+        def is_running(self):
+            return False
+
+        def start(self):
+            pass
+
+    backend = ComfyBackend(
+        client=None, server=NeverBootsServer(), workflow=None, file_manager=None,
+        sleep=lambda seconds: None,
+    )
+
+    assert backend.ensure_ready() is False

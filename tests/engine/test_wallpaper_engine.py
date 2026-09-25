@@ -21,8 +21,8 @@ class FakeBackend:
     def ensure_ready(self):
         return self._ready
 
-    def generate(self, request, seeds):
-        self.generate_calls.append((request, seeds))
+    def generate(self, request):
+        self.generate_calls.append(request)
         return self._result
 
 
