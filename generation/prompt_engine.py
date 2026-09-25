@@ -37,7 +37,7 @@ from config.prompt_grammar import (
 )
 
 
-class PromptEngineV2:
+class PromptEngine:
     """
     Cinematic procedural prompt engine — v2.3 SDXL-optimized.
 
