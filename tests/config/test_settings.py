@@ -33,3 +33,9 @@ def test_current_state_file_lives_in_data_dir():
     from config.paths import CURRENT_STATE_FILE, DATA_DIR
 
     assert CURRENT_STATE_FILE == DATA_DIR / "current_state.json"
+
+
+def test_taste_constants_present_and_correct():
+    assert settings.TASTE_PRIOR == 3
+    assert settings.TASTE_MIN == 0.4
+    assert settings.TASTE_MAX == 2.0
