@@ -40,7 +40,7 @@ class ComfyBackend:
         """Submit a generation request to ComfyUI and return the result, or None on failure."""
         start_time = time.time()
 
-        workflow, used_seeds = self.workflow.prepare(request.prompt, request.dna)
+        workflow, used_seeds, used_lineage = self.workflow.prepare(request.prompt, request.dna)
 
         prompt_id = self.client.queue_prompt(workflow)
         if not prompt_id:
@@ -58,5 +58,6 @@ class ComfyBackend:
         return GenerationResult(
             image_path=destination,
             used_seeds=used_seeds,
+            used_lineage=used_lineage,
             generation_time_seconds=round(time.time() - start_time, 2),
         )

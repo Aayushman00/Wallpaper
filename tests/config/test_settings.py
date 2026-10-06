@@ -19,3 +19,23 @@ def test_infra_constants_present_and_correct():
     assert settings.BEST_SEED_MUTATION_RANGE == 5000
     assert settings.BEST_SEED_REUSE_PROBABILITY == 0.7
     assert settings.BEST_SEED_LIMIT == 50
+
+
+def test_daemon_constants_present_and_correct():
+    assert settings.GENERATION_INTERVAL_SECONDS == 14400
+    assert settings.AESTHETIC_QUALITY_FLOOR == 4.0
+    assert settings.FOCUS_ASSIST_RECHECK_SECONDS == 300
+    assert settings.SEED_RATING_LIKE_MULTIPLIER == 1.5
+    assert settings.SEED_RATING_DISLIKE_MULTIPLIER == 0.3
+
+
+def test_current_state_file_lives_in_data_dir():
+    from config.paths import CURRENT_STATE_FILE, DATA_DIR
+
+    assert CURRENT_STATE_FILE == DATA_DIR / "current_state.json"
+
+
+def test_taste_constants_present_and_correct():
+    assert settings.TASTE_PRIOR == 3
+    assert settings.TASTE_MIN == 0.4
+    assert settings.TASTE_MAX == 2.0

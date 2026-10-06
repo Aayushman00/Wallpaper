@@ -20,7 +20,7 @@ from config.settings import (
 class WorkflowManager:
     """Loads and updates the ComfyUI workflow payload.
 
-    `seeds` is any object exposing `.next_seed() -> int` — duck-typed so this
+    `seeds` is any object exposing `.next_seed() -> (seed, parent_seed, generation)` — duck-typed so this
     module never needs to know about the engine's seed pool implementation.
     """
 
@@ -136,11 +136,12 @@ class WorkflowManager:
         self,
         final_prompt: str,
         dna: dict[str, object]
-    ) -> tuple[dict[str, Any], list[int]]:
+    ) -> tuple[dict[str, Any], list[int], list[tuple[int | None, int]]]:
 
         workflow = self.load()
 
         used_seeds: list[int] = []
+        used_lineage: list[tuple[int | None, int]] = []
         prompt_injected = False
         sampler_index = 1
 
@@ -166,11 +167,12 @@ class WorkflowManager:
                 if "seed" not in inputs:
                     raise RuntimeError("KSampler missing seed input")
 
-                seed = self.seeds.next_seed()
+                seed, parent_seed, generation = self.seeds.next_seed()
 
                 inputs["seed"] = seed
 
                 used_seeds.append(seed)
+                used_lineage.append((parent_seed, generation))
 
                 logging.info(
                     "SEED KSampler %s: %s",
@@ -230,4 +232,4 @@ class WorkflowManager:
             profile["profile_name"]
         )
 
-        return workflow, used_seeds
+        return workflow, used_seeds, used_lineage

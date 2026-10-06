@@ -26,3 +26,10 @@ build/
 dist/
 
 
+
+# graphify output
+graphify-out/
+
+# scratch
+.superpowers/
+.pytest_tmp/

@@ -12,6 +12,7 @@ LOG_FILE = LOGS_DIR / "wallpaper_engine.log"
 DATA_DIR = ROOT_DIR / "data"
 HISTORY_FILE = DATA_DIR / "history.json"
 BEST_SEEDS_FILE = DATA_DIR / "best_seeds.json"
+CURRENT_STATE_FILE = DATA_DIR / "current_state.json"
 
 COMFY_RESOURCES_DIR = Path(
     os.getenv(

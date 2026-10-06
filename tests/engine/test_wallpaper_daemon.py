@@ -1,0 +1,452 @@
+import json
+import time
+from pathlib import Path
+
+from engine.models import CycleResult
+from engine.wallpaper_daemon import WallpaperDaemon
+
+
+class FakeEngine:
+    def __init__(self, results=None, fail_first=False):
+        self.results = list(results or [])
+        self.fail_first = fail_first
+        self.contexts = []
+        self.tastes = []
+        self.runs = 0
+
+    def run(self, context=None, taste=None):
+        self.runs += 1
+        self.contexts.append(context)
+        self.tastes.append(taste)
+        if self.fail_first and self.runs == 1:
+            raise RuntimeError("bad cycle")
+        return self.results.pop(0) if self.results else None
+
+
+class FakeSeedPool:
+    def __init__(self, matched=True):
+        self.rated = []
+        self.matched = matched
+
+    def rate_current(self, seeds, liked):
+        self.rated.append((seeds, liked))
+        return self.matched
+
+
+
+class FakeHistory:
+    def __init__(self, entries=(), load_error=None, rating_ok=True, rating_error=None):
+        self.entries = list(entries)
+        self.load_error = load_error
+        self.rating_ok = rating_ok
+        self.rating_error = rating_error
+        self.ratings = []
+
+    def load(self):
+        if self.load_error:
+            raise self.load_error
+        return self.entries
+
+    def set_rating(self, image_path, rating):
+        self.ratings.append((image_path, rating))
+        if self.rating_error:
+            raise self.rating_error
+        return self.rating_ok
+
+
+class FakeWallpaperService:
+    def __init__(self):
+        self.set_calls = []
+
+    def set_wallpaper(self, path):
+        self.set_calls.append(path)
+
+
+class FakeListener:
+    def __init__(self, bindings):
+        self.bindings = bindings
+        self.stopped = False
+
+    def run(self):
+        pass
+
+    def stop(self):
+        self.stopped = True
+
+
+def _cycle(seeds=(1, 2), generation=3, quarantined=False, path="wallpapers/new.png"):
+    return CycleResult(Path(path), list(seeds), generation, quarantined)
+
+
+def _daemon(tmp_path, engine=None, history=None, fullscreen=lambda: False, interval=0.01, recheck=0.01):
+    return WallpaperDaemon(
+        engine=engine or FakeEngine(),
+        seed_pool=FakeSeedPool(),
+        history_repository=history or FakeHistory(),
+        wallpaper_service=FakeWallpaperService(),
+        state_path=tmp_path / "current_state.json",
+        is_fullscreen=fullscreen,
+        get_context=lambda: {"time_of_day": "night", "season": "winter"},
+        interval=interval,
+        recheck=recheck,
+        listener_factory=FakeListener,
+    )
+
+
+def wait_until(predicate, timeout=3.0):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        if predicate():
+            return True
+        time.sleep(0.01)
+    return False
+
+
+# --- state & rating -------------------------------------------------------
+
+def test_successful_cycle_passes_context_and_persists_state(tmp_path):
+    engine = FakeEngine([_cycle()])
+    daemon = _daemon(tmp_path, engine)
+
+    daemon.run_cycle()
+
+    assert engine.contexts == [{"time_of_day": "night", "season": "winter"}]
+    expected = {"seeds": [1, 2], "image_path": str(Path("wallpapers/new.png")), "generation": 3}
+    assert daemon.state == expected
+    assert json.loads((tmp_path / "current_state.json").read_text()) == expected
+
+
+def test_state_is_reloaded_by_a_new_daemon(tmp_path):
+    _daemon(tmp_path, FakeEngine([_cycle()])).run_cycle()
+
+    reloaded = _daemon(tmp_path)
+
+    assert reloaded.state["seeds"] == [1, 2]
+
+
+def test_corrupt_state_file_is_ignored(tmp_path):
+    (tmp_path / "current_state.json").write_text("{not json")
+
+    assert _daemon(tmp_path).state is None
+
+
+def test_quarantined_cycle_leaves_state_pointing_at_last_displayed_image(tmp_path):
+    engine = FakeEngine([_cycle(seeds=(1, 2)), _cycle(seeds=(8, 9), quarantined=True)])
+    daemon = _daemon(tmp_path, engine)
+
+    daemon.run_cycle()
+    daemon.run_cycle()
+    daemon.like()
+
+    assert daemon.state["seeds"] == [1, 2]
+    assert daemon.seed_pool.rated == [([1, 2], True)]
+
+
+def test_skipped_cycle_leaves_state_untouched(tmp_path):
+    daemon = _daemon(tmp_path, FakeEngine([None]))
+
+    daemon.run_cycle()
+
+    assert daemon.state is None
+
+
+def test_like_and_dislike_rate_current_seeds(tmp_path):
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]))
+    daemon.run_cycle()
+
+    daemon.like()
+    daemon.dislike()
+
+    assert daemon.seed_pool.rated == [([1, 2], True), ([1, 2], False)]
+
+
+def test_rating_without_current_state_is_a_noop(tmp_path):
+    daemon = _daemon(tmp_path)
+
+    daemon.like()
+    daemon.dislike()
+
+    assert daemon.seed_pool.rated == []
+
+
+# --- revert ---------------------------------------------------------------
+
+def test_revert_sets_second_to_last_non_quarantined_image(tmp_path):
+    older, newer = tmp_path / "older.png", tmp_path / "newer.png"
+    older.write_bytes(b"x")
+    newer.write_bytes(b"x")
+    history = FakeHistory([
+        {"image_path": str(older)},
+        {"image_path": str(newer)},
+        {"image_path": "bad.png", "quarantined": True},
+    ])
+    daemon = _daemon(tmp_path, history=history)
+
+    daemon.revert()
+
+    assert daemon.wallpaper_service.set_calls == [older]
+    assert daemon.seed_pool.rated == []
+
+
+def test_revert_with_fewer_than_two_usable_entries_is_a_noop(tmp_path):
+    history = FakeHistory([{"image_path": "a.png"}, {"image_path": "b.png", "quarantined": True}])
+    daemon = _daemon(tmp_path, history=history)
+
+    daemon.revert()
+
+    assert daemon.wallpaper_service.set_calls == []
+
+
+def test_revert_when_target_image_is_missing_is_a_noop(tmp_path):
+    newer = tmp_path / "newer.png"
+    newer.write_bytes(b"x")
+    history = FakeHistory([{"image_path": str(tmp_path / "gone.png")}, {"image_path": str(newer)}])
+    daemon = _daemon(tmp_path, history=history)
+
+    daemon.revert()
+
+    assert daemon.wallpaper_service.set_calls == []
+
+
+# --- scheduler thread -----------------------------------------------------
+
+def test_scheduler_runs_cycles_on_the_interval_and_stops(tmp_path):
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine)
+
+    daemon.start()
+    assert wait_until(lambda: engine.runs >= 2)
+    daemon.stop()
+
+    assert not daemon._scheduler.is_alive()
+    assert daemon._listener.stopped is True
+
+
+def test_scheduler_survives_a_cycle_that_raises(tmp_path):
+    engine = FakeEngine(fail_first=True)
+    daemon = _daemon(tmp_path, engine)
+
+    daemon.start()
+    assert wait_until(lambda: engine.runs >= 2)
+    assert daemon._scheduler.is_alive()
+    daemon.stop()
+
+
+def test_scheduler_defers_while_fullscreen_then_runs(tmp_path):
+    engine = FakeEngine()
+    state = {"fullscreen": True}
+    daemon = _daemon(tmp_path, engine, fullscreen=lambda: state["fullscreen"])
+
+    daemon.start()
+    time.sleep(0.15)
+    assert engine.runs == 0
+
+    state["fullscreen"] = False
+    assert wait_until(lambda: engine.runs >= 1)
+    daemon.stop()
+
+
+def test_generate_next_bypasses_focus_assist_and_the_interval(tmp_path):
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine, fullscreen=lambda: True, interval=60, recheck=60)
+
+    daemon.start()
+    time.sleep(0.05)
+    assert engine.runs == 0
+
+    daemon.generate_next()
+    assert wait_until(lambda: engine.runs == 1)
+    daemon.stop()
+
+
+def test_stop_interrupts_a_long_sleep_promptly(tmp_path):
+    daemon = _daemon(tmp_path, interval=60)
+    daemon.start()
+
+    started = time.time()
+    daemon.stop()
+
+    assert time.time() - started < 2.0
+    assert not daemon._scheduler.is_alive()
+
+
+# --- hotkey wiring --------------------------------------------------------
+
+def test_hotkey_bindings_map_ctrl_alt_arrows_to_daemon_actions(tmp_path):
+    from system.hotkeys import MOD_ALT, MOD_CONTROL, VK_DOWN, VK_LEFT, VK_RIGHT, VK_UP
+
+    daemon = _daemon(tmp_path)
+    daemon.start()
+    bindings = {(mods, vk): cb for mods, vk, cb in daemon._listener.bindings}
+    daemon.stop()
+
+    ctrl_alt = MOD_CONTROL | MOD_ALT
+    assert bindings[(ctrl_alt, VK_UP)] == daemon.like
+    assert bindings[(ctrl_alt, VK_DOWN)] == daemon.dislike
+    assert bindings[(ctrl_alt, VK_RIGHT)] == daemon.generate_next
+    assert bindings[(ctrl_alt, VK_LEFT)] == daemon.revert
+
+
+# --- review fixes ---------------------------------------------------------
+
+def test_scheduler_survives_a_state_save_failure(tmp_path):
+    engine = FakeEngine([_cycle(), _cycle(), _cycle()])
+    daemon = _daemon(tmp_path, engine)
+
+    def boom(state):
+        raise PermissionError("locked")
+
+    daemon._save_state = boom
+    daemon.start()
+    assert wait_until(lambda: engine.runs >= 2)
+    assert daemon._scheduler.is_alive()
+    daemon.stop()
+
+
+def test_rating_after_revert_targets_the_reverted_image(tmp_path):
+    older, newer = tmp_path / "older.png", tmp_path / "newer.png"
+    older.write_bytes(b"x")
+    newer.write_bytes(b"x")
+    history = FakeHistory([
+        {"image_path": str(older), "seeds": [10, 11]},
+        {"image_path": str(newer), "seeds": [20, 21]},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(seeds=(20, 21))]), history=history)
+    daemon.run_cycle()
+
+    daemon.revert()
+    daemon.dislike()
+
+    assert daemon.state["image_path"] == str(older)
+    assert daemon.seed_pool.rated == [([10, 11], False)]
+
+
+def test_rating_that_matches_no_seed_is_logged_not_reported_as_success(tmp_path, caplog):
+    import logging
+
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]))
+    daemon.seed_pool.matched = False
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.INFO):
+        daemon.like()
+
+    assert "not in the seed pool" in caplog.text
+    assert "Rated current wallpaper" not in caplog.text
+
+
+# --- taste learning -------------------------------------------------------
+
+def test_like_and_dislike_record_a_rating_on_the_current_image(tmp_path):
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(path="wallpapers/new.png")]))
+    daemon.run_cycle()
+
+    daemon.like()
+    daemon.dislike()
+
+    image = str(Path("wallpapers/new.png"))
+    assert daemon.history_repository.ratings == [(image, 1), (image, -1)]
+    assert daemon.seed_pool.rated == [([1, 2], True), ([1, 2], False)]
+
+
+def test_rating_after_revert_records_on_the_reverted_image(tmp_path):
+    older, newer = tmp_path / "older.png", tmp_path / "newer.png"
+    older.write_bytes(b"x")
+    newer.write_bytes(b"x")
+    history = FakeHistory([
+        {"image_path": str(older), "seeds": [10, 11]},
+        {"image_path": str(newer), "seeds": [20, 21]},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(seeds=(20, 21))]), history=history)
+    daemon.run_cycle()
+
+    daemon.revert()
+    daemon.like()
+
+    assert history.ratings == [(str(older), 1)]
+
+
+def test_rating_for_image_missing_from_history_is_logged_and_does_not_crash(tmp_path, caplog):
+    import logging
+
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]), history=FakeHistory(rating_ok=False))
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.WARNING):
+        daemon.like()
+
+    assert "not found in history" in caplog.text
+    assert daemon.seed_pool.rated == [([1, 2], True)]
+
+
+def test_rating_still_rescores_seeds_when_history_write_raises(tmp_path, caplog):
+    import logging
+
+    history = FakeHistory(rating_error=PermissionError("locked"))
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]), history=history)
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.ERROR):
+        daemon.like()
+        daemon.dislike()
+
+    assert daemon.seed_pool.rated == [([1, 2], True), ([1, 2], False)]
+    assert "Recording rating in history failed" in caplog.text
+
+
+def test_rating_without_current_state_records_nothing(tmp_path):
+    daemon = _daemon(tmp_path)
+
+    daemon.like()
+
+    assert daemon.history_repository.ratings == []
+
+
+def test_cycle_passes_taste_computed_from_rated_history(tmp_path):
+    history = FakeHistory([
+        {"image_path": "a.png", "rating": 1, "dna": {"mood": "eerie"}},
+        {"image_path": "b.png", "dna": {"mood": "serene"}},
+    ])
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine, history=history)
+
+    daemon.run_cycle()
+
+    assert engine.tastes[0]["mood"]["eerie"] == 1.25
+    assert "serene" not in engine.tastes[0]["mood"]
+
+
+def test_cycle_with_no_ratings_passes_no_taste(tmp_path):
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine, history=FakeHistory([{"image_path": "a.png"}]))
+
+    daemon.run_cycle()
+
+    assert engine.tastes == [None]
+
+
+def test_cycle_still_runs_when_taste_computation_fails(tmp_path):
+    engine = FakeEngine([_cycle()])
+    daemon = _daemon(tmp_path, engine, history=FakeHistory(load_error=RuntimeError("corrupt")))
+
+    daemon.run_cycle()
+
+    assert engine.runs == 1
+    assert engine.tastes == [None]
+    assert daemon.state["seeds"] == [1, 2]
+
+
+def test_cycle_logs_boosted_and_penalized_taste(tmp_path, caplog):
+    import logging
+
+    history = FakeHistory([
+        {"image_path": "a.png", "rating": 1, "dna": {"mood": "eerie"}},
+        {"image_path": "b.png", "rating": -1, "dna": {"mood": "serene"}},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine(), history=history)
+
+    with caplog.at_level(logging.INFO):
+        daemon.run_cycle()
+
+    assert "Taste boosted: mood=eerie x1.25" in caplog.text
+    assert "Taste penalized: mood=serene x0.75" in caplog.text

@@ -25,3 +25,24 @@ def test_evaluation_result_holds_scores():
     assert result.semantic_score == 80.0
     assert result.aesthetic_score == 6.5
     assert result.combined_score == 5.9
+
+
+def test_generation_result_lineage_defaults_to_empty_and_is_settable():
+    plain = GenerationResult(image_path=Path("a.png"), used_seeds=[1], generation_time_seconds=1.0)
+    assert plain.used_lineage == []
+
+    with_lineage = GenerationResult(
+        image_path=Path("a.png"),
+        used_seeds=[1, 2],
+        generation_time_seconds=1.0,
+        used_lineage=[(None, 0), (99, 3)],
+    )
+    assert with_lineage.used_lineage == [(None, 0), (99, 3)]
+
+
+def test_cycle_result_defaults_to_not_quarantined():
+    from engine.models import CycleResult
+
+    result = CycleResult(image_path=Path("a.png"), used_seeds=[1, 2], generation=3)
+    assert result.generation == 3
+    assert result.quarantined is False

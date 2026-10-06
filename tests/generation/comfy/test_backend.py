@@ -6,7 +6,7 @@ from generation.comfy.backend import ComfyBackend
 
 class FakeWorkflowManager:
     def prepare(self, final_prompt, dna):
-        return {"workflow": "payload"}, [42, 43]
+        return {"workflow": "payload"}, [42, 43], [(None, 0), (7, 2)]
 
 
 class FakeFileManager:
@@ -37,6 +37,7 @@ def test_generate_returns_generation_result_on_success():
     assert result is not None
     assert result.image_path == Path("wallpapers/out.png")
     assert result.used_seeds == [42, 43]
+    assert result.used_lineage == [(None, 0), (7, 2)]
     assert result.generation_time_seconds >= 0
 
 

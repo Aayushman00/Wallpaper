@@ -5,7 +5,7 @@ from analytics.gene_analytics import (
 class FakeHistoryRepository:
     
     def load(self):
-        
+
         return [
             {
                 "dna": {
@@ -17,7 +17,7 @@ class FakeHistoryRepository:
                     ),
                 },
 
-                "score": 80,
+                "combined_score": 80,
             },
 
             {
@@ -30,7 +30,7 @@ class FakeHistoryRepository:
                     ),
                 },
 
-                "score": 60,
+                "combined_score": 60,
             },
         ]
     
