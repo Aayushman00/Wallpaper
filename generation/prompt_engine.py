@@ -183,6 +183,33 @@ class PromptEngine:
         return f"{light_time['label']}, {light_quality['label']}"
 
     # -------------------------------------------------------------------------
+    # Taste bias — multiplies pick weights by learned per-trait multipliers
+    # -------------------------------------------------------------------------
+
+    TASTE_TRAITS = (
+        "theme", "subject", "location", "environment", "light_time", "light_quality",
+        "mood", "framing", "lens", "camera_angle", "render_medium", "quality_marker",
+        "environmental_condition",
+    )
+
+    @staticmethod
+    def _taste_multiplier(taste: dict | None, trait: str, label: str) -> float:
+        return (taste or {}).get(trait, {}).get(label, 1.0)
+
+    def _apply_taste(
+        self,
+        items: list[dict],
+        trait: str,
+        taste: dict | None,
+    ) -> list[dict]:
+        if not taste:
+            return items
+        return [
+            {**item, "weight": item.get("weight", 1.0) * self._taste_multiplier(taste, trait, item["label"])}
+            for item in items
+        ]
+
+    # -------------------------------------------------------------------------
     # Context-aware lighting bias — soft nudge, never a filter
     # -------------------------------------------------------------------------
 
@@ -221,9 +248,17 @@ class PromptEngine:
     # Main generation entry point — v2.3
     # -------------------------------------------------------------------------
 
-    def generate(self, context: dict | None = None) -> dict[str, object]:
+    def generate(self, context: dict | None = None, taste: dict | None = None) -> dict[str, object]:
 
-        theme_name = random.choice(list(THEMES.keys()))
+        if taste:
+            theme_items = self._apply_taste(
+                [{"label": name, "weight": 1.0} for name in THEMES],
+                "theme",
+                taste,
+            )
+            theme_name = self.pick_weighted(theme_items)["label"]
+        else:
+            theme_name = random.choice(list(THEMES.keys()))
         logging.info("V2.3 THEME: %s", theme_name)
         theme_data = THEMES[theme_name]
 
@@ -232,7 +267,7 @@ class PromptEngine:
         # ------------------------------------------------------------------
         subject = random.choices(
             theme_data["subjects"],
-            weights=theme_data["subject_weights"],
+            weights=[w * self._taste_multiplier(taste, "subject", s["label"]) for s, w in zip(theme_data["subjects"], theme_data["subject_weights"])],
             k=1,
         )[0]
         subject_type      = subject["type"]
@@ -247,6 +282,7 @@ class PromptEngine:
             loc for loc in theme_data["locations"]
             if subject_type in loc["valid_for"]
         ]
+        valid_locations = self._apply_taste(valid_locations, "location", taste)
         location = self.pick_weighted_with_density(valid_locations, scene_density)
         scene_density += location.get("density_score", 0)
 
@@ -257,6 +293,7 @@ class PromptEngine:
             category="environment",
             items=theme_data["environments"],
         )
+        environments = self._apply_taste(environments, "environment", taste)
         environment = self.pick_weighted_with_density(environments, scene_density)
         scene_density += environment.get("density_score", 0)
 
@@ -273,6 +310,7 @@ class PromptEngine:
             items=time_pool_raw,
         )
         time_pool = self._bias_lighting_for_context(time_pool, context)
+        time_pool = self._apply_taste(time_pool, "light_time", taste)
         light_time = self.pick_weighted(time_pool)
 
         quality_pool_raw = [
@@ -283,6 +321,7 @@ class PromptEngine:
             category="light_quality",
             items=quality_pool_raw,
         )
+        quality_pool = self._apply_taste(quality_pool, "light_quality", taste)
         light_quality = self.pick_weighted(quality_pool)
 
         # ------------------------------------------------------------------
@@ -297,6 +336,7 @@ class PromptEngine:
             )
             mood_pool.append({"label": entry["label"], "weight": adjusted_weight})
 
+        mood_pool = self._apply_taste(mood_pool, "mood", taste)
         mood_entry = self.pick_weighted(mood_pool)
         mood_label = mood_entry["label"]
 
@@ -307,6 +347,7 @@ class PromptEngine:
             f for f in FRAMING_TYPE
             if subject_type in f["valid_for"]
         ]
+        valid_framings = self._apply_taste(valid_framings, "framing", taste)
         framing = self.pick_weighted_with_density(valid_framings, scene_density)
         scene_density += framing.get("density_score", 0)
 
@@ -314,6 +355,7 @@ class PromptEngine:
             lens for lens in LENS_CHARACTER
             if is_lens_framing_compatible(lens["label"], framing["label"])
         ]
+        valid_lenses = self._apply_taste(valid_lenses, "lens", taste)
         lens = self.pick_weighted(valid_lenses)
 
         # ------------------------------------------------------------------
@@ -329,6 +371,7 @@ class PromptEngine:
             boost = get_camera_angle_affinity_boost(angle["label"], subject_type)
             boosted_angles.append({**angle, "weight": angle["weight"] * boost})
 
+        boosted_angles = self._apply_taste(boosted_angles, "camera_angle", taste)
         camera_angle = self.pick_weighted(boosted_angles)
 
         # ------------------------------------------------------------------
@@ -340,6 +383,7 @@ class PromptEngine:
             and theme_name not in render.get("incompatible_themes", [])
         ]
         valid_render_stable = apply_render_stability(valid_render_raw, subject_stability)
+        valid_render_stable = self._apply_taste(valid_render_stable, "render_medium", taste)
         render_medium = self.pick_weighted(valid_render_stable)
 
         # ------------------------------------------------------------------
@@ -353,6 +397,7 @@ class PromptEngine:
             )
             and render_medium["label"] not in marker.get("incompatible_render", [])
         ]
+        valid_quality_markers = self._apply_taste(valid_quality_markers, "quality_marker", taste)
         quality_marker = self.pick_weighted(valid_quality_markers)
 
         # ------------------------------------------------------------------
@@ -374,6 +419,7 @@ class PromptEngine:
             items=condition_pool_mood,
         )
 
+        condition_pool = self._apply_taste(condition_pool, "environmental_condition", taste)
         environmental_condition = self.pick_weighted_with_density(
             condition_pool, scene_density
         )
