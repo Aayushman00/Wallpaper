@@ -183,10 +183,45 @@ class PromptEngine:
         return f"{light_time['label']}, {light_quality['label']}"
 
     # -------------------------------------------------------------------------
+    # Context-aware lighting bias — soft nudge, never a filter
+    # -------------------------------------------------------------------------
+
+    CONTEXT_BIAS_MULTIPLIER = 3.0
+
+    _CONTEXT_LIGHT_BIAS = {
+        "morning":   {"pre-dawn blue hour", "golden hour"},
+        "afternoon": {"harsh noon", "deep overcast midday", "flat grey diffuse"},
+        "evening":   {"golden hour", "twilight"},
+        "night":     {"full dark", "twilight", "pre-dawn blue hour"},
+        "winter":    {"flat grey diffuse", "deep overcast midday", "pre-dawn blue hour"},
+        "spring":    {"golden hour", "pre-dawn blue hour"},
+        "summer":    {"harsh noon", "golden hour"},
+        "autumn":    {"golden hour", "twilight"},
+    }
+
+    def _bias_lighting_for_context(
+        self,
+        pool: list[dict],
+        context: dict | None,
+    ) -> list[dict]:
+        if not context:
+            return pool
+        favored: set[str] = set()
+        for key in ("time_of_day", "season"):
+            favored |= self._CONTEXT_LIGHT_BIAS.get(context.get(key), set())
+        if not favored:
+            return pool
+        return [
+            {**item, "weight": item["weight"] * self.CONTEXT_BIAS_MULTIPLIER}
+            if item["label"] in favored else item
+            for item in pool
+        ]
+
+    # -------------------------------------------------------------------------
     # Main generation entry point — v2.3
     # -------------------------------------------------------------------------
 
-    def generate(self) -> dict[str, object]:
+    def generate(self, context: dict | None = None) -> dict[str, object]:
 
         theme_name = random.choice(list(THEMES.keys()))
         logging.info("V2.3 THEME: %s", theme_name)
@@ -237,6 +272,7 @@ class PromptEngine:
             category="light_time",
             items=time_pool_raw,
         )
+        time_pool = self._bias_lighting_for_context(time_pool, context)
         light_time = self.pick_weighted(time_pool)
 
         quality_pool_raw = [
