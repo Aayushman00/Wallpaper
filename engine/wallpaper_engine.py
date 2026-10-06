@@ -97,6 +97,7 @@ class WallpaperEngine:
                 score=combined_score,
                 prompt=request.prompt,
                 theme=prompt_data["dna"]["theme"],
+                lineage=result.used_lineage,
             )
 
             self.wallpaper_service.set_wallpaper(result.image_path)

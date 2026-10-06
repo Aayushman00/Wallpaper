@@ -38,9 +38,11 @@ class FakePromptEngine:
 class FakeSeedPool:
     def __init__(self):
         self.recorded = []
+        self.recorded_lineage = []
 
-    def record_result(self, seeds, score, prompt, theme):
+    def record_result(self, seeds, score, prompt, theme, lineage=None):
         self.recorded.append((seeds, score, prompt, theme))
+        self.recorded_lineage.append(lineage)
 
 
 class FakeHistoryRepository:
@@ -126,6 +128,7 @@ def test_run_happy_path_scores_persists_and_sets_wallpaper(tmp_path):
         image_path=tmp_path / "wallpapers" / "out.png",
         used_seeds=[42, 43],
         generation_time_seconds=1.5,
+        used_lineage=[(None, 0), (41, 2)],
     )
     backend = FakeBackend(ready=True, result=result)
     engine = _make_engine(FakeGPUMonitor([True]), backend, calls)
@@ -138,3 +141,4 @@ def test_run_happy_path_scores_persists_and_sets_wallpaper(tmp_path):
     assert round(engine.seed_pool.recorded[0][1], 4) == round(combined, 4)
     assert engine.history_repository.appended[0]["combined_score"] == engine.seed_pool.recorded[0][1]
     assert engine.wallpaper_service.set_calls == [result.image_path]
+    assert engine.seed_pool.recorded_lineage == [[(None, 0), (41, 2)]]

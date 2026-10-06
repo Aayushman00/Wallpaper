@@ -27,16 +27,17 @@ def _write_fake_workflow(path):
 def test_prepare_pulls_one_seed_per_ksampler_and_injects_prompt(tmp_path):
     workflow_path = tmp_path / "wallpaper.json"
     _write_fake_workflow(workflow_path)
-    seeds = FakeSeedPool([111, 222])
+    seeds = FakeSeedPool([(111, None, 0), (222, 111, 4)])
 
     manager = WorkflowManager(workflow_path, seeds)
-    workflow, used_seeds = manager.prepare(
+    workflow, used_seeds, used_lineage = manager.prepare(
         final_prompt="a cinematic castle",
         dna={"theme": "fantasy", "scene_density_score": 5, "subject_type": "structure", "mood": "mythic and ancient"},
     )
 
     assert seeds.calls == 2
     assert used_seeds == [111, 222]
+    assert used_lineage == [(None, 0), (111, 4)]
     assert workflow["6"]["inputs"]["text"] == "a cinematic castle"
     assert workflow["8"]["inputs"]["seed"] == 111
     assert workflow["17"]["inputs"]["seed"] == 222
@@ -45,7 +46,7 @@ def test_prepare_pulls_one_seed_per_ksampler_and_injects_prompt(tmp_path):
 def test_prepare_raises_when_no_ksampler_present(tmp_path):
     workflow_path = tmp_path / "wallpaper.json"
     workflow_path.write_text(json.dumps({"6": {"class_type": "CLIPTextEncode", "inputs": {"text": ""}}}), encoding="utf-8")
-    seeds = FakeSeedPool([111])
+    seeds = FakeSeedPool([(111, None, 0)])
 
     manager = WorkflowManager(workflow_path, seeds)
 
