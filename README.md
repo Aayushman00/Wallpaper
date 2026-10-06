@@ -107,3 +107,10 @@ Maintained by an AI-driven review chain. Feel free to adapt to your workflow and
 | `Ctrl+Alt+Left` | Revert to the previous wallpaper |
 
 Images scoring below `AESTHETIC_QUALITY_FLOOR` are quarantined (never displayed, seeds zeroed).
+
+### Taste learning
+
+Likes (`Ctrl+Alt+Up`) and dislikes (`Ctrl+Alt+Down`) are recorded on the rated image's history entry.
+Each cycle, traits (theme, mood, lighting, framing, ...) you rate well get a gentle weight boost and
+traits you rate poorly a gentle penalty (bounded to `TASTE_MIN`..`TASTE_MAX`, shrunk toward neutral when
+you have few ratings, never excluded). The log shows `Taste boosted: ...` / `Taste penalized: ...` lines.
