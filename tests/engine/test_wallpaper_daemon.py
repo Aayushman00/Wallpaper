@@ -11,11 +11,13 @@ class FakeEngine:
         self.results = list(results or [])
         self.fail_first = fail_first
         self.contexts = []
+        self.tastes = []
         self.runs = 0
 
-    def run(self, context=None):
+    def run(self, context=None, taste=None):
         self.runs += 1
         self.contexts.append(context)
+        self.tastes.append(taste)
         if self.fail_first and self.runs == 1:
             raise RuntimeError("bad cycle")
         return self.results.pop(0) if self.results else None
@@ -33,11 +35,23 @@ class FakeSeedPool:
 
 
 class FakeHistory:
-    def __init__(self, entries=()):
+    def __init__(self, entries=(), load_error=None, rating_ok=True, rating_error=None):
         self.entries = list(entries)
+        self.load_error = load_error
+        self.rating_ok = rating_ok
+        self.rating_error = rating_error
+        self.ratings = []
 
     def load(self):
+        if self.load_error:
+            raise self.load_error
         return self.entries
+
+    def set_rating(self, image_path, rating):
+        self.ratings.append((image_path, rating))
+        if self.rating_error:
+            raise self.rating_error
+        return self.rating_ok
 
 
 class FakeWallpaperService:
@@ -319,3 +333,120 @@ def test_rating_that_matches_no_seed_is_logged_not_reported_as_success(tmp_path,
 
     assert "not in the seed pool" in caplog.text
     assert "Rated current wallpaper" not in caplog.text
+
+
+# --- taste learning -------------------------------------------------------
+
+def test_like_and_dislike_record_a_rating_on_the_current_image(tmp_path):
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(path="wallpapers/new.png")]))
+    daemon.run_cycle()
+
+    daemon.like()
+    daemon.dislike()
+
+    image = str(Path("wallpapers/new.png"))
+    assert daemon.history_repository.ratings == [(image, 1), (image, -1)]
+    assert daemon.seed_pool.rated == [([1, 2], True), ([1, 2], False)]
+
+
+def test_rating_after_revert_records_on_the_reverted_image(tmp_path):
+    older, newer = tmp_path / "older.png", tmp_path / "newer.png"
+    older.write_bytes(b"x")
+    newer.write_bytes(b"x")
+    history = FakeHistory([
+        {"image_path": str(older), "seeds": [10, 11]},
+        {"image_path": str(newer), "seeds": [20, 21]},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(seeds=(20, 21))]), history=history)
+    daemon.run_cycle()
+
+    daemon.revert()
+    daemon.like()
+
+    assert history.ratings == [(str(older), 1)]
+
+
+def test_rating_for_image_missing_from_history_is_logged_and_does_not_crash(tmp_path, caplog):
+    import logging
+
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]), history=FakeHistory(rating_ok=False))
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.WARNING):
+        daemon.like()
+
+    assert "not found in history" in caplog.text
+    assert daemon.seed_pool.rated == [([1, 2], True)]
+
+
+def test_rating_still_rescores_seeds_when_history_write_raises(tmp_path, caplog):
+    import logging
+
+    history = FakeHistory(rating_error=PermissionError("locked"))
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]), history=history)
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.ERROR):
+        daemon.like()
+        daemon.dislike()
+
+    assert daemon.seed_pool.rated == [([1, 2], True), ([1, 2], False)]
+    assert "Recording rating in history failed" in caplog.text
+
+
+def test_rating_without_current_state_records_nothing(tmp_path):
+    daemon = _daemon(tmp_path)
+
+    daemon.like()
+
+    assert daemon.history_repository.ratings == []
+
+
+def test_cycle_passes_taste_computed_from_rated_history(tmp_path):
+    history = FakeHistory([
+        {"image_path": "a.png", "rating": 1, "dna": {"mood": "eerie"}},
+        {"image_path": "b.png", "dna": {"mood": "serene"}},
+    ])
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine, history=history)
+
+    daemon.run_cycle()
+
+    assert engine.tastes[0]["mood"]["eerie"] == 1.25
+    assert "serene" not in engine.tastes[0]["mood"]
+
+
+def test_cycle_with_no_ratings_passes_no_taste(tmp_path):
+    engine = FakeEngine()
+    daemon = _daemon(tmp_path, engine, history=FakeHistory([{"image_path": "a.png"}]))
+
+    daemon.run_cycle()
+
+    assert engine.tastes == [None]
+
+
+def test_cycle_still_runs_when_taste_computation_fails(tmp_path):
+    engine = FakeEngine([_cycle()])
+    daemon = _daemon(tmp_path, engine, history=FakeHistory(load_error=RuntimeError("corrupt")))
+
+    daemon.run_cycle()
+
+    assert engine.runs == 1
+    assert engine.tastes == [None]
+    assert daemon.state["seeds"] == [1, 2]
+
+
+def test_cycle_logs_boosted_and_penalized_taste(tmp_path, caplog):
+    import logging
+
+    history = FakeHistory([
+        {"image_path": "a.png", "rating": 1, "dna": {"mood": "eerie"}},
+        {"image_path": "b.png", "rating": -1, "dna": {"mood": "serene"}},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine(), history=history)
+
+    with caplog.at_level(logging.INFO):
+        daemon.run_cycle()
+
+    assert "Taste boosted: mood=eerie x1.25" in caplog.text
+    assert "Taste penalized: mood=serene x0.75" in caplog.text

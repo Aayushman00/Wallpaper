@@ -8,6 +8,7 @@ import os
 import threading
 from pathlib import Path
 
+from analytics.taste_model import compute_taste, taste_extremes
 from config.settings import FOCUS_ASSIST_RECHECK_SECONDS, GENERATION_INTERVAL_SECONDS
 from generation.context_signals import get_context as default_get_context
 from system.hotkeys import (
@@ -75,7 +76,7 @@ class WallpaperDaemon:
     def run_cycle(self) -> None:
         """Run one generation; never raises — a resident process outlives bad cycles."""
         try:
-            result = self.engine.run(context=self.get_context())
+            result = self.engine.run(context=self.get_context(), taste=self._compute_taste())
             if result is None or result.quarantined:
                 return
             self._save_state({
@@ -85,6 +86,24 @@ class WallpaperDaemon:
             })
         except Exception:
             logging.exception("Generation cycle failed, will retry on the next schedule")
+
+    def _compute_taste(self) -> dict | None:
+        """Learned trait multipliers from rated history; None if unavailable (never blocks a cycle)."""
+        try:
+            taste = compute_taste(self.history_repository.load())
+        except Exception:
+            logging.exception("Taste computation failed, generating without it")
+            return None
+        self._log_taste(taste)
+        return taste or None
+
+    @staticmethod
+    def _log_taste(taste: dict) -> None:
+        boosted, penalized = taste_extremes(taste)
+        if boosted:
+            logging.info("Taste boosted: %s", ", ".join(f"{t}={v} x{m:.2f}" for t, v, m in boosted))
+        if penalized:
+            logging.info("Taste penalized: %s", ", ".join(f"{t}={v} x{m:.2f}" for t, v, m in penalized))
 
     # --- hotkey actions --------------------------------------------------
 
@@ -99,6 +118,12 @@ class WallpaperDaemon:
         if not state:
             logging.info("No current wallpaper to rate")
             return
+        rating = 1 if liked else -1
+        try:
+            if not self.history_repository.set_rating(state["image_path"], rating):
+                logging.warning("Rated image not found in history: %s", state["image_path"])
+        except Exception:
+            logging.exception("Recording rating in history failed")
         if self.seed_pool.rate_current(state["seeds"], liked=liked):
             logging.info("Rated current wallpaper %s", "up" if liked else "down")
         else:
