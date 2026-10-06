@@ -38,3 +38,11 @@ def test_generation_result_lineage_defaults_to_empty_and_is_settable():
         used_lineage=[(None, 0), (99, 3)],
     )
     assert with_lineage.used_lineage == [(None, 0), (99, 3)]
+
+
+def test_cycle_result_defaults_to_not_quarantined():
+    from engine.models import CycleResult
+
+    result = CycleResult(image_path=Path("a.png"), used_seeds=[1, 2], generation=3)
+    assert result.generation == 3
+    assert result.quarantined is False

@@ -24,3 +24,20 @@ def test_history_entry_saved(tmp_path):
     assert records[0]["semantic_prompt"] == "space wallpaper"
 
     assert records[0]["combined_score"] == 99
+
+def _append(repo, **extra):
+    repo.append(
+        seeds=[1], semantic_score=50.0, aesthetic_score=5.0, combined_score=0.5,
+        image_path="a.png", generation_time=1.0, semantic_prompt="p", dna={}, **extra,
+    )
+
+
+def test_history_quarantined_flag_only_written_when_true(tmp_path):
+    repo = HistoryRepository(tmp_path / "history.json")
+
+    _append(repo)
+    _append(repo, quarantined=True)
+
+    normal, quarantined = repo.load()
+    assert "quarantined" not in normal
+    assert quarantined["quarantined"] is True

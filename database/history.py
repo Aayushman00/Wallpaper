@@ -56,6 +56,7 @@ class HistoryRepository:
             generation_time: float,
             semantic_prompt: str, 
             dna: dict[str, object],
+            quarantined: bool = False,
         ) -> None:
         """Append a generation record to the history file."""
         records = self.load()
@@ -72,6 +73,9 @@ class HistoryRepository:
                 "dna": dna,
             }
         )
+
+        if quarantined:
+            records[-1]["quarantined"] = True
 
         self.path.parent.mkdir(parents=True, exist_ok=True)
 

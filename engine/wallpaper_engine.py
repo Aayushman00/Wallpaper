@@ -5,8 +5,8 @@ from __future__ import annotations
 import logging
 import time
 
-from config.settings import GPU_IDLE_RETRIES, GPU_IDLE_WAIT_SECONDS
-from engine.models import GenerationRequest
+from config.settings import AESTHETIC_QUALITY_FLOOR, GPU_IDLE_RETRIES, GPU_IDLE_WAIT_SECONDS
+from engine.models import CycleResult, GenerationRequest
 
 
 class WallpaperEngine:
@@ -46,7 +46,7 @@ class WallpaperEngine:
             self._aesthetic_scorer = self._aesthetic_scorer_factory()
         return self._aesthetic_scorer
 
-    def run(self) -> None:
+    def run(self, context: dict | None = None) -> CycleResult | None:
         """Execute one wallpaper generation cycle."""
         try:
             if not self._wait_for_idle_gpu():
@@ -57,7 +57,10 @@ class WallpaperEngine:
                 logging.error("ComfyUI failed to start")
                 return
 
-            prompt_data = self.prompt_engine.generate()
+            if context:
+                prompt_data = self.prompt_engine.generate(context=context)
+            else:
+                prompt_data = self.prompt_engine.generate()
             request = GenerationRequest(
                 prompt=prompt_data["final_prompt"],
                 dna=prompt_data["dna"],
@@ -81,6 +84,9 @@ class WallpaperEngine:
 
             logging.info("Combined Score: %.2f", combined_score)
 
+            quarantined = aesthetic_score < AESTHETIC_QUALITY_FLOOR
+            generation = max((g for _, g in result.used_lineage), default=0)
+
             self.history_repository.append(
                 seeds=result.used_seeds,
                 semantic_score=semantic_score,
@@ -90,7 +96,16 @@ class WallpaperEngine:
                 generation_time=result.generation_time_seconds,
                 semantic_prompt=prompt_data["semantic_prompt"],
                 dna=prompt_data["dna"],
+                quarantined=quarantined,
             )
+
+            if quarantined:
+                logging.warning(
+                    "Aesthetic score %.2f below floor %.2f, quarantining image",
+                    aesthetic_score, AESTHETIC_QUALITY_FLOOR,
+                )
+                self.seed_pool.penalize(result.used_seeds)
+                return CycleResult(result.image_path, result.used_seeds, generation, quarantined=True)
 
             self.seed_pool.record_result(
                 seeds=result.used_seeds,
@@ -101,6 +116,7 @@ class WallpaperEngine:
             )
 
             self.wallpaper_service.set_wallpaper(result.image_path)
+            return CycleResult(result.image_path, result.used_seeds, generation)
         except Exception as exc:
             logging.exception("Wallpaper generation cycle failed: %s", exc)
             raise

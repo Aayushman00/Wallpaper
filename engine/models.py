@@ -21,6 +21,14 @@ class GenerationResult:
 
 
 @dataclass
+class CycleResult:
+    image_path: Path
+    used_seeds: list[int]
+    generation: int
+    quarantined: bool = False
+
+
+@dataclass
 class EvaluationResult:
     semantic_score: float
     aesthetic_score: float
