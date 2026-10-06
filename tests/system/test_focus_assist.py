@@ -4,8 +4,10 @@ DESKTOP, SHELL = 100, 200
 
 
 class FakeUser32:
-    def __init__(self, hwnd=1, rect=(0, 0, 1920, 1080), screen=(1920, 1080), rect_ok=1, explode=False):
+    def __init__(self, hwnd=1, rect=(0, 0, 1920, 1080), screen=(1920, 1080), rect_ok=1, explode=False,
+                 cls="UnityWndClass", style=0):
         self.hwnd, self.rect, self.screen, self.rect_ok, self.explode = hwnd, rect, screen, rect_ok, explode
+        self.cls, self.style = cls, style
 
     def GetForegroundWindow(self):
         if self.explode:
@@ -17,6 +19,13 @@ class FakeUser32:
 
     def GetShellWindow(self):
         return SHELL
+
+    def GetClassNameW(self, hwnd, buf, size):
+        buf.value = self.cls
+        return len(self.cls)
+
+    def GetWindowLongW(self, hwnd, index):
+        return self.style
 
     def GetWindowRect(self, hwnd, rect_ptr):
         left, top, right, bottom = self.rect
@@ -56,3 +65,13 @@ def test_failed_get_window_rect_fails_open():
 
 def test_api_exception_fails_open():
     assert is_fullscreen_app_active(FakeUser32(explode=True)) is False
+
+
+def test_workerw_or_progman_foreground_is_not_fullscreen():
+    assert is_fullscreen_app_active(FakeUser32(cls="WorkerW")) is False
+    assert is_fullscreen_app_active(FakeUser32(cls="Progman")) is False
+
+
+def test_maximized_captioned_window_is_not_fullscreen():
+    WS_CAPTION = 0x00C00000
+    assert is_fullscreen_app_active(FakeUser32(rect=(-8, -8, 1928, 1088), style=WS_CAPTION | 0x10000000)) is False

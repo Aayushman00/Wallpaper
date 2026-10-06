@@ -72,16 +72,19 @@ class SeedPool:
             ranked = sorted(data, key=lambda item: item["score"], reverse=True)[:BEST_SEED_LIMIT]
             self.repository.save(ranked)
 
-    def rate_current(self, seeds: list[int], liked: bool) -> None:
-        """Scale the stored score of the given seeds up (liked) or down (disliked)."""
+    def rate_current(self, seeds: list[int], liked: bool) -> bool:
+        """Scale the stored score of the given seeds up (liked) or down (disliked).
+
+        Returns False if none of the seeds are in the pool (e.g. ranked out of the top N).
+        """
         multiplier = SEED_RATING_LIKE_MULTIPLIER if liked else SEED_RATING_DISLIKE_MULTIPLIER
-        self._rescore(seeds, lambda score: score * multiplier)
+        return self._rescore(seeds, lambda score: score * multiplier)
 
-    def penalize(self, seeds: list[int]) -> None:
+    def penalize(self, seeds: list[int]) -> bool:
         """Zero the stored score of the given seeds (quarantined generations)."""
-        self._rescore(seeds, lambda score: 0.0)
+        return self._rescore(seeds, lambda score: 0.0)
 
-    def _rescore(self, seeds: list[int], transform) -> None:
+    def _rescore(self, seeds: list[int], transform) -> bool:
         with self._lock:
             data = self.repository.load()
             hit = False
@@ -91,3 +94,4 @@ class SeedPool:
                     hit = True
             if hit:
                 self.repository.save(data)
+            return hit

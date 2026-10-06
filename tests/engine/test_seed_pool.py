@@ -148,6 +148,15 @@ def test_rate_current_with_unknown_seed_leaves_records_unchanged(tmp_path):
     assert repo.load() == before
 
 
+def test_rate_current_and_penalize_report_whether_any_seed_matched(tmp_path):
+    _, pool = _seeded_pool(tmp_path)
+
+    assert pool.rate_current([1], liked=True) is True
+    assert pool.rate_current([999], liked=True) is False
+    assert pool.penalize([2]) is True
+    assert pool.penalize([999]) is False
+
+
 def test_penalize_zeroes_matching_seeds_only(tmp_path):
     repo, pool = _seeded_pool(tmp_path)
 

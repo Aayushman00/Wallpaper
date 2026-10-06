@@ -76,18 +76,15 @@ class WallpaperDaemon:
         """Run one generation; never raises — a resident process outlives bad cycles."""
         try:
             result = self.engine.run(context=self.get_context())
+            if result is None or result.quarantined:
+                return
+            self._save_state({
+                "seeds": result.used_seeds,
+                "image_path": str(result.image_path),
+                "generation": result.generation,
+            })
         except Exception:
             logging.exception("Generation cycle failed, will retry on the next schedule")
-            return
-
-        if result is None or result.quarantined:
-            return
-
-        self._save_state({
-            "seeds": result.used_seeds,
-            "image_path": str(result.image_path),
-            "generation": result.generation,
-        })
 
     # --- hotkey actions --------------------------------------------------
 
@@ -102,8 +99,10 @@ class WallpaperDaemon:
         if not state:
             logging.info("No current wallpaper to rate")
             return
-        self.seed_pool.rate_current(state["seeds"], liked=liked)
-        logging.info("Rated current wallpaper %s", "up" if liked else "down")
+        if self.seed_pool.rate_current(state["seeds"], liked=liked):
+            logging.info("Rated current wallpaper %s", "up" if liked else "down")
+        else:
+            logging.info("Current wallpaper's seeds are not in the seed pool, rating had no effect")
 
     def generate_next(self) -> None:
         self._wake.set()
@@ -118,6 +117,12 @@ class WallpaperDaemon:
             logging.warning("Previous wallpaper missing on disk: %s", previous)
             return
         self.wallpaper_service.set_wallpaper(previous)
+        # Rating means "rate what I see": point current state at the reverted-to image.
+        self._save_state({
+            "seeds": entries[-2].get("seeds", []),
+            "image_path": str(previous),
+            "generation": entries[-2].get("generation", 0),
+        })
 
     def _hotkey_bindings(self) -> list[tuple[int, int, object]]:
         ctrl_alt = MOD_CONTROL | MOD_ALT

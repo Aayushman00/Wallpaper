@@ -22,11 +22,14 @@ class FakeEngine:
 
 
 class FakeSeedPool:
-    def __init__(self):
+    def __init__(self, matched=True):
         self.rated = []
+        self.matched = matched
 
     def rate_current(self, seeds, liked):
         self.rated.append((seeds, liked))
+        return self.matched
+
 
 
 class FakeHistory:
@@ -268,3 +271,51 @@ def test_hotkey_bindings_map_ctrl_alt_arrows_to_daemon_actions(tmp_path):
     assert bindings[(ctrl_alt, VK_DOWN)] == daemon.dislike
     assert bindings[(ctrl_alt, VK_RIGHT)] == daemon.generate_next
     assert bindings[(ctrl_alt, VK_LEFT)] == daemon.revert
+
+
+# --- review fixes ---------------------------------------------------------
+
+def test_scheduler_survives_a_state_save_failure(tmp_path):
+    engine = FakeEngine([_cycle(), _cycle(), _cycle()])
+    daemon = _daemon(tmp_path, engine)
+
+    def boom(state):
+        raise PermissionError("locked")
+
+    daemon._save_state = boom
+    daemon.start()
+    assert wait_until(lambda: engine.runs >= 2)
+    assert daemon._scheduler.is_alive()
+    daemon.stop()
+
+
+def test_rating_after_revert_targets_the_reverted_image(tmp_path):
+    older, newer = tmp_path / "older.png", tmp_path / "newer.png"
+    older.write_bytes(b"x")
+    newer.write_bytes(b"x")
+    history = FakeHistory([
+        {"image_path": str(older), "seeds": [10, 11]},
+        {"image_path": str(newer), "seeds": [20, 21]},
+    ])
+    daemon = _daemon(tmp_path, FakeEngine([_cycle(seeds=(20, 21))]), history=history)
+    daemon.run_cycle()
+
+    daemon.revert()
+    daemon.dislike()
+
+    assert daemon.state["image_path"] == str(older)
+    assert daemon.seed_pool.rated == [([10, 11], False)]
+
+
+def test_rating_that_matches_no_seed_is_logged_not_reported_as_success(tmp_path, caplog):
+    import logging
+
+    daemon = _daemon(tmp_path, FakeEngine([_cycle()]))
+    daemon.seed_pool.matched = False
+    daemon.run_cycle()
+
+    with caplog.at_level(logging.INFO):
+        daemon.like()
+
+    assert "not in the seed pool" in caplog.text
+    assert "Rated current wallpaper" not in caplog.text

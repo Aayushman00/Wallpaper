@@ -8,6 +8,9 @@ from ctypes import wintypes
 
 SM_CXSCREEN = 0
 SM_CYSCREEN = 1
+GWL_STYLE = -16
+WS_CAPTION = 0x00C00000
+DESKTOP_CLASSES = ("Progman", "WorkerW")
 
 
 def is_fullscreen_app_active(user32=None) -> bool:
@@ -20,6 +23,17 @@ def is_fullscreen_app_active(user32=None) -> bool:
         hwnd = user32.GetForegroundWindow()
         # The desktop/shell window spans the screen too; it is not an app to defer for.
         if not hwnd or hwnd in (user32.GetDesktopWindow(), user32.GetShellWindow()):
+            return False
+
+        # Win+D / re-parented icons make a full-screen WorkerW the foreground window.
+        class_name = ctypes.create_unicode_buffer(256)
+        user32.GetClassNameW(hwnd, class_name, 256)
+        if class_name.value in DESKTOP_CLASSES:
+            return False
+
+        # Maximized apps (esp. with an auto-hide taskbar) span the screen but keep a caption;
+        # real fullscreen/borderless games do not.
+        if (user32.GetWindowLongW(hwnd, GWL_STYLE) & WS_CAPTION) == WS_CAPTION:
             return False
 
         rect = wintypes.RECT()
