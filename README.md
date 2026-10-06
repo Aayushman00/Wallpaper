@@ -93,3 +93,17 @@ This will:
 ---
 
 Maintained by an AI-driven review chain. Feel free to adapt to your workflow and package style preferences.
+
+## Daemon
+
+`python main.py` runs resident: it generates a wallpaper every `GENERATION_INTERVAL_SECONDS`
+(deferring while a fullscreen app is focused) and listens for global hotkeys:
+
+| Hotkey | Action |
+|---|---|
+| `Ctrl+Alt+Up` | Like current wallpaper (boosts its seeds) |
+| `Ctrl+Alt+Down` | Dislike current wallpaper (demotes its seeds) |
+| `Ctrl+Alt+Right` | Generate the next wallpaper now |
+| `Ctrl+Alt+Left` | Revert to the previous wallpaper |
+
+Images scoring below `AESTHETIC_QUALITY_FLOOR` are quarantined (never displayed, seeds zeroed).

@@ -5,10 +5,13 @@ from __future__ import annotations
 import logging
 import os
 
-from config.paths import BEST_SEEDS_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE
+from config.paths import (
+    BEST_SEEDS_FILE, CURRENT_STATE_FILE, HISTORY_FILE, LOG_FILE, WORKFLOW_FILE,
+)
 from database.history import HistoryRepository
 from database.seeds import SeedRepository
 from engine.seed_pool import SeedPool
+from engine.wallpaper_daemon import WallpaperDaemon
 from engine.wallpaper_engine import WallpaperEngine
 from generation.comfy.backend import ComfyBackend
 from generation.comfy.client import ComfyClient
@@ -16,6 +19,7 @@ from generation.comfy.server import ComfyServer
 from generation.comfy.workflow import WorkflowManager
 from generation.prompt_engine import PromptEngine
 from system.file_manager import FileManager
+from system.focus_assist import is_fullscreen_app_active
 from system.gpu import GPUMonitor
 from system.wallpaper import WallpaperService
 
@@ -71,12 +75,25 @@ def build_engine() -> WallpaperEngine:
     )
 
 
+def build_daemon() -> WallpaperDaemon:
+    """Wrap the engine in the resident scheduler + hotkey daemon."""
+    engine = build_engine()
+    return WallpaperDaemon(
+        engine=engine,
+        seed_pool=engine.seed_pool,
+        history_repository=engine.history_repository,
+        wallpaper_service=engine.wallpaper_service,
+        state_path=CURRENT_STATE_FILE,
+        is_fullscreen=is_fullscreen_app_active,
+    )
+
+
 def main() -> None:
     """Program entry point."""
     setup_logging()
     logging.info("Script PID: %s", os.getpid())
-    logging.info("Wallpaper engine started")
-    build_engine().run()
+    logging.info("Wallpaper daemon started")
+    build_daemon().run_forever()
 
 
 if __name__ == "__main__":
