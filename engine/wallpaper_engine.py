@@ -46,7 +46,7 @@ class WallpaperEngine:
             self._aesthetic_scorer = self._aesthetic_scorer_factory()
         return self._aesthetic_scorer
 
-    def run(self, context: dict | None = None) -> CycleResult | None:
+    def run(self, context: dict | None = None, taste: dict | None = None) -> CycleResult | None:
         """Execute one wallpaper generation cycle."""
         try:
             if not self._wait_for_idle_gpu():
@@ -57,10 +57,12 @@ class WallpaperEngine:
                 logging.error("ComfyUI failed to start")
                 return
 
-            if context:
-                prompt_data = self.prompt_engine.generate(context=context)
-            else:
-                prompt_data = self.prompt_engine.generate()
+            hints = {
+                name: value
+                for name, value in (("context", context), ("taste", taste))
+                if value
+            }
+            prompt_data = self.prompt_engine.generate(**hints)
             request = GenerationRequest(
                 prompt=prompt_data["final_prompt"],
                 dna=prompt_data["dna"],

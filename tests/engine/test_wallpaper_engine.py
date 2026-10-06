@@ -38,9 +38,11 @@ class FakePromptEngine:
 class ContextPromptEngine:
     def __init__(self):
         self.contexts = []
+        self.tastes = []
 
-    def generate(self, context=None):
+    def generate(self, context=None, taste=None):
         self.contexts.append(context)
+        self.tastes.append(taste)
         return {
             "final_prompt": "a cinematic castle",
             "semantic_prompt": "a castle",
@@ -223,3 +225,18 @@ def test_run_passes_context_to_prompt_engine_only_when_given(tmp_path):
     engine.run()
 
     assert prompt_engine.contexts == [{"time_of_day": "night"}, None]
+
+
+def test_run_passes_taste_to_prompt_engine_only_when_truthy(tmp_path):
+    prompt_engine = ContextPromptEngine()
+    result = _result(tmp_path)
+    engine = _make_engine(
+        FakeGPUMonitor([True, True, True]), FakeBackend(result=result), [], prompt_engine=prompt_engine,
+    )
+    taste = {"mood": {"eerie": 1.5}}
+
+    engine.run(taste=taste)
+    engine.run(taste={})
+    engine.run()
+
+    assert prompt_engine.tastes == [taste, None, None]
