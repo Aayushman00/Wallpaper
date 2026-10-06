@@ -105,3 +105,76 @@ def test_record_result_stores_lineage_per_seed(tmp_path):
     assert by_seed[111]["generation"] == 0
     assert by_seed[222]["parent_seed"] == 99
     assert by_seed[222]["generation"] == 3
+
+
+import threading
+
+from config.settings import SEED_RATING_DISLIKE_MULTIPLIER, SEED_RATING_LIKE_MULTIPLIER
+
+
+def _seeded_pool(tmp_path):
+    repo = SeedRepository(tmp_path / "seeds.json")
+    repo.save([_record(1, score=0.5), _record(2, score=0.4), _record(3, score=0.3)])
+    return repo, SeedPool(repo)
+
+
+def test_rate_current_like_multiplies_only_matching_seeds(tmp_path):
+    repo, pool = _seeded_pool(tmp_path)
+
+    pool.rate_current([1, 2], liked=True)
+
+    scores = {r["seed"]: r["score"] for r in repo.load()}
+    assert scores[1] == 0.5 * SEED_RATING_LIKE_MULTIPLIER
+    assert scores[2] == 0.4 * SEED_RATING_LIKE_MULTIPLIER
+    assert scores[3] == 0.3
+
+
+def test_rate_current_dislike_uses_dislike_multiplier(tmp_path):
+    repo, pool = _seeded_pool(tmp_path)
+
+    pool.rate_current([3], liked=False)
+
+    scores = {r["seed"]: r["score"] for r in repo.load()}
+    assert scores[3] == 0.3 * SEED_RATING_DISLIKE_MULTIPLIER
+    assert scores[1] == 0.5
+
+
+def test_rate_current_with_unknown_seed_leaves_records_unchanged(tmp_path):
+    repo, pool = _seeded_pool(tmp_path)
+    before = repo.load()
+
+    pool.rate_current([999], liked=True)
+
+    assert repo.load() == before
+
+
+def test_penalize_zeroes_matching_seeds_only(tmp_path):
+    repo, pool = _seeded_pool(tmp_path)
+
+    pool.penalize([1])
+
+    scores = {r["seed"]: r["score"] for r in repo.load()}
+    assert scores[1] == 0.0
+    assert scores[2] == 0.4
+
+
+def test_concurrent_record_and_rate_do_not_lose_updates(tmp_path):
+    repo = SeedRepository(tmp_path / "seeds.json")
+    repo.save([_record(0, score=0.5)])
+    pool = SeedPool(repo)
+
+    def record(i):
+        pool.record_result(seeds=[i], score=0.1, prompt="p", theme="t")
+
+    def rate():
+        for _ in range(20):
+            pool.rate_current([0], liked=True)
+
+    threads = [threading.Thread(target=record, args=(i,)) for i in range(1, 21)]
+    threads.append(threading.Thread(target=rate))
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert {r["seed"] for r in repo.load()} == set(range(0, 21))
